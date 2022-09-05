@@ -1,0 +1,53 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+// Including bootstrap
+
+// Theme colors
+$theme-main: #08517e;
+$theme-secondary: #FFB224;
+$theme-bg-one: #b4cad8;
+$theme-bg-two: #5285a4;
+
+// Changing bootstrap colors
+$primary:       #00ff4c;
+$secondary:     #505059;
+$success:       #0c8410;
+$info:          #0dcaf0;
+$warning:       #ffc107;
+$danger:        #dc3545;
+$light:         #f8f9fa;
+$dark:          #212529;
+$theme:         $theme-main;
+$theme-text:    $theme-secondary;
+$theme-border:  $theme-secondary;
+$theme-btn:     $theme-secondary;
+
+$custom-colors: (
+  "theme": $theme,
+  "theme-bg-main": $theme-bg-one,
+  "theme-bg-sec": $theme-bg-two,
+  "theme-text": $theme-text,
+  "theme-border": $theme-border,
+  "theme-btn": $theme-btn,
+  );
+  
+  $theme-colors: (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+    );
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Changes to button 
+$border-radius: .75rem;
+
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+}
