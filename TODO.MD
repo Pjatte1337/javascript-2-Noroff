@@ -1,17 +1,42 @@
-# Todo
+# To do
 
-- Name for the sosial media
+## Requirements
 
-- Choose color theme
+## Files and folders
 
-- Layout wireframe
+### Js
 
-- setup of pages
-    * Home page
-    * Profile page
-    * Login page
-    * Register page
-    * Friends details page
-    * About/Contact page
-    * Termes of use information (modal?)
-    * 
+    - Post
+        - create
+        - comments
+        - delete
+        - update
+        - like / dislike
+        - follow / un-follow
+    - Profile
+        - login
+        - Logout
+        - profile
+        - create
+    - API
+    - auth
+    - local storage
+
+### Style
+
+    - sass
+        - index.scss
+        - Variables
+            - _variables.scss
+        - Components
+            - _header.scss
+            - _navigation.scss
+            - _footer.scss
+            - _cards.scss
+            - _forms.scss
+        - Modal
+            - _login.scss
+            - _therms-of-use.scss
+            - _logout.scss
+    - css
+        - index.css
