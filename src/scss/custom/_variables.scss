@@ -23,15 +23,15 @@ $danger:        #dc3545;
 $light:         #f8f9fa;
 $dark:          #212529;
 $theme:         $theme-main;
-$theme-text:    $theme-secondary;
+$theme-secondary: $theme-secondary;
 $theme-border:  $theme-secondary;
 $theme-btn:     $theme-secondary;
 
 $custom-colors: (
   "theme": $theme,
-  "theme-bg-main": $theme-bg-one,
+  "theme-secondary": $theme-secondary,
+  "theme-tertiary": $theme-tertiary,
   "theme-bg-sec": $theme-bg-two,
-  "theme-text": $theme-text,
   "theme-border": $theme-border,
   "theme-btn": $theme-btn,
   );
@@ -54,7 +54,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .navbar-icon-top .navbar-nav .nav-link > .fa {
   position: relative;
   width: 36px;
-  font-size: 16px;
+  font-size: 26px;
 }
 
 .navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
@@ -165,7 +165,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // Changing form control
 $component-active-bg: $theme-main;
-$input-focus-border-color: $theme-secondary;
+$input-focus-border-color: $theme;
 
 *,
 *::before,

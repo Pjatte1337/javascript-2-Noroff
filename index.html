@@ -6,69 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./dist/css/main.css" />
   <title>Javascript 2 Project</title>
-  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
   <script src="https://kit.fontawesome.com/15a08758fb.js" crossorigin="anonymous"></script>
  </head>
  <body class="min-vh-100 d-flex flex-column">
   <header class="sticky-top d-flex flex-column">
-    <nav class="navbar navbar-icon-top navbar-expand-lg bg-theme p-1 m-0">
-        <a class="navbar-brand m-2" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbar">
-         <div class="container-fluid">
-          <div class="row">
-           
-            <!-- Section 1 -->
-            <div class="col-9">
-           <div class="d-flex gap-0">
-            <ul class="navbar-nav">
-             <li class="nav-item">
-              <a class="nav-link" href="#">
-               <i class="fa fa-home"></i>
-              </a>
-             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="#">
-               <i class="fa fa-envelope-o">
-                <span class="badge badge-danger">11</span>
-               </i>
-              </a>
-             </li>
-            </ul>
-            </div>
-           </div>
-    
-           <!-- Section 2 -->
-           <div class="col-3">
-           <div class="d-flex align-self-center">
-            <ul class="navbar-nav">
-             <li class="nav-item">
-              <a class="nav-link" href="#">
-               <i class="fa fa-user">
-                <span class="badge badge-info">11</span>
-               </i></a>
-             </li>
-            </ul>
-            <form class="d-flex align-self-center gap-2 my-2 my-lg-0">
-             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            </div>
-           </div>
+   <nav class="navbar navbar-expand-lg bg-theme-tertiary p-1 m-0">
+    <a class="navbar-brand m-2 text-black" href="#">The Social Universe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
 
-          </div>
-         </div>
+    <div class="collapse navbar-collapse" id="navbar">
+     <div class="container-fluid">
+      <div class="row">
+       <!-- Section 1 -->
+       <div class="col-9">
+        <div class="d-flex gap-0">
+         <ul class="navbar-nav">
+          <li class="nav-item">
+           <a class="nav-link text-theme" href="#">
+            <i class="fa fa-home"></i>
+           </a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link text-theme" href="#">
+            <i class="fa fa-envelope-o"> </i>
+           </a>
+          </li>
+         </ul>
         </div>
-       </nav>
-  </header>
-  <main class="flex-grow-1">
+       </div>
 
-  </main>
-  <footer></footer>
+       <!-- Section 2 -->
+       <div class="col-3">
+        <div class="d-flex align-self-center">
+         <ul class="navbar-nav">
+          <li class="nav-item">
+           <a class="nav-link text-theme" href="#"> <i class="fa fa-user"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-theme" href="#">Login</a>
+           </li>
+         </ul>
+         <form class="d-flex align-self-center gap-2 my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-theme my-2 my-sm-0 text-black" type="submit">Search</button>
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <main class="flex-grow-1"></main>
+  <footer class="bg-theme-tertiary"></footer>
   <script src="./index.js" type="module"></script>
   <script src="./src/js/components/api/conn.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js" defer></script>
  </body>
 </html>
