@@ -1,6 +1,10 @@
 @import "../../../node_modules/bootstrap/scss/functions";
 // Including bootstrap
 
+// Changing type
+$font-family-monospace: 'Inconsolata', monospace;
+$display-font-family: $font-family-monospace;
+
 // Theme colors
 $theme-main: #ff8000;
 $theme-secondary: #007fff;
@@ -10,8 +14,8 @@ $theme-warning: #ff5e00;
 $theme-danger: #bb551a;
 $theme-medium: #0071b3;
 $theme-light: #ffa64d;
-$theme-bg-one: #b4cad8;
-$theme-bg-two: #5285a4;
+$theme-b-one: #b4cad8;
+$theme-b-two: #5285a4;
 
 // Changing bootstrap colors
 $primary:       #00ff4c;
@@ -31,7 +35,7 @@ $custom-colors: (
   "theme": $theme,
   "theme-secondary": $theme-secondary,
   "theme-tertiary": $theme-tertiary,
-  "theme-bg-sec": $theme-bg-two,
+  "theme-bg-sec": $theme-b-two,
   "theme-border": $theme-border,
   "theme-btn": $theme-btn,
   );
@@ -49,126 +53,23 @@ $custom-colors: (
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-// Changing navbar
-
-.navbar-icon-top .navbar-nav .nav-link > .fa {
-  position: relative;
-  width: 36px;
-  font-size: 26px;
-}
-
-.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
-  font-size: 0.75rem;
-  position: absolute;
-  right: -5px;
-  font-family: sans-serif;
-}
-
-.navbar-icon-top .navbar-nav .nav-link > .fa {
-  top: 3px;
-  line-height: 12px;
-}
-
-.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
-  top: -10px;
-}
-
-@media (min-width: 576px) {
-  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
-    display: block;
-    width: 48px;
-    margin: 2px auto 4px auto;
-    top: 0;
-    line-height: 24px;
-  }
-
-  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
-    top: -7px;
-  }
-}
-
-@media (min-width: 768px) {
-  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
-    display: block;
-    width: 48px;
-    margin: 2px auto 4px auto;
-    top: 0;
-    line-height: 24px;
-  }
-
-  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
-    top: -7px;
-  }
-}
-
-@media (min-width: 992px) {
-  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
-    display: block;
-    width: 48px;
-    margin: 2px auto 4px auto;
-    top: 0;
-    line-height: 24px;
-  }
-
-  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
-    top: -7px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
-    display: block;
-    width: 48px;
-    margin: 2px auto 4px auto;
-    top: 0;
-    line-height: 24px;
-  }
-
-  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
-    top: -7px;
-  }
-}
-
-
+// Removing border-radius
+$border-radius: 0;
 
 // Changing form control
 $component-active-bg: $theme-main;
 $input-focus-border-color: $theme;
 
-*,
-*::before,
-*::after {
+
+//Changing dropdown hover
+$dropdown-link-hover-bg: shade-color($theme, 5%);
+
+// Changing font
+h1, h2, h3, h4, h5, h6, p, a, button {
+  font-family: "Inconsolata", monospace !important;
+}
+
+*{
   scroll-behavior: smooth;
 }
+

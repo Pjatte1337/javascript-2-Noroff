@@ -3,7 +3,7 @@ const postUrl = `/api/v1/social/posts`;
 
 const options = {
  headers: {
-  Authorization:
+  Authorization: ""
 
  },
 };
