@@ -36,7 +36,7 @@ async function signIn(email, password) {
    localStorage.setItem("email", i.email);
    localStorage.setItem("avatar", i.avatar);
 
-   window.location.replace("./profile.html")
+   window.location.replace("../../pages/profile/index.html")
 
   }
  } catch (err) {

@@ -1,2 +1,2 @@
-import * as request from "./dist/user/login.mjs"
+import * as request from "../js/user/login.mjs"
 request
