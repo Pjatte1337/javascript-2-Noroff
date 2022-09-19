@@ -1,8 +1,8 @@
 // Importing function factory and variables
 import * as factory from "../../../constant/factory.mjs";
 import * as apiVar from "../../../api/_variables.mjs";
+import { changeTimeFormat } from "../../../constant/changeTime.mjs";
 
-const element = factory.createElement;
 const card = factory.createCards;
 
 // Retrieving items from storage
@@ -38,8 +38,17 @@ export async function getUserPosts() {
     dataFilter.forEach((el) => {
         const feedContainer = document.querySelector("#post-feed");
           
+        // setting date and time constant for changing format from api results
+        const timeCreated = changeTimeFormat(el.created);
+        const timeUpdated = changeTimeFormat(el.updated);
+
+
+
+        // Calling function to change time format
+
+
         // Creating card content
-        const displayCard = card("div", "card", `post-${el.id}`, `${el.title}`, `${el.body}`, `${el.author.name}`, `${el.created}`);
+        const displayCard = card("div", "card", `post-${el.id}`, `${el.title}`, `${timeCreated}`, `${el.body}`, `${el.author.avatar}`,`${el.author.name}`, `${timeUpdated}`);
       
         // Appending content to new div
         feedContainer.append(displayCard);
