@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta name="author" content="Christopher Tønnesland & Joakim Vanebo" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="../../dist/css/main.css" />
+
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/af67014470.js" crossorigin="anonymous"></script>
+
+  <title>Javascript 2 project</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  
+ </head>
+ <body class="min-vh-100 d-flex flex-column">
+  <header class="sticky-top bg-theme-bg-sec">
+   <nav class="navbar navbar-expand-lg container-fluid">
+    <div class="d-flex container-fluid justify-content-evenly">
+
+     <!-- Navbar left side-->
+     <div class="flex-grow-0 me-5">
+      <div class="d-flex flex-fill gap-4">
+        <a class="navbar-brand text-theme" href="/"><img src="../../../src/scss/custom/svg/camera.svg" width="50px" class="me-2" />The social universe</a>
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+      </button>
+     </div>
+    </div>
+     <div class="collapse navbar-collapse mt-4 mt-lg-0" id="navbar">
+      
+      <!-- Navbar middle -->
+      <div class="flex-grow-1 me-5 mt-4 mt-lg-0">
+       <form class="d-flex flex-fill justify-content-center">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-theme text-black" type="submit">Search</button>
+       </form>
+      </div>
+
+      <!-- Navbar right side -->
+      <div class="flex-grow-0 me-5 mt-4 mt-lg-0">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> My universe </a>
+         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="../profile/index.html">Profile</a></li>
+            <li><a class="dropdown-item" href="../feed/index.html">Posts</a></li>
+         </ul>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <main class="d-flex flex-column mt-5 flex-fill">
+    <div class="container">
+     <div class="container-fluid">
+      <h1>Profile</h1>
+      <div class="row">
+       <div class="col-lg-4 col-md-4 col">
+        <div id="profile-info"></div>
+        <div id="contacts"></div>
+       </div>
+       <div class="col-lg-8 col-md-8 col d-flex flex-column gap-3">
+        <div class="d-flex flex-column gap-3">
+         <div class="container card">
+             <form action="" method="post" id="create_post">
+              <div class="d-flex flex-column">
+               <div class="mb-3">
+                <label for="title" class="form-label" class="d-none"></label>
+                <input type="email" class="form-control" id="title" placeholder="Title" required />
+               </div>
+               <div class="mb-3">
+                <label for="content" class="form-label" class="d-none"></label>
+                <textarea class="form-control" id="content" rows="3" name="content" placeholder="What's on your mind?" required></textarea>
+               </div>
+               <div class="mb-3">
+                <label for="tags" class="form-label" class="d-none"></label>
+                <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" />
+               </div>
+               <div class="mb-3 d-flex justify-content-end">
+                <button type="submit" class="btn btn-theme-secondary">Post</button>
+               </div>
+              </div>
+             </form>
+            </div>
+            <div id="post-feed" class="d-flex flex-column gap-3">
+             <h4>Posts</h4>
+            </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  <footer class="bg-theme-bg-sec"></footer>
+
+  <!-- Scripts -->
+  <script src="../../index.js" type="module"></script>
+  <script src="../../src/js/user/profile/index.mjs" defer type="module"></script>
+  <script src="../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+ </body>
+</html>
