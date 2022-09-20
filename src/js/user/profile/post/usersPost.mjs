@@ -44,14 +44,6 @@ export async function getUserPosts() {
     const timeCreated = changeTimeFormat(el.created);
     const timeUpdated = changeTimeFormat(el.updated);
 
-    for(var i = 0; i < el.tags.length; i++){
-        const tagItem = document.createElement("a")
-        tagItem.innerHTML = `${i}`
-        console.log(tagItem)
-        return 
-    }
-
-
     // const tags = tagList("ul", "list-group list-group-horizontal", `post-${el.id}`, tagItems("li", "list-group-item", `tag-${el.id}`, `${el.tag}`))
 
     // Creating card content
