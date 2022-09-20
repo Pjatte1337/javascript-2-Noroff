@@ -15,31 +15,27 @@
   <script src="https://kit.fontawesome.com/af67014470.js" crossorigin="anonymous"></script>
 
   <title>Javascript 2 Project</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  
  </head>
  <body class="min-vh-100 d-flex flex-column">
   <header class="sticky-top bg-theme-bg-sec">
    <nav class="navbar navbar-expand-lg container-fluid">
     <div class="d-flex container-fluid justify-content-evenly">
-
      <!-- Navbar left side -->
      <div class="flex-grow-0 me-5">
       <div class="d-flex flex-fill gap-4">
-        <a class="navbar-brand text-theme" href="/"><img src="./src/scss/custom/svg/camera.svg" width="50px" class="me-2" />The social universe</a>
-    
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-      </button>
+       <a class="navbar-brand text-theme" href="/"><img src="./src/scss/custom/svg/camera.svg" width="50px" class="me-2" />The social universe</a>
+
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+       </button>
+      </div>
      </div>
-    </div>
      <div class="collapse navbar-collapse mt-4 mt-lg-0" id="navbar">
-      
       <!-- Navbar middle -->
       <div class="flex-grow-1 me-5 mt-4 mt-lg-0">
        <form class="d-flex flex-fill justify-content-center">
@@ -69,60 +65,59 @@
    </nav>
   </header>
   <main>
-    <div class="container d-flex flex-column gap-5 mt-5">
-     <form action="" method="post" id="login">
-      <div class="container visual-testing p-5">
-       <h2>Login</h2>
-       <div class="d-flex flex-column gap-3">
-        <div class="mb-3 d-flex flex-column">
-         <label for="email">E-mail</label>
-         <input type="email" name="email" id="email" />
-         <span id="validatior" class="validate"></span>
-        </div>
-        <div class="mb-3 d-flex flex-column">
-         <label for="pw">Password</label>
-         <input type="password" name="pw" id="pw" />
-         <span id="validatior" class="validate"></span>
-        </div>
-        <div class="mb-3 d-flex justify-content-end">
-         <button type="submit" class="btn btn-theme-secondary">Log in</button>
-        </div>
+   <div class="container d-flex flex-column gap-5 mt-5">
+    <form action="" method="post" id="login">
+     <div class="container visual-testing p-5">
+      <h2>Login</h2>
+      <div class="d-flex flex-column gap-3">
+       <div class="mb-3 d-flex flex-column">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" />
+        <span id="validatior" class="validate"></span>
+       </div>
+       <div class="mb-3 d-flex flex-column">
+        <label for="pw">Password</label>
+        <input type="password" name="pw" id="pw" />
+        <span id="validatior" class="validate"></span>
+       </div>
+       <div class="mb-3 d-flex justify-content-end">
+        <button type="submit" class="btn btn-theme-secondary">Log in</button>
        </div>
       </div>
-     </form>
-     <form action="" method="post" id="reg">
-      <div class="container visual-testing p-5">
-       <h2>Register</h2>
-       <div class="d-flex flex-column gap-3">
-        <div class="mb-3 d-flex flex-column">
-         <label for="user_name">Username:</label>
-         <input type="text" name="user_name" id="user_name" />
-         <span id="validatior" class="validate"></span>
-        </div>
-        <div class="mb-3 d-flex flex-column">
-         <label for="email">E-mail</label>
-         <input type="email" name="email" id="email" />
-         <span id="validatior" class="validate"></span>
-        </div>
-        <div class="mb-3 d-flex flex-column">
-         <label for="pw">Password</label>
-         <input type="password" name="pw" id="pw" />
-         <span id="validatior" class="validate"></span>
-        </div>
-        <div class="mb-3 d-flex justify-content-end">
-         <button type="submit" class="btn btn-theme-secondary">Register user</button>
-        </div>
+     </div>
+    </form>
+    <form action="" method="post" id="reg">
+     <div class="container visual-testing p-5">
+      <h2>Register</h2>
+      <div class="d-flex flex-column gap-3">
+       <div class="mb-3 d-flex flex-column">
+        <label for="user_name">Username:</label>
+        <input type="text" name="user_name" id="user_name" />
+        <span id="validatior" class="validate"></span>
+       </div>
+       <div class="mb-3 d-flex flex-column">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" />
+        <span id="validatior" class="validate"></span>
+       </div>
+       <div class="mb-3 d-flex flex-column">
+        <label for="pw">Password</label>
+        <input type="password" name="pw" id="pw" />
+        <span id="validatior" class="validate"></span>
+       </div>
+       <div class="mb-3 d-flex justify-content-end">
+        <button type="submit" class="btn btn-theme-secondary">Register user</button>
        </div>
       </div>
-     </form>
-    </div>
-   </main>
+     </div>
+    </form>
+   </div>
+  </main>
   <footer class="bg-theme-bg-sec"></footer>
 
   <!-- Scripts -->
   <script src="./index.js" type="module"></script>
   <script src="./src/js/index.mjs" type="module"></script>
   <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
  </body>
 </html>
