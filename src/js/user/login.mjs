@@ -36,8 +36,7 @@ async function signIn(email, password) {
    localStorage.setItem("email", i.email);
    localStorage.setItem("avatar", i.avatar);
 
-   window.location.replace("../../pages/profile/index.html")
-
+    window.location.replace("../../pages/profile/index.html")
   }
  } catch (err) {
   console.log("Obs! Something went wrong with login function", err);
