@@ -4,6 +4,8 @@ import * as apiVar from "../../../api/_variables.mjs";
 import { changeTimeFormat } from "../../../constant/changeTime.mjs";
 
 const card = factory.createCards;
+const tagList = factory.createParentElement
+const tagItems = factory.createChildren;
 
 // Retrieving items from storage
 const token = localStorage.getItem("token");
@@ -38,21 +40,20 @@ export async function getUserPosts() {
    dataFilter.forEach((el) => {
     const feedContainer = document.querySelector("#post-feed");
 
-    const image = el.media;
-    if (!image) {
-     document.querySelector("#post_image").classList.add("d-none");
-    } else {
-     document.querySelector("#post_image");
-    }
-
     // setting date and time constant for changing format from api results
     const timeCreated = changeTimeFormat(el.created);
     const timeUpdated = changeTimeFormat(el.updated);
 
-    // Calling function to change time format
+    // const tags = tagList("ul", "list-group list-group-horizontal", `post-${el.id}`, tagItems("li", "list-group-item", `tag-${el.id}`, `${el.tag}`))
 
     // Creating card content
-    const displayCard = card("div", "card", `post-${el.id}`, `${el.title}`, `${timeCreated}`, `${el.body}`, `${image}`, `${el.author.avatar}`, `${el.author.name}`, `${timeUpdated}`);
+    const displayCard = card("div", "card", `post-${el.id}`, `${el.author.avatar}`, `${el.title}`, `${el.author.name}`, `${timeCreated}`, `${el.body}`, `${el.media}`, "", `${timeUpdated}`);
+
+    if(el.media){
+        const imageMissing = document.querySelector("#postImage");
+        imageMissing.classList.add("d-none")
+    }
+
 
     // Appending content to new div
     feedContainer.append(displayCard);
