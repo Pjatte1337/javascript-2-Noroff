@@ -24,7 +24,7 @@ export function createChildren(elementName = "", className = "", elementId = "")
 }
 
 // Card factory
-export function createCards(elementName = "", className = "", elementId = "", title, created, body, image, author, updated) {
+export function createCards(elementName = "", className = "", elementId = "", title, created, body, post_image, image, author, updated) {
     const element = document.createElement(elementName);
     element.classList.add(className);
     element.id = elementId;
@@ -62,6 +62,7 @@ export function createCards(elementName = "", className = "", elementId = "", ti
     </div>
     <div class="card-body">
      <p class="card-text">${body}</p>
+     <img src="${post_image}" class="img-fluid" alt="User uploaded image" id="post_image"/>
     </div>
     <div class="card-footer">
      <small class="text-muted">Last updated ${updated}</small>

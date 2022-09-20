@@ -29,40 +29,42 @@ export async function getUserPosts() {
   // Making a if statement to check if response is there
   // If the response is not, the user will receive a pop up alert
   if (response) {
-    const data = response;
+   const data = response;
 
-    const dataFilter = data.filter(function (resp) {
-        return resp.author.email == localEmail;
-       });
+   const dataFilter = data.filter(function (resp) {
+    return resp.author.email == localEmail;
+   });
 
-    dataFilter.forEach((el) => {
-        const feedContainer = document.querySelector("#post-feed");
-          
-        // setting date and time constant for changing format from api results
-        const timeCreated = changeTimeFormat(el.created);
-        const timeUpdated = changeTimeFormat(el.updated);
+   dataFilter.forEach((el) => {
+    const feedContainer = document.querySelector("#post-feed");
 
+    const image = el.media;
+    if (!image) {
+     document.querySelector("#post_image").classList.add("d-none");
+    } else {
+     document.querySelector("#post_image");
+    }
 
+    // setting date and time constant for changing format from api results
+    const timeCreated = changeTimeFormat(el.created);
+    const timeUpdated = changeTimeFormat(el.updated);
 
-        // Calling function to change time format
+    // Calling function to change time format
 
+    // Creating card content
+    const displayCard = card("div", "card", `post-${el.id}`, `${el.title}`, `${timeCreated}`, `${el.body}`, `${image}`, `${el.author.avatar}`, `${el.author.name}`, `${timeUpdated}`);
 
-        // Creating card content
-        const displayCard = card("div", "card", `post-${el.id}`, `${el.title}`, `${timeCreated}`, `${el.body}`, `${el.author.avatar}`,`${el.author.name}`, `${timeUpdated}`);
-      
-        // Appending content to new div
-        feedContainer.append(displayCard);
-       });
+    // Appending content to new div
+    feedContainer.append(displayCard);
+   });
 
    console.log("This is the filtered response", dataFilter);
-  }else{
-  // Alerting the user if any problems
-  alert("OBS! Some bugs have joined the party. Please try again");
-  console.log("Something went wrong when loading post data");
+  } else {
+   // Alerting the user if any problems
+   alert("OBS! Some bugs have joined the party. Please try again");
+   console.log("Something went wrong when loading post data");
   }
  } catch (err) {
   console.log("There was a problem retrieving the user posts", err);
  }
 }
-
-
