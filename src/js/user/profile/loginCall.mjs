@@ -1,4 +1,4 @@
-import * as apiVar from "../api/_variables.mjs";
+import * as apiVar from "../../api/_variables.mjs";
 
 // Declaring variables
 const loginForm = document.querySelector("form#login");
@@ -8,7 +8,7 @@ const url = apiVar.baseURL;
 const login = apiVar.login;
 
 // Register user function
-async function signIn(email, password) {
+export async function signIn(email, password) {
  try {
   const request = await fetch(url + login, {
    method: "post",
@@ -40,18 +40,4 @@ async function signIn(email, password) {
  } catch (err) {
   console.log("Obs! Something went wrong with login function", err);
  }
-}
-
-// Event listener for form
-if (loginForm) {
- loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const email = form.email.value;
-  const password = form.pw.value;
-
-  if (form) {
-   signIn(email, password);
-  }
- });
 }
