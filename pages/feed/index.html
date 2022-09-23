@@ -20,85 +20,43 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>Javascript 2 Project Homepage</title>
+    <title>Javascript 2 Project Feed</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   </head>
   <body class="min-vh-100 d-flex flex-column">
     <header class="sticky-top bg-theme-bg-sec">
       <nav class="navbar navbar-expand-lg container-fluid">
         <div class="d-flex container-fluid justify-content-evenly">
+
           <!-- Navbar left side -->
           <div class="flex-grow-0 me-5">
-            <div class="d-flex flex-fill gap-4">
-              <a class="navbar-brand text-theme" href="/"
-                ><img
-                  src="../../../src/scss/custom/svg/camera.svg"
-                  width="50px"
-                  class="me-2"
-                />The social universe</a
-              >
-
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbar"
-                aria-controls="navbar"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
+            <div class="d-flex flex-fill gap-4"><a class="navbar-brand text-theme" href="/"><img src="../../../src/scss/custom/svg/camera.svg" width="50px" class="me-2"/>The social universe</a>
+              <button class="navbar-toggler" type="button"data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
             </div>
           </div>
           <div class="collapse navbar-collapse mt-4 mt-lg-0" id="navbar">
+
             <!-- Navbar middle -->
             <div class="flex-grow-1 me-5 mt-4 mt-lg-0">
               <form class="d-flex flex-fill justify-content-center">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-theme text-black" type="submit">
-                  Search
-                </button>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button class="btn btn-outline-theme text-black" type="submit"> Search </button>
               </form>
             </div>
 
             <!-- Navbar right side -->
             <div class="flex-grow-0 me-5 mt-4 mt-lg-0">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle text-black"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    My universe
-                  </a>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My universe</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li>
-                      <a class="dropdown-item" href="../profile/index.html"
-                        >Profile</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="../feed/index.html"
-                        >Posts</a
-                      >
-                    </li>
+                    <li><a class="dropdown-item" href="../profile/index.html">Profile</a></li>
+                    <li><a class="dropdown-item" href="../feed/index.html">Posts</a></li>
                   </ul>
                 </li>
               </ul>
@@ -107,216 +65,144 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-column mt-5 flex-fill">
+
+    <main class="d-flex flex-column gap-3">
       <div class="container">
         <h1 class="d-flex justify-content-center p-1 m-5">Latest posts</h1>
         <form action="" class="card bg-theme-bg-sec p-2 mb-5">
           <div class="d-flex flex-column gap-15">
             <label class="text p-2 h3">Tell Us Whats' New</label>
-            <textarea
-              class="form-control"
-              id="FormControlTextarea"
-              rows="3"
-            ></textarea>
+            <textarea class="form-control" id="FormControlTextarea" rows="3"></textarea>
             <div class="d-flex justify-content-end">
-              <button class="btn btn-modal btn-outline-theme text-black">
-                Post
-              </button>
+              <button class="btn btn-modal btn-outline-theme text-black"> Post </button>
             </div>
           </div>
         </form>
-        <div class="col-lg-8 col-md-8 col d-flex flex-column gap-3"">
-        <div class="d-flex flex-column gap-15">
-          <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
-            <div class="col-xl-12 col-md-8 mt-5">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Lorem</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Molestias, quis nihil tempore perspiciatis minus accusantium
-                    aliquam iusto cumque, nobis adipisci reprehenderit amet
-                    facilis error, iste molestiae neque possimus. Cumque, ad?
-                  </p>
-                  <p class="card-name">Lorem.</p>
 
-                  <form action="" class="comment p-1 mb-1">
-                    <div class="d-flex flex-column gap-15">
-                      <label class="text p-2 h3">Make a comment</label>
-                      <textarea
-                        class="form-control"
-                        id="FormControlTextarea"
-                        rows="3"
-                      ></textarea>
-                      <div class="d-flex justify-content-end">
-                        <button
-                          class="btn btn-modal btn-outline-theme text-black"
-                        >
-                          Post
-                        </button>
-                      </div>
+        <div class="d-flex flex-column gap-3"">
+        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+          <div class="col-xl-12 col-md-8 mt-5">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Molestias, quis nihil tempore perspiciatis minus accusantium
+                  aliquam iusto cumque, nobis adipisci reprehenderit amet
+                  facilis error, iste molestiae neque possimus. Cumque, ad?
+                </p>
+                <p class="card-name">Name</p>
+
+                <form action="" class="comment p-1 mb-1">
+                  <div class="d-flex flex-column gap-15">
+                    <label class="text p-2 h3">Make a comment</label>
+                    <textarea class="form-control" id="FormControlTextarea" rows="3"></textarea>
+                    <div class="d-flex justify-content-end">
+                      <button class="btn btn-modal btn-outline-theme text-black">Post</button>
                     </div>
-                  </form>
-
-                  <div class="stats">
-                    <i class="fa-solid fa-thumbs-up">25</i>
-                    <i class="fa-solid fa-thumbs-down">1</i>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item dropdown">
-                        <a
-                          class="nav-link dropdown-toggle text-black"
-                          href="#"
-                          id=""
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          More
-                        </a>
-                        <ul
-                          class="dropdown-menu"
-                          aria-labelledby="navbarDropdown"
-                        >
-                          <li><a class="dropdown-item" href="#">Like</a></li>
-                          <li><a class="dropdown-item" href="#">Dislike</a></li>
-                          <li>
-                            <a class="dropdown-item" href="#">Delete Post</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
                   </div>
-                  
+                </form>
+
+                <div class="stats">
+                  <i class="fa-solid fa-thumbs-up">25</i>
+                  <i class="fa-solid fa-thumbs-down">1</i>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-black" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Like</a></li>
+                        <li><a class="dropdown-item" href="#">Dislike</a></li>
+                        <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="col-xl-12 col-md-8 mb-2">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Lorem</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Molestias, quis nihil tempore perspiciatis minus accusantium
-                    aliquam iusto cumque, nobis adipisci reprehenderit amet
-                    facilis error, iste molestiae neque possimus. Cumque, ad?
-                  </p>
-                  <p class="card-name">Lorem.</p>
+          </div>
 
-                  <form action="" class="comment p-1 mb-1">
-                    <div class="d-flex flex-column gap-15">
-                      <label class="text p-2 h3">Make a comment</label>
-                      <textarea
-                        class="form-control"
-                        id="FormControlTextarea"
-                        rows="3"
-                      ></textarea>
-                      <div class="d-flex justify-content-end">
-                        <button
-                          class="btn btn-modal btn-outline-theme text-black"
-                        >
-                          Post
-                        </button>
-                      </div>
+          <div class="col-xl-12 col-md-8 mb-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Lorem</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Molestias, quis nihil tempore perspiciatis minus accusantium
+                  aliquam iusto cumque, nobis adipisci reprehenderit amet
+                  facilis error, iste molestiae neque possimus. Cumque, ad?
+                </p>
+                <p class="card-name">Lorem.</p>
+
+                <form action="" class="comment p-1 mb-1">
+                  <div class="d-flex flex-column gap-15">
+                    <label class="text p-2 h3">Make a comment</label>
+                    <textarea class="form-control" id="FormControlTextarea" rows="3"></textarea>
+                    <div class="d-flex justify-content-end">
+                      <button class="btn btn-modal btn-outline-theme text-black"> Post </button>
                     </div>
-                  </form>
-                  <div class="stats">
-                    <i class="fa-solid fa-thumbs-up">25</i>
-                    <i class="fa-solid fa-thumbs-down">1</i>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item dropdown">
-                        <a
-                          class="nav-link dropdown-toggle text-black"
-                          href="#"
-                          id=""
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          More
-                        </a>
-                        <ul
-                          class="dropdown-menu"
-                          aria-labelledby="navbarDropdown"
-                        >
-                          <li><a class="dropdown-item" href="#">Like</a></li>
-                          <li><a class="dropdown-item" href="#">Dislike</a></li>
-                          <li>
-                            <a class="dropdown-item" href="#">Delete Post</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
                   </div>
+                </form>
+
+                <div class="stats">
+                  <i class="fa-solid fa-thumbs-up">25</i>
+                  <i class="fa-solid fa-thumbs-down">1</i>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-black" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Like</a></li>
+                        <li><a class="dropdown-item" href="#">Dislike</a></li>
+                        <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
+
               </div>
             </div>
-            <div class="col-xl-12 col-md-8 mb-2">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Lorem</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Molestias, quis nihil tempore perspiciatis minus accusantium
-                    aliquam iusto cumque, nobis adipisci reprehenderit amet
-                    facilis error, iste molestiae neque possimus. Cumque, ad?
-                  </p>
-                  <p class="card-name">Lorem.</p>
+          </div>
 
-                  <form action="" class="comment p-1 mb-1">
-                    <div class="d-flex flex-column gap-15">
-                      <label class="text p-2 h3">Make a comment</label>
-                      <textarea
-                        class="form-control"
-                        id="FormControlTextarea"
-                        rows="3"
-                      ></textarea>
-                      <div class="d-flex justify-content-end">
-                        <button
-                          class="btn btn-modal btn-outline-theme text-black"
-                        >
-                          Post
-                        </button>
-                      </div>
+          <div class="col-xl-12 col-md-8 mb-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Lorem</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Molestias, quis nihil tempore perspiciatis minus accusantium
+                  aliquam iusto cumque, nobis adipisci reprehenderit amet
+                  facilis error, iste molestiae neque possimus. Cumque, ad?
+                </p>
+                <p class="card-name">Lorem.</p>
+
+                <form action="" class="comment p-1 mb-1">
+                  <div class="d-flex flex-column gap-15">
+                    <label class="text p-2 h3">Make a comment</label>
+                    <textarea class="form-control" id="FormControlTextarea" rows="3"></textarea>
+                    <div class="d-flex justify-content-end">
+                      <button class="btn btn-modal btn-outline-theme text-black">Post</button>
                     </div>
-                  </form>
-                  <div class="stats">
-                    <i class="fa-solid fa-thumbs-up">25</i>
-                    <i class="fa-solid fa-thumbs-down">1</i>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item dropdown">
-                        <a
-                          class="nav-link dropdown-toggle text-black"
-                          href="#"
-                          id=""
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          More
-                        </a>
-                        <ul
-                          class="dropdown-menu"
-                          aria-labelledby="navbarDropdown"
-                        >
-                          <li><a class="dropdown-item" href="#">Like</a></li>
-                          <li><a class="dropdown-item" href="#">Dislike</a></li>
-                          <li>
-                            <a class="dropdown-item" href="#">Delete Post</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
                   </div>
+                </form>
+
+                <div class="stats">
+                  <i class="fa-solid fa-thumbs-up">25</i>
+                  <i class="fa-solid fa-thumbs-down">1</i>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-black" href="#" id="" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Like</a></li>
+                        <li><a class="dropdown-item" href="#">Dislike</a></li>
+                        <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
+    
     <footer class="bg-theme-bg-sec"></footer>
 
     <!-- Scripts -->
