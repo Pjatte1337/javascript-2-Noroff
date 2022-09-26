@@ -12,6 +12,6 @@ export function logOut() {
   localStorage.removeItem("email");
   localStorage.removeItem("avatar");
 
-  window.location.href = "./";
+  window.location.href = "../../index.html";
  });
 }
