@@ -41,8 +41,8 @@ export async function fetchApi(url, method, token, data) {
     localStorage.setItem("email", i.email);
     localStorage.setItem("avatar", i.avatar);
   }
-  // console.log("Response", response);
-//   console.log("Options", fetchOptions);
+  console.log("Response", response);
+  console.log("Options", fetchOptions);
  } catch (error) {
   console.log("Oh no!!", error.message);
  }
