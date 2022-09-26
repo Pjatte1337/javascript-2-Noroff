@@ -1,22 +1,19 @@
 // Importing function factory
-import * as factory from "../../utils/factory.mjs";
+import { Card } from "../../utils/classes/cardClass.mjs";
 import { getUserPosts } from "../posts/userFilteredPosts.mjs";
-const element = factory.createElement;
 import { fetchData } from "./fetchProfileData.mjs"; 
 
 // Creating function to display user profile
 export async function displayProfile() {
- const nameElement = document.querySelector("#username");
- const nameLocal = localStorage.getItem("username");
-
- nameElement.innerText = nameLocal;
 
 const token = localStorage.getItem("token")
 const name = localStorage.getItem("username")
 
- const authUser = await fetchData(token, name);
+const authUser = await fetchData(token, name);
 
- getUserPosts(authUser);
+getUserPosts(authUser);
+
+const card = new Card("div", "profile-card card", "profile-card", `${title}`, null,`${body}`, null, null, null)
 
  //    if (response) {
  //   const profileInfo = document.querySelector("#profile-info");
