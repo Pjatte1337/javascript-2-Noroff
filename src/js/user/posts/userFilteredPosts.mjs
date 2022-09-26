@@ -1,4 +1,4 @@
-import * as apiVar from "../../api/_variables.mjs";
+import * as apiVar from "../../constant/variables.mjs";
 
 // Retrieving items from storage
 const token = localStorage.getItem("token");
@@ -55,27 +55,6 @@ export async function getUserPosts() {
    });
 
    console.log("This is the filtered response", dataFilter);
-  }
- } catch (err) {
-  console.log("There was a problem retrieving the user posts", err);
- }
-}
-
-// Function to retrieve all posts
-export async function getallPosts() {
- try {
-  const request = await fetch(url + endpointPosts + `?_author=true&_comments=true&_reactions=true`, {
-   method: "get",
-   headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-   },
-   body: JSON.stringify(),
-  });
-  const response = await request.json();
-
-  if (response) {
-   console.log("This is the response from the fetch call for posts", response);
   }
  } catch (err) {
   console.log("There was a problem retrieving the user posts", err);

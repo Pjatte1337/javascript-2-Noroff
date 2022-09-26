@@ -1,3 +1,4 @@
+// Empty variables for use whit endpoints to api
 const id = "";
 const name = "";
 const symbol = "";
@@ -40,8 +41,14 @@ export const comments = `/social/posts/${id}/comment`;
 
 const token = localStorage.getItem("token");
 
+export const methods = {
+    get: "GET",
+    post: "POST",
+    put: "PUT",
+    del: "DELETE",
+}
 
-export const optionPost = {
+export const header = {
  method: "post",
  headers: {
   "Content-Type": "application/json",
@@ -49,7 +56,7 @@ export const optionPost = {
  body: JSON.stringify({ email, password }),
 };
 
-export const optionPostAuth = {
+export const headerAuth = {
     method: "post",
     headers: {
      "Content-Type": "application/json",
@@ -57,15 +64,3 @@ export const optionPostAuth = {
     },
     body: JSON.stringify({ email, password }),
    };
-
-export const optionGet = {
- method: "GET",
-};
-
-export const optionPut = {
- method: "PUT",
-};
-
-export const optionDelete = {
- method: "DELETE",
-};
