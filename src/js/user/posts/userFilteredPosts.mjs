@@ -1,4 +1,6 @@
+import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
+import { Card } from "../../utils/classes/cardClass.mjs";
 
 // Retrieving items from storage
 const token = localStorage.getItem("token");
@@ -11,16 +13,9 @@ const endpointPosts = apiVar.getPosts;
 // Function to retrieve user posts
 export async function getUserPosts() {
  try {
-  const request = await fetch(url + endpointPosts + `?_author=true&_comments=true&_reactions=true`, {
-   method: "get",
-   headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-   },
-   body: JSON.stringify(),
-  });
-  const response = await request.json();
 
+  const response = await fetchApi(url + endpointPosts + `?_author=true&_comments=true&_reactions=true`, "GET", localStorage.getItem("token"), data)
+  
   if (response) {
    const data = response;
 
@@ -29,29 +24,11 @@ export async function getUserPosts() {
    });
 
    dataFilter.forEach((el) => {
+
+    const card = new Card("div", "profile-card card", "profile-card", `${el.title}`, null,`${el.body}`, null, null, null)
+
     const feedContainer = document.querySelector("#post-feed");
-
-    const postCard = document.createElement("div");
-
-    postCard.innerHTML = `
-       <div class="card">
-       <div class="card-header">
-       <h5 class="card-title">${el.title}</h5>
-       <span class="settings">
-       <i class="fa-solid fa-gear"></i>
-       </span>
-       </div>
-       <div class="card-body">
-         <p class="card-text">${el.body}.</p>
-       </div>
-       <div class="card-footer">
-         <small class="text-muted"> - ${el.author.name}</small>
-         <small class="text-muted">Last updated ${el.created}</small>
-       </div>
-     </div>
-       
-       `;
-    feedContainer.append(postCard);
+    feedContainer.append(card);
    });
 
    console.log("This is the filtered response", dataFilter);
@@ -60,3 +37,4 @@ export async function getUserPosts() {
   console.log("There was a problem retrieving the user posts", err);
  }
 }
+
