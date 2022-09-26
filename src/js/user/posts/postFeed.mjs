@@ -34,7 +34,7 @@ export async function postFeed() {
      <div class="card">
       <div class="card-header">
       <h5 class="card-title">${title}</h5>
-      <span class="settings">
+      <span class="settings d-flex justify-content-end">
       <i class="fa-solid fa-gear"></i>
       </span>
       </div>
