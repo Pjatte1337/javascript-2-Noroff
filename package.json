@@ -16,6 +16,6 @@
   "devDependencies": {
     "jsdoc": "^3.6.11",
     "live-server": "^1.2.2",
-    "sass": "^1.54.8"
+    "sass": "^1.55.0"
   }
 }
