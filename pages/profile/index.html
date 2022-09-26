@@ -54,7 +54,7 @@
          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="../profile/index.html">Profile</a></li>
             <li><a class="dropdown-item" href="../feed/index.html">Posts</a></li>
-            <li><a class="dropdown-item" href="#" name="logout" id="logout">Logout</a></li>
+            <li><a class="dropdown-item" href="#" name="logout" id="logout">logout</a></li>
          </ul>
         </li>
        </ul>
@@ -67,8 +67,33 @@
   <main class="d-flex flex-column mt-5 flex-fill">
     <div class="container">
       <div class="container-fluid">
-        <h1>Welcome to your profile page <span id="username"></span></h1>
-        <div class="container" id="post-feed"></div>
+        <div class="row">
+          <div class="col-xl-4 col-md-4 mb-5">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Pjatte</h4>
+                <p class="card-text">Personal information</p>
+                <p class="card-content">Lorem, ipsum.</p>
+                <p class="card-content">Lorem, ipsum dolor.</p>
+                <p class="card-content">Lorem ipsum dolor sit.</p>
+                <p class="card-content">Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <form action="" class="card bg-theme-bg-sec p-2 mb-5">
+              <div class="d-flex flex-column gap-15">
+                <label class="text p-2 h3">New post</label>
+                <textarea class="form-control" id="FormControlTextarea" rows="3"></textarea>
+                <div class="d-flex justify-content-end">
+                  <button class="btn">Post</button>
+                </div>
+              </div>
+            </form>
+            <div class="container" id="post-feed"></div>
+          </div>
+        </div>
+
     </div>
     </div>
    </main>
