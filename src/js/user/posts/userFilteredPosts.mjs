@@ -40,8 +40,16 @@ export async function getUserPosts() {
      `<div class="card">
       <div class="card-header">
       <h5 class="card-title">${title}</h5>
-      <span class="settings">
-      <i class="fa-solid fa-gear"></i>
+
+      <span class="settings d-flex justify-content-end">
+        <div class="dropdown">
+          <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">test</a></li>
+            <li><a class="dropdown-item" href="#">test</a></li>
+            <li><a class="dropdown-item" href="#">test</a></li>
+          </ul>
+        </div>
       </span>
       </div>
       <div class="card-body">
