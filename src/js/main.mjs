@@ -4,6 +4,7 @@ import { logOut } from "./user/login/logout.mjs";
 import { displayProfile } from "./user/profile/profile.mjs";
 import { display404Page } from "./constant/404page.mjs";
 import { checkUserStatus } from "./constant/statcheck.mjs";
+import { postFeed } from "./user/posts/postFeed.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -32,6 +33,10 @@ async function router() {
    displayProfile();
    generateFooter();
    break;
+
+   case "allPosts":
+    postFeed()
+   break
 
   case "404":
   default:
