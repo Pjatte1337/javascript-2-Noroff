@@ -23,15 +23,3 @@ class LoopingCard {
   this.element.innerHTML = `${template.greeting} ${template.name}`;
  }
 }
-
-const card = new Card(
- "div",
- {
-  id: "element-id",
-  class: "class-1 class-2",
- },
- {
-  greeting: "Hello",
-  name: "Christonn93",
- }
-);

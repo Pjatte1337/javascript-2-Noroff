@@ -13,8 +13,7 @@ const endpointPosts = apiVar.getPosts;
 // Function to retrieve user posts
 export async function getUserPosts() {
  try {
-
-  const response = await fetchApi(url + endpointPosts + `?_author=true&_comments=true&_reactions=true`, "GET", localStorage.getItem("token"), data)
+  const response = await fetchApi(url + endpointPosts, "GET", token, null)
   
   if (response) {
    const data = response;

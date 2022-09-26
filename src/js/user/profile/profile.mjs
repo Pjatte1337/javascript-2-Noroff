@@ -13,7 +13,30 @@ const authUser = await fetchData(token, name);
 
 getUserPosts(authUser);
 
-const card = new Card("div", "profile-card card", "profile-card", `${title}`, null,`${body}`, null, null, null)
+// const card = new Card("div", "profile-card card", "profile-card", `${title}`, null,`${body}`, null, null, null)
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  //    if (response) {
  //   const profileInfo = document.querySelector("#profile-info");
@@ -38,4 +61,3 @@ const card = new Card("div", "profile-card card", "profile-card", `${title}`, nu
  //   alert("OBS! Some bugs have joined the party. Please try again");
  //   console.log("Something went wrong when loading profile data");
  //  }
-}
