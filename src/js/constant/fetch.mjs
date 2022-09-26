@@ -21,7 +21,6 @@ export async function fetchApi(url, method, token, data) {
   }
 
   if (method === "GET") {
-    fetchOptions.body = JSON.stringify(data);
     fetchOptions.headers["Content-Type"] = "application/json";
    }
 
@@ -42,7 +41,7 @@ export async function fetchApi(url, method, token, data) {
     localStorage.setItem("email", i.email);
     localStorage.setItem("avatar", i.avatar);
   }
-//   console.log("Response", response);
+  // console.log("Response", response);
 //   console.log("Options", fetchOptions);
  } catch (error) {
   console.log("Oh no!!", error.message);
