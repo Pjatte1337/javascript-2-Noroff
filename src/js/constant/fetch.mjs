@@ -20,6 +20,11 @@ export async function fetchApi(url, method, token, data) {
    fetchOptions.headers["Content-Type"] = "application/json";
   }
 
+  if (method === "GET") {
+    fetchOptions.body = JSON.stringify(data);
+    fetchOptions.headers["Content-Type"] = "application/json";
+   }
+
   if (token) {
    fetchOptions.headers["Authorization"] = token;
   }
