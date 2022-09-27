@@ -15,12 +15,14 @@ const endpointPosts = apiVar.getPosts;
 export async function postFeed() {
  try {
   const request = await fetchApi(url + endpointPosts, "GET", token, null);
-
+  console.log(request)
   request.forEach((e) => {
     const feedContainer = document.querySelector("#post-feed");
 
-    const { id, title, created, body, author, updated, tag, image, image_user } = e;
+    const { id: post, title, created, body, author, updated, tag, image, image_user, comments, reactions } = e;
+    const {commentsId: id } = comments
 
+    
     const formattedCreated = changeTimeFormat(created)
     const formattedUpdated = changeTimeFormat(updated)
 
@@ -30,11 +32,11 @@ export async function postFeed() {
       id: `post-id-${id}`,
       class: "card",
      },
-     `<div class="">
-     <div class="card">
+     `<div class="container m-0 p-0">
+      <div class="card">
       <div class="card-header">
       <h5 class="card-title">${title}</h5>
-      <span class="settings">
+      <span class="settings d-flex justify-content-end">
       <i class="fa-solid fa-gear"></i>
       </span>
       </div>
@@ -49,6 +51,11 @@ export async function postFeed() {
         </div>
       </div>
     </div>
+    <div class="container" id="commentId-${comments.id}">
+    <div class="card-body">
+        <p class="card-text">${comments.body}.</p>
+      </div>
+    </div> 
      </div>`
     );
 
