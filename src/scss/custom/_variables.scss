@@ -64,6 +64,15 @@ $input-focus-border-color: $theme;
 //Changing dropdown hover
 $dropdown-link-hover-bg: shade-color($theme, 5%);
 
+
+// Changes to list-group classes
+$list-group-bg:                     none;
+$list-group-border-color:           none;
+$list-group-border-width:           none;
+$list-group-border-radius:          $border-radius;
+
+
+
 // Changing font
 h1, h2, h3, h4, h5, h6, p, a, button {
   font-family: "Inconsolata", monospace !important;
@@ -73,10 +82,18 @@ h1, h2, h3, h4, h5, h6, p, a, button {
   scroll-behavior: smooth;
 }
 
-.post-image {
+.user-avatar-small {
   width: 50px !important;
+}
+
+.small-image {
+  max-width: 150px;
 }
 
 .text-small {
   font-size: 11px;
+}
+
+.muted-link {
+  text-decoration: none;
 }
