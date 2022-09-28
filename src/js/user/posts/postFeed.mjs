@@ -15,52 +15,91 @@ const endpointPosts = apiVar.getPosts;
 export async function postFeed() {
  try {
   const request = await fetchApi(url + endpointPosts, "GET", token, null);
-  console.log(request)
+  console.log(request);
   request.forEach((e) => {
-    const feedContainer = document.querySelector("#post-feed");
+   const feedContainer = document.querySelector("#post-feed");
 
-    const { id: post, title, created, body, author, updated, tag, image, image_user, comments, reactions } = e;
-    const {commentsId: id } = comments
+   const { id, title, created, body, author, updated, tag, media, image_user, comments, reactions } = e;
 
-    
-    const formattedCreated = changeTimeFormat(created)
-    const formattedUpdated = changeTimeFormat(updated)
+   // Time formatting
+   const formattedCreated = changeTimeFormat(created);
+   const formattedUpdated = changeTimeFormat(updated);
 
-    const card = new LoopingCard(
-     "div",
-     {
-      id: `post-id-${id}`,
-      class: "card",
-     },
-     `<div class="container m-0 p-0">
-     <div class="card">
-      <div class="card-header">
-      <h5 class="card-title">${title}</h5>
-      <span class="settings d-flex justify-content-end">
-      <i class="fa-solid fa-gear"></i>
-      </span>
-      </div>
-      <div class="card-body">
-        <p class="card-text">${body}.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted"> - ${author.name}</small>
-        <div class="row">
-          <small class="text-muted">Published ${formattedUpdated}</small>
-          <small class="text-muted">Last updated ${formattedUpdated}</small>
+   // Constants for DOM manipulations
+   let userAvatar = "";
+   let postTags = "";
+   let postImage = "";
+   let commentsHtml = "";
+
+   if (media) {
+    postImage = `<a href="#openImageModal"><img src="${media}" class="img" alt="" loading="lazy"/></a>`;
+   }
+
+   if (comments) {
+    const commentsTimeCreated = changeTimeFormat(comments.map((e) => e.created));
+
+    commentsHtml = comments
+     .map(
+      (e) => `
+      <div class="container" id="commentId-${e.id}">
+        <div class="card-body">
+            <p class="card-text">${e.body}</p>
         </div>
-      </div>
-    </div>
-    <div class="container" id="commentId-${comments.id}">
-    <div class="card-body">
-        <p class="card-text">${comments.body}.</p>
-      </div>
-    </div> 
-     </div>`
-    );
+        <div class="card-footer">
+            <small class="text-muted"> - ${e.owner}</small>
+            <div class="row">
+              <small class="text-muted">Published ${commentsTimeCreated}</small>
+            </div>
+      </div> 
+    `
+     )
+     .join("");
+   }
 
-    feedContainer.append(card);
-   });
+   if (author.avatar) {
+    userAvatar = `<img src="${author.avatar}" class="img-thumbnail user-avatar-small" alt="" loading="lazy" />`;
+   }
+
+   const card = new LoopingCard(
+    "div",
+    {
+     id: `post-id-${id}`,
+     class: "card",
+    },
+    `<a href="" class="">
+    <div class="container m-0 p-0">
+        <div class="card">
+         <div class="card-header">
+         <div class="d-flex flex-fill">
+         <div class="d-flex flex-fill gap-2 align-items-center">
+          ${userAvatar}
+         <h4 class="text-muted"><a href="" class="muted-link text-muted">${author.name}</a></h4>
+         </div>
+         <span class="settings d-flex justify-content-end">
+         <i class="fa-solid fa-gear"></i>
+         </span>
+         </div>
+         </div>
+
+         <div class="card-body">
+         <h5 class="card-title">${title}</h5>
+           <p class="card-text">${body}.</p>
+            ${postImage}
+         </div>
+         <div class="card-footer">
+           <div class="row">
+             <small class="text-muted">Published ${formattedUpdated}</small>
+             <small class="text-muted">Last updated ${formattedUpdated}</small>
+           </div>
+         </div>
+       </div>
+       ${commentsHtml}
+        </div>
+        </a>`
+   );
+
+   feedContainer.append(card);
+  });
  } catch (err) {
   console.log("There was a problem retrieving the user posts", err);
  }

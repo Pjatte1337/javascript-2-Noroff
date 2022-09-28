@@ -82,10 +82,15 @@ h1, h2, h3, h4, h5, h6, p, a, button {
   scroll-behavior: smooth;
 }
 
-.post-image {
+.user-avatar-small {
   width: 50px !important;
 }
 
 .text-small {
   font-size: 11px;
+}
+
+
+.muted-link {
+  text-decoration: none;
 }
