@@ -86,10 +86,13 @@ h1, h2, h3, h4, h5, h6, p, a, button {
   width: 50px !important;
 }
 
+.small-image {
+  max-width: 150px;
+}
+
 .text-small {
   font-size: 11px;
 }
-
 
 .muted-link {
   text-decoration: none;

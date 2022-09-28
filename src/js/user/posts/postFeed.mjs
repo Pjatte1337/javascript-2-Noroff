@@ -32,7 +32,7 @@ export async function postFeed() {
    let commentsHtml = "";
 
    if (media) {
-    postImage = `<a href="#openImageModal"><img src="${media}" class="img" alt="" loading="lazy"/></a>`;
+    postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy"/></a>`;
    }
 
    if (comments) {
