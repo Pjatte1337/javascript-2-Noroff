@@ -42,13 +42,17 @@ async function router() {
   case "profile":
    displayProfile();
    generateFooter();
-
    document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username") 
    break;
 
    case "allPosts":
     postFeed()
+    document.querySelector("title").innerText = defaultTitle + ` || Feed wall` 
+   break
 
+
+   case "testing":
+    postFeed()
     document.querySelector("title").innerText = defaultTitle + ` || Feed wall` 
    break
 

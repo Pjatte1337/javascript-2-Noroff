@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <meta name="author" content="Christopher Tønnesland & Joakim Vanebo" />
+ <head>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta name="author" content="Christopher Tønnesland & Joakim Vanebo" />
 
-    <!-- Style -->
-    <link rel="stylesheet" href="../../dist/css/main.css" />
+  <!-- Style -->
+  <link rel="stylesheet" href="../../dist/css/main.css" />
 
-    <!-- Clippy -->
-    <!-- <link rel="stylesheet" type="text/css" href="./src/clippy/build/clippy.css" media="all"> -->
+  <!-- Clippy -->
+  <!-- <link rel="stylesheet" type="text/css" href="./src/clippy/build/clippy.css" media="all"> -->
 
-    <!-- Font awesome -->
-    <script
-      src="https://kit.fontawesome.com/af67014470.js"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/af67014470.js" crossorigin="anonymous"></script>
 
   <title></title>
 
@@ -71,9 +68,44 @@
    <div class="container-fluid">
     <div class="d-flex row justify-content-center">
      <h1 class="d-flex justify-content-center p-5 m-5">Latest posts</h1>
-     <div class="col-xl-6 col-md-8 mb-5">
+     <div class="col-xl-6 col-md-8 mb-5 container-fluid">
       <div class="d-flex flex-column gap-15">
-       <div id="post-feed"></div>
+       <div class="filter-container container-fluid">
+        <div>
+          <form class="d-flex flex-fill justify-content-center">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-theme text-black" type="submit">Search</button>
+           </form>
+        </div>
+        <ul class="list-group flex-row flex-grow-1">
+         <li class="list-group-item">
+          <div class="dropdown">
+           <a class="btn btn-theme-bg-sec" type="button" id="dateFilter" data-bs-toggle="dropdown" aria-expanded="false">Date</a>
+           <ul class="dropdown-menu" aria-labelledby="dateFilter">
+            <li><a class="dropdown-item" href="#">New to old</a></li>
+            <li><a class="dropdown-item" href="#">Old to new</a></li>
+           </ul>
+          </div>
+         </li>
+         <li class="list-group-item">
+          <div class="dropdown">
+           <a class="btn btn-theme-bg-sec" type="button" id="tagFilter" data-bs-toggle="dropdown" aria-expanded="false">Tags</a>
+           <ul class="dropdown-menu" aria-labelledby="tagFilter">
+           </ul>
+          </div>
+         </li><li class="list-group-item">
+          <div class="dropdown">
+           <a class="btn btn-theme-bg-sec" type="button" id="likeFilter" data-bs-toggle="dropdown" aria-expanded="false">Likes</a>
+           <ul class="dropdown-menu" aria-labelledby="likeFilter">
+            <li><a class="dropdown-item" href="#">Low to high</a></li>
+            <li><a class="dropdown-item" href="#">High to low</a></li>
+           </ul>
+          </div>
+         </li>
+         <li class="list-group-item"><button type="button" class="btn btn-theme-bg-sec">Remove filters</button></li>
+        </ul>
+       </div>
+       <div id="post-feed" class="d-flex flex-column gap-3"></div>
       </div>
      </div>
     </div>
