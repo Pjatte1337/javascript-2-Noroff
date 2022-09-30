@@ -1,4 +1,4 @@
-import { auth } from "./login/auth.mjs";
+import { authUser } from "./auth/auth.mjs";
 /**
  *
  * This is just a add event listener for the form on the login page. After the event have happened it runs the function to login the user whit "Email" and "password"
@@ -13,7 +13,7 @@ export async function formEvent() {
    const email = form.email.value;
    const password = form.pw.value;
 
-   auth(email, password);
+   authUser(email, password);
   });
  } catch (err) {
   console.log(err);
