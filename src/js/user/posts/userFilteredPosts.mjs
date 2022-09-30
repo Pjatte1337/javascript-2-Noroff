@@ -24,9 +24,7 @@ export async function getUserPosts() {
     return resp.author.email === localEmail;
    });
 
-   const response = request;
-
-   response.forEach((e) => {
+   dataFilter.forEach((e) => {
     const feedContainer = document.querySelector("#post-feed");
 
     const { id, title, created, body, author, updated, tag, image, image_user } = e;
@@ -71,7 +69,7 @@ export async function getUserPosts() {
    });
 
    console.log("This is the filtered response", dataFilter);
-   console.log("This is the unfiltered response", response);
+  //  console.log("This is the unfiltered response", response);
   }
  } catch (err) {
   console.log("There was a problem retrieving the user posts", err);
