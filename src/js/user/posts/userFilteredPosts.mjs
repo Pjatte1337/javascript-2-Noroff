@@ -7,6 +7,7 @@ import { changeTimeFormat } from "../../constant/changeTime.mjs";
 // Retrieving items from storage
 const token = localStorage.getItem("token");
 const localEmail = localStorage.getItem("email");
+const userName = localStorage.getItem("username")
 
 // Re-declaring variables from import
 const url = apiVar.baseURL;
@@ -40,7 +41,6 @@ export async function getUserPosts() {
      `<div class="card">
       <div class="card-header">
       <h5 class="card-title">${title}</h5>
-
       <span class="settings d-flex justify-content-end">
         <div class="dropdown">
           <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
@@ -62,10 +62,7 @@ export async function getUserPosts() {
           <small class="text-muted">Last updated ${formattedUpdated}</small>
         </div>
       </div>
-    </div>
-      
-      
-      `
+    </div>`
     );
 
     feedContainer.append(card);
