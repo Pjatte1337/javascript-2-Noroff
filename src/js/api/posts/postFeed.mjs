@@ -76,8 +76,14 @@ export async function postFeed() {
          <h4 class="text-muted"><a href="" class="muted-link text-muted">${author.name}</a></h4>
          </div>
          <span class="settings d-flex justify-content-end">
-         <i class="fa-solid fa-gear"></i>
-         </span>
+         <div class="dropdown">
+         <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+           <li><a class="dropdown-item" href="#">test</a></li>
+           <li><a class="dropdown-item" href="#">test</a></li>
+           <li><a class="dropdown-item" href="#">test</a></li>
+         </ul>
+       </div>
          </div>
          </div>
 
