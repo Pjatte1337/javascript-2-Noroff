@@ -67,41 +67,34 @@
      <h1 class="d-flex justify-content-center p-5 m-5">Latest posts</h1>
      <div class="col-xl-6 col-md-8 mb-5 container-fluid">
       <div class="d-flex flex-column gap-15">
-       <div class="filter-container container-fluid">
-        <div>
-          <form class="d-flex flex-fill justify-content-center">
+        <form class="container-fluid d-flex gap-5 mt-5 mb-5 justify-content-center">
+          <div class="d-flex flex-column">
+           <h5>Sort by date</h5>
+           <div class="d-flex">
+            <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> New-Old</label>
+           </div>
+           <div class="d-flex">
+            <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> Old-New</label>
+           </div>
+          </div>
+      
+          <div class="d-flex flex-column">
+           <h5>Sort by likes</h5>
+           <div class="d-flex">
+            <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> Low-high</label>
+           </div>
+           <div class="d-flex">
+            <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> High-low</label>
+           </div>
+          </div>
+      
+          <div class="d-flex flex-column justify-content-center">
+           <div class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-theme text-black" type="submit">Search</button>
-           </form>
-        </div>
-        <ul class="list-group flex-row flex-grow-1">
-         <li class="list-group-item">
-          <div class="dropdown">
-           <a class="btn btn-theme-bg-sec" type="button" id="dateFilter" data-bs-toggle="dropdown" aria-expanded="false">Date</a>
-           <ul class="dropdown-menu" aria-labelledby="dateFilter">
-            <li><a class="dropdown-item" href="#">New to old</a></li>
-            <li><a class="dropdown-item" href="#">Old to new</a></li>
-           </ul>
+           </div>
           </div>
-         </li>
-         <li class="list-group-item">
-          <div class="dropdown">
-           <a class="btn btn-theme-bg-sec" type="button" id="tagFilter" data-bs-toggle="dropdown" aria-expanded="false">Tags</a>
-           <ul class="dropdown-menu" aria-labelledby="tagFilter">
-           </ul>
-          </div>
-         </li><li class="list-group-item">
-          <div class="dropdown">
-           <a class="btn btn-theme-bg-sec" type="button" id="likeFilter" data-bs-toggle="dropdown" aria-expanded="false">Likes</a>
-           <ul class="dropdown-menu" aria-labelledby="likeFilter">
-            <li><a class="dropdown-item" href="#">Low to high</a></li>
-            <li><a class="dropdown-item" href="#">High to low</a></li>
-           </ul>
-          </div>
-         </li>
-         <li class="list-group-item"><button type="button" class="btn btn-theme-bg-sec">Remove filters</button></li>
-        </ul>
-       </div>
+         </form>
        <div id="post-feed" class="d-flex flex-column gap-3"></div>
       </div>
      </div>

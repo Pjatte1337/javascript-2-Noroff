@@ -61,43 +61,34 @@
    </nav>
   </header>
   <main>
-   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid d-flex">
-     <!-- Left side -->
-     <div class="me-5 mt-4 mt-lg-0 justify-content-between">
-      <div class="d-flex justify-content-between">
-       <div class="d-flex flex-fill gap-4">
-        <a class="navbar-brand text-theme" href="/"><img src="./src/scss/custom/svg/camera.svg" width="50px" class="me-2" />The social universe</a>
-       </div>
-
-       <div class="d-flex flex-fill flex-column gap-4">
-        <div>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-         </button>
-        </div>
-
-        <!-- Right side -->
-        <div class="me-5 mt-4 mt-lg-0">
-         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-           </li>
-           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-           </li>
-           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-           </li>
-          </ul>
-         </div>
-        </div>
-       </div>
-      </div>
+   <form class="container-fluid d-flex gap-5 mt-5">
+    <div class="d-flex flex-column">
+     <h6>Sort by date</h6>
+     <div class="d-flex">
+      <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> New to Old</label>
+     </div>
+     <div class="d-flex">
+      <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> Old to New</label>
      </div>
     </div>
-   </nav>
+
+    <div class="d-flex flex-column">
+     <h6>Sort by likes</h6>
+     <div class="d-flex">
+      <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> New to Old</label>
+     </div>
+     <div class="d-flex">
+      <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> Old to New</label>
+     </div>
+    </div>
+
+    <div class="d-flex flex-column">
+     <div class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-outline-theme text-black" type="submit">Search</button>
+     </div>
+    </div>
+   </form>
   </main>
 
   <footer class="bg-theme-bg-sec"></footer>
@@ -106,5 +97,3 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
  </body>
 </html>
-
-
