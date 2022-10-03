@@ -9,12 +9,16 @@ const token = localStorage.getItem("token");
 // Re-declaring variables from import
 const url = apiVar.baseURL;
 const endpointPosts = apiVar.getPosts;
+
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+
 const fetchUrl = url + endpointPosts;
 
 // Function to retrieve user posts
 export async function postFeed() {
  try {
-  let request = await fetchApi(fetchUrl, "GET", token, null);
+  let request = await fetchApi(fetchUrl + params, "GET", token, null);
   console.log(request);
   request.forEach((e) => {
    const feedContainer = document.querySelector("#post-feed");

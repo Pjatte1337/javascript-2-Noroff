@@ -28,7 +28,7 @@
      <!-- Navbar left side -->
      <div class="flex-grow-0 me-5">
       <div class="d-flex flex-fill gap-4">
-       <a class="navbar-brand text-theme" href="../homepage/index.html"><img src="../../../src/scss/custom/svg/camera.svg" width="50px" class="me-2" />The social universe</a>
+       <a class="navbar-brand text-theme" href="../../index.html"><img src="../../../src/scss/custom/svg/camera.svg" width="50px" class="me-2" />The social universe</a>
 
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -71,20 +71,20 @@
           <div class="d-flex flex-column">
            <h5>Sort by date</h5>
            <div class="d-flex">
-            <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> New-Old</label>
+            <label for="newOld"><input type="checkbox" value="&sortOrder" value="asc" id="newOld"/> New-Old</label>
            </div>
            <div class="d-flex">
-            <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> Old-New</label>
+            <label for="oldNew"><input type="checkbox" name="&sortOrder" value="desc" id="oldNew"/> Old-New</label>
            </div>
           </div>
       
           <div class="d-flex flex-column">
            <h5>Sort by likes</h5>
            <div class="d-flex">
-            <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> Low-high</label>
+            <label for="lowHigh"><input type="checkbox" name="lowHigh" id="lowHigh"> Low-high</label>
            </div>
            <div class="d-flex">
-            <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> High-low</label>
+            <label for="highLow"><input type="checkbox" name="highLow" id="highLow" /> High-low</label>
            </div>
           </div>
       
@@ -92,6 +92,10 @@
            <div class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-theme text-black" type="submit">Search</button>
+           </div>
+          </div>
+          <div class="d-flex">
+            <button type="submit">Filter</button>
            </div>
           </div>
          </form>

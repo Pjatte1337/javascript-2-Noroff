@@ -24,6 +24,8 @@ export async function postFilter() {
 
 
 let allCheckbox = document.querySelectorAll("input[type='checkbox']");
+let details = document.querySelector(`input[aria-details=${filterOption}`)
+
 
 for (let i = 0; i < allCheckbox.length; i++) {
     allCheckbox[i].addEventListener("click", displayCheck);
@@ -31,9 +33,9 @@ for (let i = 0; i < allCheckbox.length; i++) {
 
 function displayCheck(e) {
   if (e.target.checked) {
-
+    console.log(details)
   } 
   else {
-    
+
   }
 }
