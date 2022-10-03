@@ -20,10 +20,10 @@ export async function postFeed() {
  try {
   let request = await fetchApi(fetchUrl + params, "GET", token, null);
   console.log(request);
-  request.forEach((e) => {
+  request.forEach((data) => {
    const feedContainer = document.querySelector("#post-feed");
 
-   const { id, title, created, body, author, updated, tag, media, avatar, comments, reactions, _count } = e;
+   const { id, title, created, body, author, updated, tag, media, avatar, comments, reactions, _count } = data;
 
    // Time formatting
    const formattedCreated = changeTimeFormat(created);
