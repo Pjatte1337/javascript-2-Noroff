@@ -37,6 +37,7 @@ export async function getUserPosts() {
     let postTags = "";
     let postImage = "";
     let commentsHtml = "";
+    let postSettings = "";
 
     if (media) {
      postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy"/></a>`;
@@ -48,17 +49,17 @@ export async function getUserPosts() {
      commentsHtml = comments
       .map(
        (e) => `
-       <div class="container" id="commentId-${e.id}">
-         <div class="card-body">
-             <p class="card-text">${e.body}</p>
-         </div>
-         <div class="card-footer">
-             <small class="text-muted"> - ${e.owner}</small>
-             <div class="row">
-               <small class="text-muted">Published ${commentsTimeCreated}</small>
-             </div>
-       </div> 
-     `
+        <div class="container" id="commentId-${e.id}">
+          <div class="card-body">
+              <p class="card-text">${e.body}</p>
+          </div>
+          <div class="card-footer">
+              <small class="text-muted"> - ${e.owner}</small>
+              <div class="row">
+                <small class="text-muted">Published ${commentsTimeCreated}</small>
+              </div>
+        </div> 
+      `
       )
       .join("");
     }
@@ -67,50 +68,65 @@ export async function getUserPosts() {
      userAvatar = `<img src="${author.avatar}" class="img-thumbnail user-avatar-small" alt="" loading="lazy" />`;
     }
 
+    if (userName === author.name) {
+     postSettings = `<span class="settings d-flex justify-content-end">
+      <div class="dropdown">
+      <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Update</a></li>
+        <li><a class="dropdown-item" href="#">Delete</a></li>
+      </ul>
+    </div>`;
+    }
+
     const card = new LoopingCard(
      "div",
      {
       id: `post-id-${id}`,
       class: "card",
      },
-     `
-     <a href="" class="">
-    <div class="container m-0 p-0">
-        <div class="card">
-         <div class="card-header">
-         <div class="d-flex flex-fill">
-         <div class="d-flex flex-fill gap-2 align-items-center">
-          ${userAvatar}
-         <h4 class="text-muted"><a href="" class="muted-link text-muted">${author.name}</a></h4>
-         </div>
-         <span class="settings d-flex justify-content-end">
-         <div class="dropdown">
-         <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
-         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-           <li><a class="dropdown-item" href="#">test</a></li>
-           <li><a class="dropdown-item" href="#">test</a></li>
-           <li><a class="dropdown-item" href="#">test</a></li>
-         </ul>
-       </div>
-         </span>
-         </div>
-         </div>
-
-         <div class="card-body">
-         <h5 class="card-title">${title}</h5>
-           <p class="card-text">${body}.</p>
-            ${postImage}
-         </div>
-         <div class="card-footer">
+     `<div class="container m-0 p-0">
+          <div class="card">
+           <div class="card-header">
+           <div class="d-flex flex-fill">
+           <div class="d-flex flex-fill gap-2 align-items-center">
+            ${userAvatar}
+           <h4 class="text-muted"><a href="" class="muted-link text-muted">${author.name}</a></h4>
+           </div>
+           ${postSettings}
+           </div>
+           </div>
+  
+           <div class="card-body">
+           <a href="../posts/index.html?id=${id}" class="h5 text-black text-decoration-none"><h5 class="card-title">${title}</h5></a>
+             <p class="card-text">${body}.</p>
+              ${postImage}
+           </div>
+           <div class="card-footer">
            <div class="row">
-             <small class="text-muted">Published ${formattedUpdated}</small>
-             <small class="text-muted">Last updated ${formattedUpdated}</small>
+            <small class="text-muted">Published ${formattedUpdated}</small>
+            <small class="text-muted">Last updated ${formattedUpdated}</small>
+           </div>
+             <div class="mt-2">
+              <button class="btn" id="comments"><i class="fa-regular fa-comment"></i></button>
+              <button class="btn" id="like"><i class="fa-solid fa-thumbs-up"></i></button>
+              <button class="btn" id="dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+             </div>
            </div>
          </div>
-       </div>
-       ${commentsHtml}
-        </div>
-        </a>`
+         <div class="d-none">
+         <form action="" class="card p-2 mb-5">
+         <div class="container">
+             <div class="mb-3 gap-1">
+                <textarea class="form-control"></textarea>
+                <button class="btn float-end" type="submit">Comment</button>
+                </div>
+         </div>
+     </form>
+         </div>
+         ${commentsHtml}
+          </div>
+          `
     );
 
     feedContainer.append(card);

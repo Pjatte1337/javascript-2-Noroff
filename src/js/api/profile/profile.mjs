@@ -34,9 +34,9 @@ async function displayUserInformation() {
    },
    `<div class="card">
             <div class="card-body">
-            <img src="${avatar}" />
+            <img src="${avatar}" class="image"/>
              <h4 class="card-title">${name}</h4>
-             <img src="${banner}" />
+             <img src="${banner}" class="image"/>
              <div class="">
              <ul>
              <li>Posts: ${_count.posts}</li>

@@ -98,11 +98,26 @@ export async function postFeed() {
             ${postImage}
          </div>
          <div class="card-footer">
-           <div class="row">
-             <small class="text-muted">Published ${formattedUpdated}</small>
-             <small class="text-muted">Last updated ${formattedUpdated}</small>
+         <div class="row">
+          <small class="text-muted">Published ${formattedUpdated}</small>
+          <small class="text-muted">Last updated ${formattedUpdated}</small>
+         </div>
+           <div class="mt-2">
+            <button class="btn" id="comments"><i class="fa-regular fa-comment"></i></button>
+            <button class="btn" id="like"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="btn" id="dislike"><i class="fa-solid fa-thumbs-down"></i></button>
            </div>
          </div>
+       </div>
+       <div class="d-none">
+       <form action="" class="card p-2 mb-5">
+       <div class="container">
+           <div class="mb-3 gap-1">
+              <textarea class="form-control"></textarea>
+              <button class="btn float-end" type="submit">Comment</button>
+              </div>
+       </div>
+   </form>
        </div>
        ${commentsHtml}
         </div>
