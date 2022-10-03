@@ -19,7 +19,7 @@ export async function postFeed() {
   request.forEach((e) => {
    const feedContainer = document.querySelector("#post-feed");
 
-   const { id, title, created, body, author, updated, tag, media, image_user, comments, reactions } = e;
+   const { id, title, created, body, author, updated, tag, media, avatar, comments, reactions } = e;
 
    // Time formatting
    const formattedCreated = changeTimeFormat(created);
@@ -30,6 +30,7 @@ export async function postFeed() {
    let postTags = "";
    let postImage = "";
    let commentsHtml = "";
+   let postSettings = ""
 
    if (media) {
     postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy"/></a>`;
@@ -60,14 +61,26 @@ export async function postFeed() {
     userAvatar = `<img src="${author.avatar}" class="img-thumbnail user-avatar-small" alt="" loading="lazy" />`;
    }
 
+
+   const currentUser = localStorage.getItem("username")
+   if(currentUser === author.name){
+    postSettings = `<span class="settings d-flex justify-content-end">
+    <div class="dropdown">
+    <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Update</a></li>
+      <li><a class="dropdown-item" href="#">Delete</a></li>
+    </ul>
+  </div>`
+   }
+
    const card = new LoopingCard(
     "div",
     {
      id: `post-id-${id}`,
      class: "card",
     },
-    `<a href="" class="">
-    <div class="container m-0 p-0">
+    `<div class="container m-0 p-0">
         <div class="card">
          <div class="card-header">
          <div class="d-flex flex-fill">
@@ -75,20 +88,12 @@ export async function postFeed() {
           ${userAvatar}
          <h4 class="text-muted"><a href="" class="muted-link text-muted">${author.name}</a></h4>
          </div>
-         <span class="settings d-flex justify-content-end">
-         <div class="dropdown">
-         <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
-         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-           <li><a class="dropdown-item" href="#">test</a></li>
-           <li><a class="dropdown-item" href="#">test</a></li>
-           <li><a class="dropdown-item" href="#">test</a></li>
-         </ul>
-       </div>
+         ${postSettings}
          </div>
          </div>
 
          <div class="card-body">
-         <h5 class="card-title">${title}</h5>
+         <a href="../posts/index.html?id=${id}" class="h5 text-black text-decoration-none"><h5 class="card-title">${title}</h5></a>
            <p class="card-text">${body}.</p>
             ${postImage}
          </div>
@@ -101,7 +106,7 @@ export async function postFeed() {
        </div>
        ${commentsHtml}
         </div>
-        </a>`
+        `
    );
 
    feedContainer.append(card);
