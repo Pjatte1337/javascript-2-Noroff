@@ -1,7 +1,6 @@
 import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
-
 import { changeTimeFormat } from "../../constant/changeTime.mjs";
 
 // Retrieving items from storage
@@ -12,11 +11,12 @@ const userName = localStorage.getItem("username");
 // Re-declaring variables from import
 const url = apiVar.baseURL;
 const endpointPosts = apiVar.getPosts;
+const fetchUrl = url + endpointPosts;
 
 // Function to retrieve user posts
 export async function getUserPosts() {
  try {
-  const request = await fetchApi(url + endpointPosts, "GET", token, null);
+  const request = await fetchApi(fetchUrl, "GET", token, null);
 
   if (request) {
    const data = request;
@@ -27,7 +27,7 @@ export async function getUserPosts() {
    dataFilter.forEach((e) => {
     const feedContainer = document.querySelector("#post-feed");
 
-    const { id, title, created, body, author, updated, tag, media, comments, reactions } = e;
+    const { id, title, created, body, author, updated, tag, media, comments, reactions, _count } = e;
 
     const formattedCreated = changeTimeFormat(created);
     const formattedUpdated = changeTimeFormat(updated);
@@ -108,31 +108,32 @@ export async function getUserPosts() {
             <small class="text-muted">Last updated ${formattedUpdated}</small>
            </div>
              <div class="mt-2">
-              <button class="btn" id="comments"><i class="fa-regular fa-comment"></i></button>
-              <button class="btn" id="like"><i class="fa-solid fa-thumbs-up"></i></button>
-              <button class="btn" id="dislike"><i class="fa-solid fa-thumbs-down"></i></button>
+             <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${_count.comments}</button>
+             <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${_count.reactions}</button>
              </div>
            </div>
          </div>
-         <div class="d-none">
+         <div>
+         <div class="d-none" id="comments-${id}">
          <form action="" class="card p-2 mb-5">
-         <div class="container">
-             <div class="mb-3 gap-1">
-                <textarea class="form-control"></textarea>
-                <button class="btn float-end" type="submit">Comment</button>
-                </div>
-         </div>
-     </form>
-         </div>
-         ${commentsHtml}
+          <div class="container">
+           <div class="mb-3 gap-1">
+            <textarea class="form-control"></textarea>
+            <button class="btn float-end" type="submit">Comment</button>
+           </div>
           </div>
+         </form>
+        </div>
+        ${commentsHtml}
+       </div>
+      </div>
           `
     );
 
     feedContainer.append(card);
    });
 
-   console.log("This is the filtered response", dataFilter);
+  //  console.log("This is the filtered response", dataFilter);
    //  console.log("This is the unfiltered response", response);
   }
  } catch (err) {

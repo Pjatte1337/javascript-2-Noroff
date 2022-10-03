@@ -5,6 +5,7 @@ import { displayProfile } from "./api/profile/profile.mjs";
 import { display404Page } from "./constant/404page.mjs";
 import { checkUserStatus } from "./constant/statcheck.mjs";
 import { postFeed } from "./api/posts/postFeed.mjs";
+import { postItemByID } from "./api/posts/postItemByID.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -50,6 +51,10 @@ async function router() {
     document.querySelector("title").innerText = defaultTitle + ` || Feed wall` 
    break
 
+   case "postItemByID":
+    postItemByID()
+    document.querySelector("title").innerText = defaultTitle + ` || Post` 
+   break
 
    case "testing":
     postFeed()
