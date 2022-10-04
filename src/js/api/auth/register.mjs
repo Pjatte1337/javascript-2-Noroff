@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> js2
 import { API_SOCIAL_URL } from "../../constant/variables.mjs";
 
 const action = "/auth/register";
@@ -17,6 +21,22 @@ export async function register(profile) {
   body,
  });
 
+<<<<<<< HEAD
  const result = await response.json();
  console.log(result);
 }
+=======
+    const response = await fetch(registerURL, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method,
+        body
+    })
+
+    const result = await response.json()
+    alert("Congratulations! You are now registered with The Social Universe")
+    return result
+    console.log(result)
+}
+>>>>>>> js2
