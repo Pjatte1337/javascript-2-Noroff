@@ -1,18 +1,19 @@
-// // Importing all modules
-import * as user from "./user/index.mjs";
-import { logOut } from "./user/login/logout.mjs";
-import { displayProfile } from "./user/profile/profile.mjs";
+// Importing all modules
+import * as user from "./api/index.mjs";
+import { logOut } from "./api/auth/logout.mjs";
+import { displayProfile } from "./api/profile/profile.mjs";
 import { display404Page } from "./constant/404page.mjs";
 import { checkUserStatus } from "./constant/statcheck.mjs";
-import { postFeed } from "./user/posts/postFeed.mjs";
+import { postFeed } from "./api/posts/postFeed.mjs";
+import { postItemByID } from "./api/posts/postItemByID.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
 
-// // Creating variables to use in the if statement under
+// Creating variables to use in the if statement under
 const logOutButton = document.querySelector("#logout");
 
-//Executing logout function if the logout button is present
+// Executing logout function if the logout button is present
 if (logOutButton) {
  logOut();
 }
@@ -42,13 +43,21 @@ async function router() {
   case "profile":
    displayProfile();
    generateFooter();
-
    document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username") 
    break;
 
    case "allPosts":
     postFeed()
+    document.querySelector("title").innerText = defaultTitle + ` || Feed wall` 
+   break
 
+   case "postItemByID":
+    postItemByID()
+    document.querySelector("title").innerText = defaultTitle + ` || Post` 
+   break
+
+   case "testing":
+    postFeed()
     document.querySelector("title").innerText = defaultTitle + ` || Feed wall` 
    break
 

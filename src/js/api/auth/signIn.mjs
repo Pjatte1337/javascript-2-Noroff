@@ -1,5 +1,5 @@
 import * as apiVar from "../../constant/variables.mjs";
-import { auth } from "./auth.mjs";
+import { authUser } from "./auth.mjs";
 
 // Re-declaring variables from import
 const url = apiVar.baseURL;
@@ -43,7 +43,7 @@ export async function signIn(email, password) {
   const name = localStorage.getItem("username");
 
   if (token) {
-   auth(token, name);
+    authUser(token, name);
   }
  } catch (err) {
   console.log("Obs! Something went wrong with login function", err);
