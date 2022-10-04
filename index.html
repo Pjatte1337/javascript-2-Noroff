@@ -84,33 +84,35 @@
      <div class="modal-dialog">
       <div class="modal-content">
        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
 
        <div class="modal-body">
-        <form action="" method="post" id="reg" class="needs-validation">
-         <div class="form-group was-validated">
-          <label class="form-label" for="user_name">Name</label>
-          <input class="form-control" type="name" name="user_name" id="user_name" required />
-          <div class="invalid-feedback">Please enter your name</div>
-         </div>
-         <div class="form-group was-validated">
-          <label class="form-label" for="email">Email</label>
-          <input class="form-control" type="email" id="email" required />
-          <div class="invalid-feedback">Please enter your email</div>
-         </div>
-         <div class="form-group was-validated">
-          <label class="form-label" for="pw">Password</label>
-          <input class="form-control" type="password" for="pw" required />
-          <div class="invalid-feedback">Please enter your password</div>
-         </div>
-         <div class="form-group was-validated">
-          <label class="form-label" for="pwComfirm">Password</label>
-          <input class="form-control" type="password" for="pwComfirm" required />
-          <div class="invalid-feedback">Please confirm your password</div>
-         </div>
-         <input class="btn btn-outline-theme text-black w-100" type="submit" value="LogIn" />
+
+        <form id="registerForm">
+          <div class="container-md custom-w">
+            <div class="input-group mt-3">
+              <span class="input-group-text">Username</span>
+              <input type="text" class="form-control py-3" name="name" id="username" placeholder="username" aria-label="username" required pattern="^[\w]+$" title="Username must only contain lower case and uppercase letters, numbers and underscore"/>
+            </div>
+            <div class="input-group mt-3"> <span class="input-group-text material-symbols-outlined">Email</span>
+              <input type="email" class="form-control py-3" name="email" id="email" placeholder="email" aria-label="email" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only users with @noroff.no or @stud.noroff.no email can register profile"/>
+            </div>
+            <div class="input-group mt-3">
+              <span class="input-group-text material-symbols-outlined">Password</span>
+              <input
+                type="password" class="form-control py-3" name="password" id="password" placeholder="password" aria-label="password" required minlength="8" title="Must be at least 8 characters long"/>
+            </div>
+            <div class="input-group my-1">
+              <span class="input-group-text material-symbols-outlined">Password</span>
+              <input
+                type="password" class="form-control py-3" name="password" id="password-repeat" placeholder="repeat password" aria-label="password" required minlength="8"/>
+            </div>
+            <div class="d-grid mt-5 mb-1">
+              <button type="submit" class="btn btn-primary" id="sign-up"> Register </button>
+            </div>
+          </div>
         </form>
        </div>
       </div>
@@ -124,7 +126,6 @@
 
   <!-- Scripts -->
   <script src="./src/js/main.mjs" type="module" defer></script>
-  <script src="./src/js/constant/register.mjs"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
  </body>
 </html>
