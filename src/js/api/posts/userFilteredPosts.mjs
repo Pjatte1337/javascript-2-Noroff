@@ -19,6 +19,7 @@ const fetchUrl = url + endpointPosts;
 export async function getUserPosts() {
  try {
   const request = await fetchApi(fetchUrl, "GET", token, null);
+
   if (request) {
    const data = request;
    const dataFilter = data.filter(function (resp) {
@@ -74,8 +75,8 @@ export async function getUserPosts() {
       <div class="dropdown">
       <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><button class="dropdown-item change-post" id="updatePost-${id}">Update</button></li>
-      <li><button class="dropdown-item change-post" id="deletePost-${id}">Delete</button></li>
+      <li><button class="dropdown-item change-post-update" id="updatePost-${id}">Update</button></li>
+      <li><button class="dropdown-item change-post-delete" id="deletePost-${id}">Delete</button></li>
       </ul>
     </div>`;
     }
@@ -132,8 +133,6 @@ export async function getUserPosts() {
     feedContainer.append(card);
    });
 
-
-   buttonListener()
 
   //  console.log("This is the filtered response", dataFilter);
    //  console.log("This is the unfiltered response", response);
