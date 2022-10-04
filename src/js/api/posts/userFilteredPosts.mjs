@@ -75,8 +75,12 @@ export async function getUserPosts() {
       <div class="dropdown">
       <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><button class="dropdown-item change-post-update" id="updatePost-${id}">Update</button></li>
-      <li><button class="dropdown-item change-post-delete" id="deletePost-${id}">Delete</button></li>
+      <li id="updatePost-${id}">
+      <button class="dropdown-item" id="${id}">Update</button>
+      </li>
+      <li id="deletePost-${id}">
+      <button class="dropdown-item" id="${id}">Delete</button>
+      </li>
       </ul>
     </div>`;
     }
