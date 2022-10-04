@@ -83,10 +83,9 @@ export async function getUserPosts() {
      "div",
      {
       id: `post-id-${id}`,
-      class: "card",
+      class: "container-fluid d-flex justify-content-center",
      },
-     `<div class="container m-0 p-0">
-          <div class="card">
+     `<div class="card">
            <div class="card-header">
            <div class="d-flex flex-fill">
            <div class="d-flex flex-fill gap-2 align-items-center">
