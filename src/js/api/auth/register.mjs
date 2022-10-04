@@ -17,7 +17,7 @@ export async function register(profile) {
         },
         method,
         body
-    })
+    });
 
     const result = await response.json()
     alert("Congratulations! You are now registered with The Social Universe")
