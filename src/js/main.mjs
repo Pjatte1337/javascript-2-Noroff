@@ -19,12 +19,10 @@ if (logOutButton) {
  logOut();
 }
 
-
-const defaultTitle = "The social universe"
-
+const defaultTitle = "The social universe";
 
 /**
- * 
+ *
  */
 async function router() {
  const routeName = document.body.id;
@@ -36,7 +34,7 @@ async function router() {
    checkUserStatus(localStorage.getItem("token"));
    generateFooter();
 
-   document.querySelector("title").innerText = defaultTitle + ` || Homepage`
+   document.querySelector("title").innerText = defaultTitle + ` || Homepage`;
 
    break;
 
@@ -44,23 +42,24 @@ async function router() {
   case "profile":
    displayProfile();
    generateFooter();
-   document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username") 
+   document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username");
    break;
 
-   case "allPosts":
-    postFeed()
-    document.querySelector("title").innerText = defaultTitle + ` || Feed wall` 
-   break
+  case "allPosts":
+   postFeed();
+   buttonListener();
+   document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
+   break;
 
-   case "postItemByID":
-    postItemByID()
-    document.querySelector("title").innerText = defaultTitle + ` || Post` 
-   break
+  case "postItemByID":
+   postItemByID();
+   document.querySelector("title").innerText = defaultTitle + ` || Post`;
+   break;
 
-   case "testing":
-    postFeed()
-    document.querySelector("title").innerText = defaultTitle + ` || Feed wall` 
-   break
+  case "testing":
+   postFeed();
+   document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
+   break;
 
   case "404":
   default:
@@ -70,7 +69,5 @@ async function router() {
 }
 router();
 
-
-
-  // register form
-  setRegisterFormListner ()
+// register form
+setRegisterFormListner();

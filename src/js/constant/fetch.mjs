@@ -24,6 +24,10 @@ export async function fetchApi(url, method, token, data) {
     fetchOptions.headers["Content-Type"] = "application/json";
    }
 
+   if (method === "DELETE") {
+    fetchOptions.headers["Content-Type"] = "application/json";
+   }
+
   if (token) {
    fetchOptions.headers["Authorization"] = `Bearer ${token}`;
   }

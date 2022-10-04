@@ -2,6 +2,8 @@ import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../constant/changeTime.mjs";
+import { buttonListener } from "./deletePost.mjs";
+
 
 // Retrieving items from storage
 const token = localStorage.getItem("token");
@@ -73,21 +75,24 @@ export async function getUserPosts() {
       <div class="dropdown">
       <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Update</a></li>
-        <li><a class="dropdown-item" href="#">Delete</a></li>
+      <li class="updatePost">
+      <button class="dropdown-item" id="updatePost-${id}" name="update" value="${id}">Update</button>
+      </li>
+      <li class="deletePost">
+      <button class="dropdown-item" id="deletePost-${id}" name="delete" value="${id}">Delete</button>
+      </li>
       </ul>
     </div>`;
     }
+
 
     const card = new LoopingCard(
      "div",
      {
       id: `post-id-${id}`,
-      class: "card",
+      class: "card container-fluid d-flex justify-content-center p-0 m-0",
      },
-     `<div class="container m-0 p-0">
-          <div class="card">
-           <div class="card-header">
+     `<div class="card-header">
            <div class="d-flex flex-fill">
            <div class="d-flex flex-fill gap-2 align-items-center">
             ${userAvatar}
@@ -123,15 +128,17 @@ export async function getUserPosts() {
            </div>
           </div>
          </form>
+         ${commentsHtml}
         </div>
-        ${commentsHtml}
        </div>
-      </div>
           `
     );
 
     feedContainer.append(card);
+
+    buttonListener(id)
    });
+
 
   //  console.log("This is the filtered response", dataFilter);
    //  console.log("This is the unfiltered response", response);

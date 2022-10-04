@@ -71,8 +71,8 @@ export async function postItemByID() {
     <div class="dropdown">
     <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Update</a></li>
-      <li><a class="dropdown-item" href="#">Delete</a></li>
+    <li><button class="dropdown-item" id="updatePost-id-${id}">Update</button></li>
+    <li><button class="dropdown-item" id="deletePost-id-${id}">Delete</button></li>
     </ul>
   </div>`;
   }
@@ -81,10 +81,9 @@ export async function postItemByID() {
    "div",
    {
     id: `post-id-${id}`,
-    class: "card",
+    class: "card container-fluid d-flex justify-content-center p-0 m-0",
    },
-   `<div class="container m-0 p-0">
-    <div class="card">
+   `
      <div class="card-header">
       <div class="d-flex flex-fill">
        <div class="d-flex flex-fill gap-2 align-items-center">
@@ -123,9 +122,7 @@ export async function postItemByID() {
       </form>
      </div>
      ${commentsHtml}
-    </div>
-   </div>
-        `
+    </div>`
   );
 
   feedContainer.append(card);
