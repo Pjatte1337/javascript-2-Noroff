@@ -71,8 +71,8 @@ export async function postFeed() {
     <div class="dropdown">
     <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Update</a></li>
-      <li><a class="dropdown-item" href="#">Delete</a></li>
+      <li><button class="dropdown-item" id="updatePost">Update</button></li>
+      <li><button class="dropdown-item" id="deletePost">Delete</button></li>
     </ul>
   </div>`;
    }
