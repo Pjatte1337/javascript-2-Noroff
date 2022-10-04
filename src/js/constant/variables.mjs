@@ -18,6 +18,7 @@ export const baseURL = `https://nf-api.onrender.com/api/v1`;
 // Endpoint for registrations and login
 export const login = `/social/auth/login`;
 export const register = `/social/auth/register`;
+export const API_SOCIAL_URL =`https://nf-api.onrender.com/api/v1/social`;
 
 // Endpoint for everything related to profile
 export const profile = `/social/profiles/`;

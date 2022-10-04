@@ -6,6 +6,7 @@ import { display404Page } from "./constant/404page.mjs";
 import { checkUserStatus } from "./constant/statcheck.mjs";
 import { postFeed } from "./api/posts/postFeed.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
+import { setRegisterFormListner } from "./constant/register.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -68,3 +69,8 @@ async function router() {
  }
 }
 router();
+
+
+
+  // register form
+  setRegisterFormListner ()
