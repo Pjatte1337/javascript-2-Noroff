@@ -51,7 +51,7 @@
     [x]  User can view a post content item by ID
     []  User can create a post content item
     []  User can update a post content item
-    []  User can delete a post content item
+    [x]  User can delete a post content item
 
     
     []  User can create a comment on a post

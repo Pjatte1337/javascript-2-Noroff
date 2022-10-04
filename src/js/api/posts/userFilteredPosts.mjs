@@ -75,11 +75,11 @@ export async function getUserPosts() {
       <div class="dropdown">
       <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li id="updatePost-${id}">
-      <button class="dropdown-item" id="${id}">Update</button>
+      <li class="updatePost">
+      <button class="dropdown-item" id="updatePost-${id}" name="update" value="${id}">Update</button>
       </li>
-      <li id="deletePost-${id}">
-      <button class="dropdown-item" id="${id}">Delete</button>
+      <li class="deletePost">
+      <button class="dropdown-item" id="deletePost-${id}" name="delete" value="${id}">Delete</button>
       </li>
       </ul>
     </div>`;
@@ -135,6 +135,8 @@ export async function getUserPosts() {
     );
 
     feedContainer.append(card);
+
+    buttonListener(id)
    });
 
 

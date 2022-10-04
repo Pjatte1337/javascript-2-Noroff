@@ -4,7 +4,7 @@
  */
 export function message(type) {
     // Selecting html
-    const main = document.querySelector("");
+    const main = document.querySelector("main");
     const errorContainer = document.createElement("div");
    
     // Setting the innerHTML of the message
@@ -41,6 +41,10 @@ export function message(type) {
       errorContainer.innerHTML = `<p>${notValidUser}</p>`;
       break;
    
+      case "confirm":
+        errorContainer.classList.add("feedback-container", "confirm-action");
+        break;
+
     }
     main.append(errorContainer);
    }
