@@ -46,7 +46,9 @@ export async function postFeed() {
     commentsHtml = comments
      .map(
       (e) => `
-      <div class="container" id="commentId-${e.id}">
+      <div class="d-flex flex-column p-2"> 
+      <h5>Comments</h5>
+      <div class="container card me-1 p-1" id="commentId-${e.id}">
         <div class="card-body">
             <p class="card-text">${e.body}</p>
         </div>
@@ -56,6 +58,7 @@ export async function postFeed() {
               <small class="text-muted">Published ${commentsTimeCreated}</small>
             </div>
       </div> 
+      </div>
     `
      )
      .join("");
@@ -71,8 +74,8 @@ export async function postFeed() {
     <div class="dropdown">
     <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><button class="dropdown-item" id="updatePost">Update</button></li>
-      <li><button class="dropdown-item" id="deletePost">Delete</button></li>
+      <li><button class="dropdown-item change-post" id="updatePost-id-${id}">Update</button></li>
+      <li><button class="dropdown-item change-post" id="deletePost-id-${id}">Delete</button></li>
     </ul>
   </div>`;
    }
@@ -81,11 +84,9 @@ export async function postFeed() {
     "div",
     {
      id: `post-id-${id}`,
-     class: "container-fluid d-flex justify-content-center",
+     class: "card container-fluid d-flex justify-content-center gap-3 p-0",
     },
-    `<div class="container m-0 p-0">
-    <div class="card">
-     <div class="card-header">
+    `<div class="card-header">
       <div class="d-flex flex-fill">
        <div class="d-flex flex-fill gap-2 align-items-center">
         ${userAvatar}
@@ -111,8 +112,8 @@ export async function postFeed() {
       </div>
      </div>
     </div>
-    <div>
-     <div class="d-none" id="comments-${id}">
+    <div class="d-none">
+     <div id="comments-${id}">
       <form action="" class="card p-2 mb-5">
        <div class="container">
         <div class="mb-3 gap-1">
