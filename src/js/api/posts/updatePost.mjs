@@ -24,18 +24,20 @@ async function displayAlert(postId) {
 
   const { id, title, body, tag, media } = request;
 
-  if (request.ok) {
-   const requestBody = JSON.stringify({
-    title: `${title}`,
-    body: `${body}`,
-    tags: [`${tag}`],
-    media: `${media}`,
-   });
+  if (request) {
+   let requestBody = {};
 
-   request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), JSON.parse(requestBody));
+   request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), requestBody);
   }
 
-  console.log(request)
+  let requestBody = {
+   title: `${title}`,
+   body: `${body}`,
+   tags: [`${tag}`],
+  };
+
+  console.log("Console logging requestBody", requestBody);
+  console.log("Console logging request", request);
 
   displayContent.innerHTML = `
   <form action="" class="card bg-theme-bg-sec p-2 mb-5">
@@ -50,7 +52,7 @@ async function displayAlert(postId) {
    </div>
    <div class="mb-3">
     <label for="post_tags" class="form-label">Tags</label>
-    <input type="text" class="form-control" id="post_tags" placeholder="Tags" />
+    <input type="text" class="form-control" id="post_tags" placeholder="Tags" value="${tag}"/>
    </div>
    <button type="submit" class="btn btn-theme-btn" name="update" value="yes">Update post</button>
   </div>
@@ -58,21 +60,19 @@ async function displayAlert(postId) {
 
   main.append(displayContent);
 
-  console.log("this is the id to delete", id);
+  console.log("this is the id to update", id);
 
   document.querySelector("button[value=yes]").addEventListener("click", (e) => {
    e.preventDefault();
 
    if (e) {
     const requestBody = {
-        title: `${title}`,
-        body: `${body}`,
-        tags: [`${tag}`],
-        media: `${media}`,
-       };
+     title: `"${title}"`,
+     body: `"${body}"`,
+     tags: [`"${tag}"`],
+    };
 
-    console.log(updatePost(id, requestBody));
-    
+    updatePost(id, requestBody);
    }
   });
  } catch (error) {
@@ -81,14 +81,14 @@ async function displayAlert(postId) {
 }
 
 async function updatePost(id, content) {
-    const callUrl = url + updatePostUrl + id
-    const userToken = localStorage.getItem("token")
-
+ const callUrl = url + updatePostUrl + id;
+ const userToken = localStorage.getItem("token");
 
  try {
   const request = await fetchApi(callUrl, "PUT", userToken, content);
-  const response = await request.JSON()
-  console.log(response)
+  console.log(content)
+  console.log(request)
+  debugger;
   return;
  } catch (error) {
   message("Error");
