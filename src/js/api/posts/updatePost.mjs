@@ -32,8 +32,7 @@ async function displayAlert(postId) {
     media: `${media}`,
    });
 
-   request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), requestBody);
-
+   request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), JSON.parse(requestBody));
   }
 
   console.log(request)
@@ -65,14 +64,14 @@ async function displayAlert(postId) {
    e.preventDefault();
 
    if (e) {
-    const content = JSON.stringify({
-     title: `${title}`,
-     body: `${body}`,
-     tags: [`${tag}`],
-     media: `${media}`,
-    });
+    const requestBody = {
+        title: `${title}`,
+        body: `${body}`,
+        tags: [`${tag}`],
+        media: `${media}`,
+       };
 
-    console.log(updatePost(id, content));
+    console.log(updatePost(id, requestBody));
     
    }
   });
@@ -82,8 +81,12 @@ async function displayAlert(postId) {
 }
 
 async function updatePost(id, content) {
+    const callUrl = url + updatePostUrl + id
+    const userToken = localStorage.getItem("token")
+
+
  try {
-  const request = await fetchApi(url + updatePostUrl + id, "PUT", localStorage.getItem("token"), content);
+  const request = await fetchApi(callUrl, "PUT", userToken, content);
   const response = await request.JSON()
   console.log(response)
   return;
