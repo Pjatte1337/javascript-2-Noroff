@@ -1,7 +1,7 @@
 /**
- * 
- * Fetch data from the API. 
- * 
+ *
+ * Fetch data from the API.
+ *
  * @param {*} url Pass in the url and endpoint you want to fetch
  * @param {*} method Pass in the method you want to use for the fetch. "GET", "PUT", "POST", "DELETE"
  * @param {*} token  This one will be loaded from localstorage. You can save it as a variable and use that variable to call or just add "localStorage.getItem("name-of-the-key")" to retrieve the value.
@@ -21,12 +21,16 @@ export async function fetchApi(url, method, token, data) {
   }
 
   if (method === "GET") {
-    fetchOptions.headers["Content-Type"] = "application/json";
-   }
+   fetchOptions.headers["Content-Type"] = "application/json";
+  }
 
-   if (method === "DELETE") {
-    fetchOptions.headers["Content-Type"] = "application/json";
-   }
+  if (method === "DELETE") {
+   fetchOptions.headers["Content-Type"] = "application/json";
+  }
+
+  if (method === "PUT") {
+   fetchOptions.headers["Content-Type"] = "application/json";
+  }
 
   if (token) {
    fetchOptions.headers["Authorization"] = `Bearer ${token}`;
@@ -36,20 +40,19 @@ export async function fetchApi(url, method, token, data) {
   const response = await request.json();
 
   if (response.accessToken) {
-    // Creating a shorter const for saving in local storage
-    const i = response;
+   // Creating a shorter const for saving in local storage
+   const i = response;
 
-    // Storing response in local storage
-    localStorage.setItem("token", i.accessToken);
-    localStorage.setItem("username", i.name);
-    localStorage.setItem("email", i.email);
-    localStorage.setItem("avatar", i.avatar);
+   // Storing response in local storage
+   localStorage.setItem("token", i.accessToken);
+   localStorage.setItem("username", i.name);
+   localStorage.setItem("email", i.email);
+   localStorage.setItem("avatar", i.avatar);
   }
   // console.log("Response", response);
   // console.log("Options", fetchOptions);
 
   return response;
-
  } catch (error) {
   console.log("Oh no!!", error.message);
  }

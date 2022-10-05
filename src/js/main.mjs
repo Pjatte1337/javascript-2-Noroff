@@ -47,7 +47,7 @@ async function router() {
 
   case "allPosts":
    postFeed();
-   buttonListener();
+   deletePostListener();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 

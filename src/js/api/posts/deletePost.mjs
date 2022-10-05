@@ -9,7 +9,7 @@ const url = apiVar.baseURL;
 const postDetails = apiVar.getPostsById + id;
 const deletePost = apiVar.deletePost + id;
 
-export function buttonListener(id) {
+export function deletePostListener(id) {
  document.querySelector(`button[id=deletePost-${id}]`).addEventListener("click", (e) => {
   displayAlert(id);
  });
