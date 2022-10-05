@@ -19,17 +19,24 @@ async function displayAlert(postId) {
  const main = document.querySelector("#confirm-action");
  const displayContent = document.createElement("div");
 
- const requestBody = {
-  title: "string",
-  body: "string",
-  tags: ["string"],
-  media: "string",
- };
-
  try {
-  const request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), requestBody);
+  let request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), null);
 
   const { id, title, body, tag, media } = request;
+
+  if (request.ok) {
+   const requestBody = JSON.stringify({
+    title: `${title}`,
+    body: `${body}`,
+    tags: [`${tag}`],
+    media: `${media}`,
+   });
+
+   request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), requestBody);
+
+  }
+
+  console.log(request)
 
   displayContent.innerHTML = `
   <form action="" class="card bg-theme-bg-sec p-2 mb-5">
@@ -58,14 +65,15 @@ async function displayAlert(postId) {
    e.preventDefault();
 
    if (e) {
-    const content = {
+    const content = JSON.stringify({
      title: `${title}`,
      body: `${body}`,
      tags: [`${tag}`],
      media: `${media}`,
-    };
+    });
 
-    updatePost(id, JSON.stringify(content));
+    console.log(updatePost(id, content));
+    
    }
   });
  } catch (error) {
@@ -75,7 +83,9 @@ async function displayAlert(postId) {
 
 async function updatePost(id, content) {
  try {
-  const request = await fetchApi(url + updatePostUrl + id, "PUT", localStorage.getItem("token"), JSON.parse(content));
+  const request = await fetchApi(url + updatePostUrl + id, "PUT", localStorage.getItem("token"), content);
+  const response = await request.JSON()
+  console.log(response)
   return;
  } catch (error) {
   message("Error");
