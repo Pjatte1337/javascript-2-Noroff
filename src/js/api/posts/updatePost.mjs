@@ -19,8 +19,15 @@ async function displayAlert(postId) {
  const main = document.querySelector("#confirm-action");
  const displayContent = document.createElement("div");
 
+ const requestBody = {
+  title: "string",
+  body: "string",
+  tags: ["string"],
+  media: "string",
+ };
+
  try {
-  const request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), null);
+  const request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), requestBody);
 
   const { id, title, body, tag, media } = request;
 
@@ -51,18 +58,14 @@ async function displayAlert(postId) {
    e.preventDefault();
 
    if (e) {
-
     const content = {
-        "title": `${title}`,
-        "body": `${body}`,
-        "tags": [
-            `${tag}`
-        ],
-        "media": `${media}`
-      }
+     title: `${title}`,
+     body: `${body}`,
+     tags: [`${tag}`],
+     media: `${media}`,
+    };
 
-
-    updatePost(id, content);
+    updatePost(id, JSON.stringify(content));
    }
   });
  } catch (error) {
@@ -72,7 +75,8 @@ async function displayAlert(postId) {
 
 async function updatePost(id, content) {
  try {
-  const request = await fetchApi(url + updatePostUrl + id, "PUT", localStorage.getItem("token"), content);
+  const request = await fetchApi(url + updatePostUrl + id, "PUT", localStorage.getItem("token"), JSON.parse(content));
+  return;
  } catch (error) {
   message("Error");
  }
