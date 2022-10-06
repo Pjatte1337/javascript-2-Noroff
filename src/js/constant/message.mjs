@@ -9,7 +9,7 @@ export function message(type) {
    
     // Setting the innerHTML of the message
     const error = "Oh no. Something really bad went wrong here.... Try again later";
-    const success = "Oh yes. everything went well!";
+    const success = "Congratulations! You are now registered with The Social Universe";
     const alert = "THIS IS AN ALERT FROM THE CREATOR";
     const warning = "THIS IS A WARNING";
     const notValidUser = "We could not find a registered user with that email or password. Please try again or register a user"

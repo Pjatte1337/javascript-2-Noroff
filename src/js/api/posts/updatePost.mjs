@@ -36,47 +36,60 @@ async function displayAlert(postId) {
    tags: [`${tag}`],
   };
 
-  console.log("Console logging requestBody", requestBody);
-  console.log("Console logging request", request);
+  //   console.log("Console logging requestBody", requestBody);
+  //   console.log("Console logging request", request);
 
   displayContent.innerHTML = `
-  <form action="" class="card bg-theme-bg-sec p-2 mb-5">
+  <form method="PUT" class="card bg-theme-bg-sec p-2 mb-5" id="updatePost}">
   <div class="container">
    <div class="mb-3">
     <label for="post_title" class="form-label">Title</label>
-    <input type="text" class="form-control" id="post_title" placeholder="Title" value="${title}"/>
+    <input type="text" class="form-control" id="post_title" placeholder="Title" value="${title} name="Title"/>
    </div>
    <div class="mb-3">
     <label class="form-label">New post</label>
-    <textarea class="form-control" id="FormControlTextarea" rows="3">${body}</textarea>
+    <textarea class="form-control" id="FormControlTextarea" rows="3" name="body">${body}</textarea>
    </div>
    <div class="mb-3">
     <label for="post_tags" class="form-label">Tags</label>
-    <input type="text" class="form-control" id="post_tags" placeholder="Tags" value="${tag}"/>
+    <input type="text" class="form-control" id="post_tags" placeholder="Tags" value="${tag}" name="tag"/>
    </div>
-   <button type="submit" class="btn btn-theme-btn" name="update" value="yes">Update post</button>
+   <button type="button" class="btn btn-theme-btn" name="update" value="yes" id="formButton">Update post</button>
   </div>
  </form>`;
 
   main.append(displayContent);
 
-  console.log("this is the id to update", id);
+  //   console.log("this is the id to update", id);
+  formListener();
+ } catch (error) {
+  console.log(error);
+ }
+}
 
-  document.querySelector("button[value=yes]").addEventListener("click", (e) => {
-   e.preventDefault();
+function formListener() {
+ const formButton = document.querySelector(`#formButton`);
 
-   if (e) {
+ if (formButton) {
+  formButton.addEventListener("click", (event) => {
+   event.preventDefault();
+
+   const form = document.querySelector(`#updatePost`);
+   const formData = new FormData(form);
+   const newData = Object.fromEntries(formData.entries());
+
+   if (event) {
+    console.log("New form data", newData);
+
     const requestBody = {
      title: `${title}`,
      body: `${body}`,
      tags: [`${tag}`],
     };
-
-    updatePost(id, requestBody);
+    // send it to API
+    console.log(updatePost(id, requestBody));
    }
   });
- } catch (error) {
-  console.log(error);
  }
 }
 
