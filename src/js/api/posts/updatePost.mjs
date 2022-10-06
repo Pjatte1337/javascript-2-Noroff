@@ -67,9 +67,9 @@ async function displayAlert(postId) {
 
    if (e) {
     const requestBody = {
-     title: `"${title}"`,
-     body: `"${body}"`,
-     tags: [`"${tag}"`],
+     title: `${title}`,
+     body: `${body}`,
+     tags: [`${tag}`],
     };
 
     updatePost(id, requestBody);
