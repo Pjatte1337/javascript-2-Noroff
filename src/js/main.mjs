@@ -6,7 +6,7 @@ import { display404Page } from "./constant/404page.mjs";
 import { checkUserStatus } from "./constant/statcheck.mjs";
 import { postFeed } from "./api/posts/postFeed.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
-import { setRegisterFormListner } from "./constant/register.mjs";
+import { setRegisterFormListener as setRegisterFormListener } from "./utils/listener/register.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -30,6 +30,8 @@ async function router() {
  switch (routeName) {
   // Executing sign in function if the location is based on the log in location
   case "index":
+   // register form
+   setRegisterFormListener();
    user.formEvent();
    checkUserStatus(localStorage.getItem("token"));
    generateFooter();
@@ -47,7 +49,7 @@ async function router() {
 
   case "allPosts":
    postFeed();
-   buttonListener();
+   deletePostListener();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
@@ -68,6 +70,3 @@ async function router() {
  }
 }
 router();
-
-// register form
-setRegisterFormListner();
