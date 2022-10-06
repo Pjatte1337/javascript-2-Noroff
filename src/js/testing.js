@@ -47,4 +47,3 @@ export async function getUserPosts() {
   console.log("There was a problem retrieving the user posts", err);
  }
 }
-   
