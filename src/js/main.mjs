@@ -49,17 +49,19 @@ async function router() {
 
   case "allPosts":
    postFeed();
-   deletePostListener();
+   generateFooter();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
   case "postItemByID":
    postItemByID();
+   generateFooter();
    document.querySelector("title").innerText = defaultTitle + ` || Post`;
    break;
 
   case "testing":
    postFeed();
+   generateFooter();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
