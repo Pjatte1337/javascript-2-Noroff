@@ -29,6 +29,7 @@ export async function fetchApi(url, method, token, data) {
   }
 
   if (method === "PUT") {
+   fetchOptions.body = JSON.stringify(data);
    fetchOptions.headers["Content-Type"] = "application/json; charset=UTF-8";
   }
 

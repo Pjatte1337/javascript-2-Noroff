@@ -28,7 +28,7 @@ export const follow = `/social/profiles/${name}}/follow`;
 export const unFollow = `/social/profiles/${name}/unfollow`;
 
 // Endpoint for everything related to posts
-export const getPosts = `/social/posts/?_author=true&_comments=true&_reactions=true&limit=300&sort=created`;
+export const getPosts = `/social/posts/?_author=true&_comments=true&_reactions=true&limit=600&sort=created`;
 export const getPostsById = `/social/posts/${id}`;
 export const putPost = `/social/posts/`;
 export const deletePost = `/social/posts/`;

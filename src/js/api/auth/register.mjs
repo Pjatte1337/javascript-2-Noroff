@@ -1,4 +1,5 @@
 import { API_SOCIAL_URL } from "../../constant/variables.mjs";
+import { message } from "../../constant/message.mjs";
 
 const action = "/auth/register";
 const method = "post";
@@ -18,7 +19,8 @@ export async function register(profile) {
  });
 
  const result = await response.json();
- alert("Congratulations! You are now registered with The Social Universe");
+ message("success")
+ 
  console.log(result);
  return result;
 }

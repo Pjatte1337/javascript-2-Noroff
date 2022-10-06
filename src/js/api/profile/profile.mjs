@@ -28,18 +28,20 @@ if (userInfoContainer) {
     "div",
     {
      id: `profileCard`,
-     class: "card",
+     class: "container-fluid d-flex justify-content-center",
     },
-    `<div class="card-body">
+    `<div class="card">
+    <div class="card-body">
       <img src="${avatar}" class="image"/>
       <h4 class="card-title">${name}</h4>
-      <div class="m">
+      <div class="">
       <ul class="list-group">
          <li class="list-group-item">Posts: ${_count.posts}</li>
          <li class="list-group-item">Followers: ${_count.followers}</li>
          <li class="list-group-item">Following: ${_count.following}</li>
         </ul>
       </div>
+     </div>
      </div>`
    );
 
