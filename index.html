@@ -90,29 +90,27 @@
 
        <div class="modal-body">
 
-        <form id="registerForm">
-          <div class="container-md custom-w">
-            <div class="input-group mt-3">
-              <span class="input-group-text">Username</span>
-              <input type="text" class="form-control py-3" name="name" id="username" placeholder="username" aria-label="username" required pattern="^[\w]+$" title="Username must only contain lower case and uppercase letters, numbers and underscore"/>
+        <form id="registerForm" class="d-flex flex-column gap-3 needs-validation">
+            <div class="form-group was-validated">
+              <label class="form-label" for="reg-username">Username</label>
+              <input type="text" class="form-control py-3" name="name" id="reg-username" placeholder="username" aria-label="username" required pattern="^[\w]+$" title="Username must only contain lower case and uppercase letters, numbers and underscore"/>
             </div>
-            <div class="input-group mt-3"> <span class="input-group-text material-symbols-outlined">Email</span>
-              <input type="email" class="form-control py-3" name="email" id="email" placeholder="email" aria-label="email" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only users with @noroff.no or @stud.noroff.no email can register profile"/>
+            <div class="form-group was-validated">
+              <label class="form-label" for="reg-email">Email address</label>
+              <input type="email" class="form-control py-3" name="email" id="reg-email" placeholder="email" aria-label="email" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only users with @noroff.no or @stud.noroff.no email can register profile"/>
             </div>
-            <div class="input-group mt-3">
-              <span class="input-group-text material-symbols-outlined">Password</span>
+            <div class="form-group was-validated">
+              <label class="form-label" for="reg-Password">Password</label>
               <input
-                type="password" class="form-control py-3" name="password" id="password" placeholder="password" aria-label="password" required minlength="8" title="Must be at least 8 characters long"/>
+                type="password" class="form-control py-3" name="password" id="reg-Password" placeholder="password" aria-label="password" required minlength="8" title="Must be at least 8 characters long"/>
             </div>
-            <div class="input-group my-1">
-              <span class="input-group-text material-symbols-outlined">Password</span>
-              <input
-                type="password" class="form-control py-3" name="password" id="password-repeat" placeholder="repeat password" aria-label="password" required minlength="8"/>
+            <div class="form-group was-validated">
+              <label class="form-label" for="reg-Password-confirm">Repeat password</label>
+              <input type="password" class="form-control py-3" name="password" id="reg-Password-confirm" placeholder="repeat password" aria-label="password" required minlength="8"/>
             </div>
-            <div class="d-grid mt-5 mb-1">
+            <div>
               <button type="submit" class="btn btn-outline-theme text-black w-100"" id="sign-up"> Register </button>
             </div>
-          </div>
         </form>
        </div>
       </div>

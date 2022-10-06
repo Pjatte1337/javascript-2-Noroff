@@ -86,8 +86,8 @@ async function updatePost(id, content) {
 
  try {
   const request = await fetchApi(callUrl, "PUT", userToken, content);
-  console.log(content)
-  console.log(request)
+  console.log(content);
+  console.log(request);
   debugger;
   return;
  } catch (error) {
