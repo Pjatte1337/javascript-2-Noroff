@@ -21,30 +21,26 @@ async function displayAlert(postId) {
 
  try {
   let request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), null);
-
   const { id, title, body, tag, media } = request;
 
   if (request) {
    let requestBody = {};
-
-   request = await fetchApi(url + postDetails + postId, "GET", localStorage.getItem("token"), requestBody);
+   request = await fetchApi(url + postDetails + id, "GET", localStorage.getItem("token"), requestBody);
   }
 
-  let requestBody = {
-   title: `${title}`,
-   body: `${body}`,
-   tags: [`${tag}`],
-  };
+  const response = await request;
+
+  let requestBody = response;
 
   //   console.log("Console logging requestBody", requestBody);
-  //   console.log("Console logging request", request);
+  //   console.log("Console logging request", requestBody);
 
   displayContent.innerHTML = `
-  <form method="PUT" class="card bg-theme-bg-sec p-2 mb-5" id="updatePost}">
+  <form class="card bg-theme-bg-sec p-2 mb-5" id="updatePost">
   <div class="container">
    <div class="mb-3">
     <label for="post_title" class="form-label">Title</label>
-    <input type="text" class="form-control" id="post_title" placeholder="Title" value="${title} name="Title"/>
+    <input type="text" class="form-control" id="post_title" placeholder="Title" value="${title}" name="title"/>
    </div>
    <div class="mb-3">
     <label class="form-label">New post</label>
@@ -54,41 +50,31 @@ async function displayAlert(postId) {
     <label for="post_tags" class="form-label">Tags</label>
     <input type="text" class="form-control" id="post_tags" placeholder="Tags" value="${tag}" name="tag"/>
    </div>
-   <button type="button" class="btn btn-theme-btn" name="update" value="yes" id="formButton">Update post</button>
+   <button type="submit" class="btn btn-theme-btn" id="formButton">Update post</button>
   </div>
  </form>`;
 
   main.append(displayContent);
-
-  //   console.log("this is the id to update", id);
-  formListener();
+  formListener(id);
  } catch (error) {
   console.log(error);
  }
 }
 
-function formListener() {
- const formButton = document.querySelector(`#formButton`);
+function formListener(id) {
+ const form = document.querySelector("#updatePost");
 
- if (formButton) {
-  formButton.addEventListener("click", (event) => {
+ if (form) {
+  form.addEventListener("submit", (event) => {
    event.preventDefault();
 
-   const form = document.querySelector(`#updatePost`);
+   const form = event.target;
    const formData = new FormData(form);
    const newData = Object.fromEntries(formData.entries());
 
-   if (event) {
-    console.log("New form data", newData);
-
-    const requestBody = {
-     title: `${title}`,
-     body: `${body}`,
-     tags: [`${tag}`],
-    };
-    // send it to API
-    console.log(updatePost(id, requestBody));
-   }
+   // console.log("New form data", newData);
+   // send it to API
+   updatePost(id, newData);
   });
  }
 }
@@ -96,13 +82,9 @@ function formListener() {
 async function updatePost(id, content) {
  const callUrl = url + updatePostUrl + id;
  const userToken = localStorage.getItem("token");
-
  try {
   const request = await fetchApi(callUrl, "PUT", userToken, content);
-  console.log(content);
-  console.log(request);
-  debugger;
-  return;
+  window.location.reload();
  } catch (error) {
   message("Error");
  }
