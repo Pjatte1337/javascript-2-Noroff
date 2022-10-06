@@ -51,6 +51,19 @@
    </nav>
   </header>
   <main>
+   <form class="container-fluid d-flex gap-5 mt-5 justify-content-center" id="deletePost-${id}">
+    <div class="d-flex flex-column card p-5">
+     <div class="d-flex flex-column">
+        <h4 class="align-self-center">Delete post</h4>
+        <p class="align-self-center">Are you sure you want to delete the post with title - ${title}?</p>
+     </div>
+     <div class="d-flex gap-2 justify-content-center">
+        <button type="submit" class="btn btn-theme-bg-sec" name="confirm" value="yes">Yes</button>
+        <button type="submit" class="btn btn-theme-bg-sec" name="confirm" value="no">no</button>
+     </div>
+    </div>
+   </form>
+
    <form class="container-fluid d-flex gap-5 mt-5">
     <div class="d-flex flex-column">
      <h6>Sort by date</h6>
