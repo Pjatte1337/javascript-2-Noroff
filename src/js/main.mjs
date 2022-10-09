@@ -7,6 +7,7 @@ import { checkUserStatus } from "./constant/statcheck.mjs";
 import { postFeed } from "./api/posts/postFeed.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
 import { setRegisterFormListener as setRegisterFormListener } from "./utils/listener/register.mjs";
+import { waitForData } from "./api/posts/comments.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -56,6 +57,7 @@ async function router() {
   case "postItemByID":
    postItemByID();
    generateFooter();
+   waitForData()
    document.querySelector("title").innerText = defaultTitle + ` || Post`;
    break;
 
