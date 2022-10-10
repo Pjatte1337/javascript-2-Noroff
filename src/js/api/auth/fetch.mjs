@@ -8,6 +8,8 @@
  * @param {*} data Here you will add the information to pass to stringify in the body of the call. Create a variable, make a object and pass in the object name.
  */
 
+import { header } from "../../constant/variables.mjs";
+
 export async function fetchApi(url, method, token, data) {
  try {
   const fetchOptions = {
@@ -57,4 +59,25 @@ export async function fetchApi(url, method, token, data) {
  } catch (error) {
   console.log("Oh no!!", error.message);
  }
+}
+
+
+// Create Post
+const token = localStorage.getItem("token");
+
+export function headers () {
+    const token = load("token");
+
+    return {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    }
+}
+
+
+export async function authFetch(url, Options) {
+    return fetch (url, {
+        ...options,
+        headers: headers()
+    })
 }

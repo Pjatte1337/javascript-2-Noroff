@@ -10,9 +10,11 @@ import { setRegisterFormListener as setRegisterFormListener } from "./utils/list
 import { waitForData } from "./api/posts/comments.mjs";
 import { filteringData } from "./api/posts/functions/filter.mjs";
 import { userSearch } from "./api/posts/functions/search.mjs";
+import { createPost } from "./api/posts/createPost.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
+import { posts } from "./api/posts/feed.mjs";
 
 // Creating variables to use in the if statement under
 const logOutButton = document.querySelector("#logout");
@@ -76,3 +78,8 @@ async function router() {
  }
 }
 router();
+
+createPost ({
+  title:"test",
+  body: "test2"
+})
