@@ -1,7 +1,7 @@
 import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
-import { changeTimeFormat } from "../../constant/changeTime.mjs";
+import { changeTimeFormat } from "../../utils/changeTime.mjs";
 import { deletePostListener } from "./deletePost.mjs";
 import { updatePostListener } from "./updatePost.mjs";
 
