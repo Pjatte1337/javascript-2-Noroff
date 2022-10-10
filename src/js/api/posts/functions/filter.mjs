@@ -2,10 +2,9 @@ import { postFeedMap } from "../feed.mjs";
 
 const filtering = document.querySelector("#filterContainer");
 
-console.log(filtering.childNodes);
-
 export async function filteringData() {
- if (filtering) {
+ if (!filtering) {
+  console.log(filtering.childNodes);
   const fetchData = await postFeedMap();
   const postData = fetchData;
   const newArray = [...postData];
