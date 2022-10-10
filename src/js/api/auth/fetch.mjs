@@ -62,22 +62,3 @@ export async function fetchApi(url, method, token, data) {
 }
 
 
-// Create Post
-const token = localStorage.getItem("token");
-
-export function headers () {
-    const token = load("token");
-
-    return {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-    }
-}
-
-
-export async function authFetch(url, Options) {
-    return fetch (url, {
-        ...options,
-        headers: headers()
-    })
-}
