@@ -56,37 +56,32 @@
      <h1 class="d-flex justify-content-center p-5 m-5">Latest posts</h1>
      <div class="col-xl-6 col-md-8 mb-5 container-fluid">
       <div class="d-flex flex-column gap-5">
-        <form>
-            <div class="container d-flex gap-4 flex-column">
-              <div class="d-flex justify-content-evenly">
-                <div class="d-flex gap-2 flex-column">
-                  <h5>Sort by date</h5>
-                  <div>
-                    <label for="oldNew"><input type="radio" name="&sortOrder" value="desc" id="oldNew" class="form-check-inline" />Old-New</label>
-                  </div>
-                </div>
-          
-                <div class="d-flex gap-2 flex-column">
-                  <h5>Sort by likes</h5>
-                  <div>
-                    <label for="lowHigh"><input type="radio" name="lowHigh" id="lowHigh" class="form-check-inline" />Low-high</label>
-                  </div>
-                  <div>
-                    <label for="highLow"><input type="radio" name="highLow" id="highLow" class="form-check-inline" />High-low</label>
-                  </div>
-                </div>
-              </div>
-          
-              <div class="d-flex gap-2 flex-column">
-                <div>
-                  <input class="form-control me-2 disabled" type="search" placeholder="Search author" aria-label="Search" id="postSearch" data-search />
-                </div>
-                <div>
-                  <button class="btn btn-outline-theme text-black" type="submit">Search</button>
-                </div>
-              </div>
-            </div>
-          </form>
+       <div class="container d-flex gap-4 flex-column">
+        <div class="d-flex justify-content-evenly">
+         <div class="d-flex gap-2 flex-column">
+          <h5>Sort by date</h5>
+          <div>
+           <label for="oldNew"><input type="checkbox" name="&sortOrder" value="desc" id="oldNew" class="form-check-inline" />Old-New</label>
+          </div>
+         </div>
+
+         <div class="d-flex gap-2 flex-column">
+          <h5>Sort by likes</h5>
+          <div>
+           <label for="lowHigh"><input type="checkbox" name="lowHigh" id="lowHigh" class="form-check-inline" />Low-high</label>
+          </div>
+          <div>
+           <label for="highLow"><input type="checkbox" name="highLow" id="highLow" class="form-check-inline" />High-low</label>
+          </div>
+         </div>
+        </div>
+
+        <div class="d-flex gap-2 flex-column">
+         <div>
+          <input class="form-control me-2 disabled" type="search" placeholder="Search author" aria-label="Search" id="postSearch" data-search />
+         </div>
+        </div>
+       </div>
        <div id="post-feed" class="d-flex flex-column gap-3 justify-content-center"></div>
       </div>
      </div>

@@ -26,7 +26,6 @@ export function userSearch() {
 async function postFeed() {
  try {
   let request = await fetchApi(fetchUrl, "GET", token, null);
-  console.log(request);
   posts = request.map((e) => {
    return {
     // Author related

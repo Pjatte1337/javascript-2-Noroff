@@ -28,10 +28,8 @@ export async function postFeedMap() {
     posted: e.created,
     updated: e.updated,
     // Numbers related to post
-    _count: {
-     comments: e.comments,
-     reactions: e.reactions,
-    },
+    count: e._count,
+    reactNum: e._count.reactions,
     // Comments on post
     com: e.comments, // This is an array
     // Reaction to post
@@ -40,6 +38,12 @@ export async function postFeedMap() {
     tag: e.tags, // This is an array
    };
   });
+
+  console.log("New array", posts)
+
+  return posts;
+
+
  } catch (err) {
   console.log("There was a problem retrieving the user posts", err);
  }
