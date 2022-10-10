@@ -15,9 +15,9 @@ let posts = [];
 
 searchInput.addEventListener("input", (e) => {
  const value = e.target.value.toLowerCase();
- posts.forEach((post) => {
-  const isVisible = post.title.includes(value) || post.authorName.includes(value);
-  document.querySelector("#post-feed").children[0].classList.toggle("d-none", !isVisible);
+ posts.forEach((post, index) => {
+  const isVisible = post.title.toLowerCase().includes(value) || post.authorName.toLowerCase().includes(value) || post.title.toLowerCase().includes(value);
+  document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
  });
 });
 
