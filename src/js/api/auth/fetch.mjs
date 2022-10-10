@@ -60,5 +60,3 @@ export async function fetchApi(url, method, token, data) {
   console.log("Oh no!!", error.message);
  }
 }
-
-
