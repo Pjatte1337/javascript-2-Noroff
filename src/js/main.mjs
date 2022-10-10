@@ -57,7 +57,7 @@ async function router() {
   case "postItemByID":
    postItemByID();
    generateFooter();
-   waitForData()
+   waitForData();
    document.querySelector("title").innerText = defaultTitle + ` || Post`;
    break;
 
