@@ -50,48 +50,14 @@
     </div>
    </nav>
   </header>
-  <main>
-   <form class="container-fluid d-flex gap-5 mt-5 justify-content-center" id="deletePost-${id}">
-    <div class="d-flex flex-column card p-5">
-     <div class="d-flex flex-column">
-        <h4 class="align-self-center">Delete post</h4>
-        <p class="align-self-center">Are you sure you want to delete the post with title - ${title}?</p>
-     </div>
-     <div class="d-flex gap-2 justify-content-center">
-        <button type="submit" class="btn btn-theme-bg-sec" name="confirm" value="yes">Yes</button>
-        <button type="submit" class="btn btn-theme-bg-sec" name="confirm" value="no">no</button>
-     </div>
+  <main class="flex-grow-1">
+   <div class="d-flex justify-content-evenly">
+    <div id="filterContainer">
+     <button class="btn" name="date" value="oldNew">Date old/new</button>
+     <button class="btn" name="like" value="lowHigh">Ratings low/high</button>
+     <button class="btn" name="like" value="highLow">Ratings high/low</button>
     </div>
-   </form>
-
-   <form class="container-fluid d-flex gap-5 mt-5">
-    <div class="d-flex flex-column">
-     <h6>Sort by date</h6>
-     <div class="d-flex">
-      <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> New to Old</label>
-     </div>
-     <div class="d-flex">
-      <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> Old to New</label>
-     </div>
-    </div>
-
-    <div class="d-flex flex-column">
-     <h6>Sort by likes</h6>
-     <div class="d-flex">
-      <label for="newOld"><input type="checkbox" name="newOld" id="newOld" /> New to Old</label>
-     </div>
-     <div class="d-flex">
-      <label for="oldNew"><input type="checkbox" name="oldNew" id="oldNew" /> Old to New</label>
-     </div>
-    </div>
-
-    <div class="d-flex flex-column">
-     <div class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-      <button class="btn btn-outline-theme text-black" type="submit">Search</button>
-     </div>
-    </div>
-   </form>
+   </div>
   </main>
 
   <footer class="bg-theme-bg-sec"></footer>
