@@ -5,24 +5,39 @@ const dateRadio = document.getElementById("oldNew");
 const likeLowRadio = document.getElementById("lowHigh");
 const likeHighRadio = document.getElementById("highLow");
 
-export function test() {
+async function dateCompare(a, b) {
+ const postData = await postFeedMap();
+ const created = postData.posted;
+ // return a.created - b.created
+}
+
+export async function test() {
+ const postData = await postFeedMap();
+
  dateRadio.addEventListener("click", () => {
-  postData.sort(dateCompare);
+  postData.sort();
  });
 }
 
-async function dateCompare(a, b) {
-    const postData = await postFeedMap();
+// DO NOT USE THIS!!!
 
-    const likes = postData._count.reactions;
-    console.log(likes)
-}
+// export async function test() {
+//     const postData = await postFeedMap();
 
-async function testFetch(){
-    const postData = await postFeedMap();
+//     const posted = postData.map((e) => e.posted);
+//     const updated = postData.map((e) => e.updated);
+//     console.log("Posted date", posted);
+//     console.log("updated date", updated);
 
-    const likes = postData.map(e => e.reactNum)
-    likes.sort((a,b) => b - a)
-    console.log(likes)
-}
-testFetch()
+//     dateRadio.addEventListener("click", () => {
+//      postData.sort(dateCompare);
+//     });
+//    }
+
+//    async function dateCompare(a, b) {
+//     const postData = await postFeedMap();
+
+//     const posted = postData.map((e) => e.posted);
+//     const updated = postData.map((e) => e.updated);
+//     return a.posted - b.updated;
+//    }
