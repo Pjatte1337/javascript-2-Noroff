@@ -24,11 +24,22 @@ export async function filteringData(switchOption) {
    case "date":
     filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
     break;
+
+   case "likeHigh":
+    filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
+    break;
+
+   case "likeLow":
+    filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
+    break;
   }
  }
 }
 
-
-function eventListener(){
-    
+function listener(name, sort) {
+ const btn = document.getElementById(`${name}`);
+ btn.addEventListener("click", filteringData(sort));
 }
+const dateFilter = listener("date", "date");
+const likeLowFilter = listener("likeLow", "likeLow");
+const likeHeighFilter = listener("likeHigh", "likeHigh");

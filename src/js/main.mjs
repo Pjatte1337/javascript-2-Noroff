@@ -55,7 +55,7 @@ async function router() {
    postFeed();
    generateFooter();
    userSearch();
-   filteringData();
+  //  filteringData();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
