@@ -1,5 +1,6 @@
 import { fetchApi } from "../../../constant/fetch.mjs";
 import * as apiVar from "../../../constant/variables.mjs";
+
 // Retrieving items from storage
 const token = localStorage.getItem("token");
 
@@ -15,7 +16,7 @@ let posts = [];
 searchInput.addEventListener("input", (e) => {
  const value = e.target.value.toLowerCase();
  posts.forEach((post) => {
-  const isVisible = post.title.includes(value) || post.author.includes(value);
+  const isVisible = post.title.includes(value) || post.authorName.includes(value);
   document.querySelector("#post-feed").children[0].classList.toggle("d-none", !isVisible);
  });
 });
@@ -23,8 +24,33 @@ searchInput.addEventListener("input", (e) => {
 async function postFeed() {
  try {
   let request = await fetchApi(fetchUrl, "GET", token, null);
+  console.log(request);
   posts = request.map((e) => {
-   return { title: e.title, body: e.body, author: e.author.name, postId: e.id };
+   return {
+    // Author related
+    authorName: e.author.name,
+    authorEmail: e.author.email,
+    authorAvatar: e.author.avatar,
+    // Post related
+    title: e.title,
+    body: e.body,
+    postId: e.id,
+    postImage: e.media,
+    // Dates
+    posted: e.created,
+    updated: e.updated,
+    // Numbers related to post
+    _count: {
+     comments: e.comments,
+     reactions: e.reactions,
+    },
+    // Comments on post
+    com: e.comments, // This is an array
+    // Reaction to post
+    react: e.reactions, // This is an array
+    // Post Tags
+    tag: e.tags, // This is an array
+   };
   });
  } catch (err) {
   console.log("There was a problem retrieving the user posts", err);
