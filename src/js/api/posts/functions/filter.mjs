@@ -1,6 +1,6 @@
 import { postFeedMap } from "../feed.mjs";
 
-export async function filteringData() {
+export async function filteringData(value) {
  const filtering = document.querySelector("#filterContainer");
 
  // Looking for the Filter container to avoid error if it is missing
@@ -9,35 +9,37 @@ export async function filteringData() {
   const fetchData = await postFeedMap();
   const postData = fetchData;
   const newArray = [...postData];
- }
-}
 
-function switchOption(value) {
- let filteredData = [];
+  let filteredData = [];
 
- switch (value) {
-  default:
-   filteredData = newArray;
-   break;
+  switch (value) {
+   default:
+    filteredData = newArray;
+    break;
 
-  case "date":
-   filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
-   break;
+   case "date":
+    filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
+    break;
 
-  case "likeHigh":
-   filteringData = filteredData.sort((a, b) => a - b);
-   break;
+   case "likeHigh":
+    filteringData = filteredData.sort((a, b) => a - b);
+    break;
 
-  case "likeLow":
-   filteringData = filteredData.sort((a, b) => a - b);
-   break;
+   case "likeLow":
+    filteringData = filteredData.sort((a, b) => a - b);
+    break;
+  }
  }
 }
 
 function listener(name, sort) {
  const btn = document.getElementById(`${name}`);
- btn.addEventListener("click", filteringData(sort));
+ function addListener() {
+  filteringData(sort);
+ }
+ btn.addEventListener("click", addListener);
 }
+
 const dateFilter = listener("date", "date");
 const likeLowFilter = listener("likeLow", "likeLow");
 const likeHeighFilter = listener("likeHigh", "likeHigh");
