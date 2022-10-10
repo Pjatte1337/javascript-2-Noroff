@@ -36,9 +36,7 @@ async function router() {
    user.formEvent();
    checkUserStatus(localStorage.getItem("token"));
    generateFooter();
-
    document.querySelector("title").innerText = defaultTitle + ` || Homepage`;
-
    break;
 
   // Executing the the function for the profile page layout
