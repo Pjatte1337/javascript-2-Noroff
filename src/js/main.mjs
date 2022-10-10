@@ -8,7 +8,7 @@ import { postFeed } from "./api/posts/postFeed.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
 import { setRegisterFormListener as setRegisterFormListener } from "./utils/listener/register.mjs";
 import { waitForData } from "./api/posts/comments.mjs";
-import { filteringData } from "./api/posts/functions/filter.mjs";
+// import { filteringData } from "./api/posts/functions/filter.mjs";
 import { userSearch } from "./api/posts/functions/search.mjs";
 import { createPosts } from "./api/posts/createPost.mjs";
 
