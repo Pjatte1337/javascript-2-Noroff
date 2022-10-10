@@ -1,5 +1,17 @@
 import { postFeedMap } from "../feed.mjs";
 
+function listener(name, sort) {
+ const btn = document.getElementById(`${name}`);
+ function addListener() {
+  filteringData(sort);
+ }
+ btn.addEventListener("click", addListener);
+}
+
+const dateFilter = listener("date", "date");
+const likeLowFilter = listener("likeLow", "likeLow");
+const likeHeighFilter = listener("likeHigh", "likeHigh");
+
 export async function filteringData(value) {
  const filtering = document.querySelector("#filterContainer");
 
@@ -31,15 +43,3 @@ export async function filteringData(value) {
   }
  }
 }
-
-function listener(name, sort) {
- const btn = document.getElementById(`${name}`);
- function addListener() {
-  filteringData(sort);
- }
- btn.addEventListener("click", addListener);
-}
-
-const dateFilter = listener("date", "date");
-const likeLowFilter = listener("likeLow", "likeLow");
-const likeHeighFilter = listener("likeHigh", "likeHigh");
