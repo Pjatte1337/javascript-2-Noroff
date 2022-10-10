@@ -7,6 +7,9 @@ import { checkUserStatus } from "./constant/statcheck.mjs";
 import { postFeed } from "./api/posts/postFeed.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
 import { setRegisterFormListener as setRegisterFormListener } from "./utils/listener/register.mjs";
+import { waitForData } from "./api/posts/comments.mjs";
+import { test } from "./api/posts/functions/filter.mjs";
+import { userSearch } from "./api/posts/functions/search.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -35,9 +38,7 @@ async function router() {
    user.formEvent();
    checkUserStatus(localStorage.getItem("token"));
    generateFooter();
-
    document.querySelector("title").innerText = defaultTitle + ` || Homepage`;
-
    break;
 
   // Executing the the function for the profile page layout
@@ -50,12 +51,15 @@ async function router() {
   case "allPosts":
    postFeed();
    generateFooter();
+   userSearch();
+   test();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
   case "postItemByID":
    postItemByID();
    generateFooter();
+   waitForData();
    document.querySelector("title").innerText = defaultTitle + ` || Post`;
    break;
 

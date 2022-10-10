@@ -1,7 +1,7 @@
 import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
-import { changeTimeFormat } from "../../constant/changeTime.mjs";
+import { changeTimeFormat } from "../../utils/changeTime.mjs";
 import { deletePostListener } from "./deletePost.mjs";
 import { updatePostListener } from "./updatePost.mjs";
 
@@ -90,7 +90,7 @@ export async function getUserPosts() {
      "div",
      {
       id: `post-id-${id}`,
-      class: "card container-fluid d-flex justify-content-center p-0 m-0",
+      class: "card container-fluid d-flex justify-content-center p-0 m-0 post_feed_content",
      },
      `<div class="card-header">
            <div class="d-flex flex-fill">
@@ -113,14 +113,14 @@ export async function getUserPosts() {
             <small class="text-muted">Last updated ${formattedUpdated}</small>
            </div>
              <div class="mt-2">
-             <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${_count.comments}</button>
+             <button class="btn" id="btn-comment"><i class="fa-regular fa-comment"></i> ${_count.comments}</button>
              <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${_count.reactions}</button>
              </div>
            </div>
          </div>
          <div>
          <div class="d-none" id="comments-${id}">
-         <form action="" class="card p-2 mb-5">
+         <form action="" class="card p-2 mb-5" id="comments_form">
           <div class="container">
            <div class="mb-3 gap-1">
             <textarea class="form-control"></textarea>

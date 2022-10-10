@@ -1,7 +1,7 @@
 import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
-import { changeTimeFormat } from "../../constant/changeTime.mjs";
+import { changeTimeFormat } from "../../utils/changeTime.mjs";
 
 // Retrieving items from storage
 const token = localStorage.getItem("token");
@@ -105,13 +105,12 @@ export async function postItemByID() {
        <small class="text-muted">Last updated ${formattedUpdated}</small>
       </div>
       <div class="mt-2">
-       <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${_count.comments}</button>
+       <button type="button" class="btn" id="btn-comments" name="openComments"><i class="fa-regular fa-comment"></i> ${_count.comments}</button>
        <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${_count.reactions}</button>
       </div>
      </div>
     </div>
-    <div>
-     <div class="d-none" id="comments-${id}">
+     <div class="d-none" id="comments">
       <form action="" class="card p-2 mb-5">
        <div class="container">
         <div class="mb-3 gap-1">
@@ -120,9 +119,8 @@ export async function postItemByID() {
         </div>
        </div>
       </form>
-     </div>
-     ${commentsHtml}
-    </div>`
+      ${commentsHtml}
+     </div>`
   );
 
   feedContainer.append(card);
