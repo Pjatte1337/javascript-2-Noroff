@@ -8,6 +8,8 @@ import { postFeed } from "./api/posts/postFeed.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
 import { setRegisterFormListener as setRegisterFormListener } from "./utils/listener/register.mjs";
 import { waitForData } from "./api/posts/comments.mjs";
+import { test } from "./api/posts/functions/filter.mjs";
+import { userSearch } from "./api/posts/functions/search.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -49,6 +51,8 @@ async function router() {
   case "allPosts":
    postFeed();
    generateFooter();
+   userSearch();
+   test();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
