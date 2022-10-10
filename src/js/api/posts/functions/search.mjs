@@ -14,13 +14,9 @@ let posts = [];
 
 searchInput.addEventListener("input", (e) => {
  const value = e.target.value.toLowerCase();
- const feed = document.querySelector("#post-feed").cloneNode(true).children[0];
  posts.forEach((post) => {
   const isVisible = post.title.includes(value) || post.author.includes(value);
-  //   console.log(feed);
-  if (!isVisible) {
-   feed.classList.toggle("d-none");
-  }
+  document.querySelector("#post-feed").children[0].classList.toggle("d-none", !isVisible);
  });
 });
 
