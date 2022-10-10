@@ -43,14 +43,14 @@
 
 
 
-    []  User with @noroff.no or @stud.noroff.no email can register profile
+    [x]  User with @noroff.no or @stud.noroff.no email can register profile
     [x]  Registered user can login
     [x]  User can view a post content feed
     []  User can filter the post content feed
     []  User can search the post content feed
     [x]  User can view a post content item by ID
     []  User can create a post content item
-    []  User can update a post content item
+    [x]  User can update a post content item
     [x]  User can delete a post content item
 
     
