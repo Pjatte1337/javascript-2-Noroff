@@ -28,8 +28,9 @@ export async function postFeedMap() {
     posted: e.created,
     updated: e.updated,
     // Numbers related to post
-    count: e._count,
+    count: e._count, // This is an array
     reactNum: e._count.reactions,
+    commNum: e._count.comments,
     // Comments on post
     com: e.comments, // This is an array
     // Reaction to post
