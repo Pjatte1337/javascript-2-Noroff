@@ -10,7 +10,7 @@ import { setRegisterFormListener as setRegisterFormListener } from "./utils/list
 import { waitForData } from "./api/posts/comments.mjs";
 import { filteringData } from "./api/posts/functions/filter.mjs";
 import { userSearch } from "./api/posts/functions/search.mjs";
-import { createPost } from "./api/posts/createPost.mjs";
+import { createPosts } from "./api/posts/createPost.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -47,6 +47,7 @@ async function router() {
   case "profile":
    displayProfile();
    generateFooter();
+   createPosts();
    document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username");
    break;
 
@@ -54,7 +55,7 @@ async function router() {
    postFeed();
    generateFooter();
    userSearch();
-   filteringData()
+   filteringData();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
@@ -78,8 +79,3 @@ async function router() {
  }
 }
 router();
-
-createPost ({
-  title:"test",
-  body: "test2"
-})
