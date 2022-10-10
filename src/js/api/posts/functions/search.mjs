@@ -10,13 +10,11 @@ const endpointPosts = apiVar.getPosts;
 
 const fetchUrl = url + endpointPosts;
 
-async function postFeed() {
- try {
-  let request = await fetchApi(fetchUrl, "GET", token, null);
- } catch (err) {
-  console.log("There was a problem retrieving the user posts", err);
- }
-}
-
 // Selection HTML elements
 const searchInput = document.getElementById("postSearch");
+
+async function postFeed() {
+ let request = await fetchApi(fetchUrl, "GET", token, null);
+ const values = request;
+
+}
