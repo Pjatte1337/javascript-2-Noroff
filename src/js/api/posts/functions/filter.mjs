@@ -1,22 +1,27 @@
 import { postFeedMap } from "../feed.mjs";
 
-const filtering = document.querySelector("#filterContainer");
-
 export async function filteringData() {
- if (!filtering) {
-  console.log(filtering.childNodes);
+ const filtering = document.querySelector("#filterContainer");
+ 
+ // Looking for the Filter container to avoid error if it is missing
+ if (filtering) {
+  // Filter options
+  const dateFilter = document.querySelector("filterContainerDate");
+  const likeFilter = document.querySelector("filterContainerLike");
+
+  // Fetching the data
   const fetchData = await postFeedMap();
   const postData = fetchData;
   const newArray = [...postData];
 
-  switch (selectedOption) {
-   default:
-    filteredData = newArray;
-    break;
+  //   switch () {
+  //    default:
+  //     filteredData = newArray;
+  //     break;
 
-   case "date":
-    filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
-    break;
-  }
+  //    case "date":
+  //     filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
+  //     break;
+  //   }
  }
 }
