@@ -1,6 +1,8 @@
 import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 
+export let posts = [];
+
 // Re-declaring variables from import
 const fetchUrl = apiVar.baseURL + apiVar.getPosts;
 
@@ -44,5 +46,3 @@ export async function postFeedMap() {
     console.log("There was a problem retrieving the user posts", err);
   }
 }
-
-export let posts = await postFeedMap();
