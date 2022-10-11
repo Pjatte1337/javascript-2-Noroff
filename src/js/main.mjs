@@ -11,11 +11,11 @@ import { logOut } from "./api/auth/logout.mjs";
 import { postFeed } from "./api/posts/postFeed.mjs";
 import { createPostListener } from "./api/posts/createPost.mjs";
 import { userSearch } from "./api/posts/functions/search.mjs";
+import { filterButtonListener } from "./api/posts/functions/filter.mjs";
 import { waitForData } from "./api/posts/comments.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
 
 // Importing layout
-import { generateFooter } from "./constant/layout/footer.js";
 import { display404Page } from "./constant/404page.mjs";
 
 // Creating variables to use in the if statement under
@@ -41,42 +41,37 @@ async function router() {
    setRegisterFormListener();
    user.formEvent();
    checkUserStatus(localStorage.getItem("token"));
-   generateFooter();
    document.querySelector("title").innerText = defaultTitle + ` || Homepage`;
    break;
 
   // Executing the the function for the profile page layout
   case "profile":
    displayProfile();
-   generateFooter();
    createPostListener();
    document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username");
    break;
 
   case "allPosts":
    postFeed();
-   generateFooter();
    userSearch();
+   filterButtonListener();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
   case "postItemByID":
    postItemByID();
-   generateFooter();
    waitForData();
    document.querySelector("title").innerText = defaultTitle + ` || Post`;
    break;
 
   case "testing":
    postFeed();
-   generateFooter();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
   case "404":
   default:
    display404Page();
-   generateFooter();
  }
 }
 router();

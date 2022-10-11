@@ -37,7 +37,7 @@
     <div class="d-flex flex-column gap-2 justify-content-center">
      <h1 class="justify-content-center">Welcome to The Social Universe</h1>
      <!-- Button trigger modal -->
-     <div class="d-flex gap-3 justify-content-center ">
+     <div class="d-flex gap-3 justify-content-center">
       <button type="button" class="btn btn-modal btn-outline-theme text-black" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
       <button type="button" class="btn btn-modal btn-outline-theme text-black" data-bs-toggle="modal" data-bs-target="#createModal">Create a user</button>
      </div>
@@ -89,38 +89,71 @@
        </div>
 
        <div class="modal-body">
-
         <form id="registerForm" class="d-flex flex-column gap-3 needs-validation">
-            <div class="form-group was-validated">
-              <label class="form-label" for="reg-username">Username</label>
-              <input type="text" class="form-control py-3" name="name" id="reg-username" placeholder="username" aria-label="username" required pattern="^[\w]+$" title="Username must only contain lower case and uppercase letters, numbers and underscore"/>
-            </div>
-            <div class="form-group was-validated">
-              <label class="form-label" for="reg-email">Email address</label>
-              <input type="email" class="form-control py-3" name="email" id="reg-email" placeholder="email" aria-label="email" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only users with @noroff.no or @stud.noroff.no email can register profile"/>
-            </div>
-            <div class="form-group was-validated">
-              <label class="form-label" for="reg-Password">Password</label>
-              <input
-                type="password" class="form-control py-3" name="password" id="reg-Password" placeholder="password" aria-label="password" required minlength="8" title="Must be at least 8 characters long"/>
-            </div>
-            <div class="form-group was-validated">
-              <label class="form-label" for="reg-Password-confirm">Repeat password</label>
-              <input type="password" class="form-control py-3" name="password" id="reg-Password-confirm" placeholder="repeat password" aria-label="password" required minlength="8"/>
-            </div>
-            <div>
-              <button type="submit" class="btn btn-outline-theme text-black w-100" id="sign-up"> Register </button>
-            </div>
+         <div class="form-group was-validated">
+          <label class="form-label" for="reg-username">Username</label>
+          <input
+           type="text"
+           class="form-control py-3"
+           name="name"
+           id="reg-username"
+           placeholder="username"
+           aria-label="username"
+           required
+           pattern="^[\w]+$"
+           title="Username must only contain lower case and uppercase letters, numbers and underscore"
+          />
+         </div>
+         <div class="form-group was-validated">
+          <label class="form-label" for="reg-email">Email address</label>
+          <input
+           type="email"
+           class="form-control py-3"
+           name="email"
+           id="reg-email"
+           placeholder="email"
+           aria-label="email"
+           required
+           pattern="^[\w\-.]+@(stud.)?noroff.no$"
+           title="Only users with @noroff.no or @stud.noroff.no email can register profile"
+          />
+         </div>
+         <div class="form-group was-validated">
+          <label class="form-label" for="reg-Password">Password</label>
+          <input
+           type="password"
+           class="form-control py-3"
+           name="password"
+           id="reg-Password"
+           placeholder="password"
+           aria-label="password"
+           required
+           minlength="8"
+           title="Must be at least 8 characters long"
+          />
+         </div>
+         <div class="form-group was-validated">
+          <label class="form-label" for="reg-Password-confirm">Repeat password</label>
+          <input type="password" class="form-control py-3" name="password" id="reg-Password-confirm" placeholder="repeat password" aria-label="password" required minlength="8" />
+         </div>
+         <div>
+          <button type="submit" class="btn btn-outline-theme text-black w-100" id="sign-up">Register</button>
+         </div>
         </form>
        </div>
       </div>
      </div>
     </div>
-
    </div>
   </main>
 
-  <footer class="bg-theme-bg-sec"></footer>
+  <footer class="bg-theme-bg-sec">
+   <div class="container-fluid d-flex justify-content-center bg-theme-bg-sec p-3">
+    <div>
+     <p>Copyright Christopher Tønnesland & Joakim Vanebo 2022</p>
+    </div>
+   </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="./src/js/main.mjs" type="module" defer></script>

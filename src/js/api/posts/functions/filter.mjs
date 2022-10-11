@@ -1,18 +1,19 @@
-import { arrayPosts } from "../postFeed.mjs";
+import { posts } from "../feed.mjs";
 
-const allButtons = document.querySelectorAll("[data-filter]");
-
-allButtons.forEach(function (btn) {
- btn.addEventListener("click", (e) => {
-  const category = e.currentTarget.dataset.filter;
-  // btn.classList.add("btn-theme-secondary")
-  filteringData(category);
+export function filterButtonListener() {
+ const allButtons = document.querySelectorAll("[data-filter]");
+ allButtons.forEach(function (btn) {
+  btn.addEventListener("click", (e) => {
+   const category = e.currentTarget.dataset.filter;
+   // btn.classList.add("btn-theme-secondary")
+   filteringData(category);
+  });
  });
-});
+}
 
 async function filteringData(value) {
  // Fetching the data
- let newArray = [...arrayPosts];
+ let newArray = [...posts];
  let items = document.querySelectorAll("[data-id]");
  let sortedArray = "";
 

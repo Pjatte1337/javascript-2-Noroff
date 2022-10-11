@@ -8,9 +8,9 @@ const url = apiVar.baseURL;
 const endpointPosts = apiVar.getPosts;
 const fetchUrl = url + endpointPosts;
 
-export let posts = []
+export let posts = [];
 
-export async function postFeedMap() {
+async function postFeedMap() {
  try {
   let request = await fetchApi(fetchUrl, "GET", token, null);
   posts = request.map((e) => {
@@ -40,13 +40,11 @@ export async function postFeedMap() {
    };
   });
 
-//   console.log("New array", posts)
+  //   console.log("New array", posts)
 
   return posts;
-
-
  } catch (err) {
   console.log("There was a problem retrieving the user posts", err);
  }
 }
-postFeedMap()
+postFeedMap();

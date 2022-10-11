@@ -1,47 +1,12 @@
-import { fetchApi } from "../../constant/fetch.mjs";
-import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
-import { postFeedImageModal } from "../../utils/imageModal.mjs";
 import { displayPageLoader } from "../../utils/loader.mjs";
 displayPageLoader();
 
-// Retrieving items from storage
-const token = localStorage.getItem("token");
+import { posts } from "./feed.mjs";
 
-// Re-declaring variables from import
-const url = apiVar.baseURL;
-const endpointPosts = apiVar.getPosts;
-
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-
-const fetchUrl = url + endpointPosts;
-
-// The array for the sort function and search functions
-export let arrayPosts = [];
-
-/**
- * This Function is simply retrieving the post arrays
- */
-export async function postFeed() {
- try {
-  let request = await fetchApi(fetchUrl + params, "GET", token, null);
-  arrayPosts = request;
-
-  createPostFeed(arrayPosts);
- } catch (err) {
-  console.log("There was a problem retrieving the user posts", err);
- }
-}
-
-/**
- * This function is for populating the HTML with details from post array from the api
- *
- * @param {*} postData This is needed to be able to populate the feed of posts.
- */
-function createPostFeed(postData) {
- arrayPosts = postData;
+export function createPostFeed() {
+ const postData = posts;
 
  postData.forEach((data) => {
   const feedContainer = document.querySelector("#post-feed");
