@@ -17,6 +17,7 @@ import { postItemByID } from "./api/posts/postItemByID.mjs";
 
 // Importing layout
 import { display404Page } from "./constant/404page.mjs";
+import { displayPageLoader } from "./utils/loader.mjs";
 
 // Creating variables to use in the if statement under
 const logOutButton = document.querySelector("#logout");
@@ -48,6 +49,7 @@ async function router() {
   case "profile":
    displayProfile();
    createPostListener();
+   displayPageLoader();
    document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username");
    break;
 
@@ -55,12 +57,14 @@ async function router() {
    postFeed();
    userSearch();
    filterButtonListener();
+   displayPageLoader();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 
   case "postItemByID":
    postItemByID();
    waitForData();
+   displayPageLoader();
    document.querySelector("title").innerText = defaultTitle + ` || Post`;
    break;
 

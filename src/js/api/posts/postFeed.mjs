@@ -2,9 +2,6 @@ import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
-import { postFeedImageModal } from "../../utils/imageModal.mjs";
-import { displayPageLoader } from "../../utils/loader.mjs";
-displayPageLoader();
 
 // Retrieving items from storage
 const token = localStorage.getItem("token");
