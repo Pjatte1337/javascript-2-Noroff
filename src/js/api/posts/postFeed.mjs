@@ -1,19 +1,6 @@
-import { fetchApi } from "../../constant/fetch.mjs";
-import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
-
-// Retrieving items from storage
-const token = localStorage.getItem("token");
-
-// Re-declaring variables from import
-const url = apiVar.baseURL;
-const endpointPosts = apiVar.getPosts;
-
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-
-const fetchUrl = url + endpointPosts;
+import { postFeedMap } from "./feed.mjs";
 
 // The array for the sort function and search functions
 export let arrayPosts = [];
@@ -23,10 +10,8 @@ export let arrayPosts = [];
  */
 export async function postFeed() {
   try {
-    let request = await fetchApi(fetchUrl + params, "GET", token, null);
-    arrayPosts = request;
-
-    createPostFeed(arrayPosts);
+    let request = await postFeedMap();
+    createPostFeed(request);
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
   }
@@ -40,6 +25,8 @@ export async function postFeed() {
 function createPostFeed(postData) {
   arrayPosts = postData;
 
+  console.log(postData);
+
   postData.forEach((data) => {
     const feedContainer = document.querySelector("#post-feed");
 
@@ -48,14 +35,15 @@ function createPostFeed(postData) {
       title,
       created,
       body,
-      author,
+      authorName,
+      authorAvatar,
       updated,
       tag,
       media,
       avatar,
       comments,
-      reactions,
-      _count,
+      react,
+      count,
     } = data;
 
     // Time formatting
@@ -98,12 +86,12 @@ function createPostFeed(postData) {
         .join("");
     }
 
-    if (author.avatar) {
-      userAvatar = `<img src="${author.avatar}" class="img-thumbnail user-avatar-small" alt="" loading="lazy" />`;
+    if (authorAvatar) {
+      userAvatar = `<img src="${authorAvatar}" class="img-thumbnail user-avatar-small" alt="" loading="lazy" />`;
     }
 
     const currentUser = localStorage.getItem("username");
-    if (currentUser === author.name) {
+    if (currentUser === authorName) {
       postSettings = `<span class="settings d-flex justify-content-end">
      <div class="dropdown">
      <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></a>
@@ -125,7 +113,7 @@ function createPostFeed(postData) {
        <div class="d-flex flex-fill">
         <div class="d-flex flex-fill gap-2 align-items-center">
          ${userAvatar}
-         <h4 class="text-muted"><a href="" class="muted-link text-muted">${author.name}</a></h4>
+         <h4 class="text-muted"><a href="" class="muted-link text-muted">${authorName}</a></h4>
         </div>
         ${postSettings}
        </div>
@@ -142,8 +130,8 @@ function createPostFeed(postData) {
         <small class="text-muted">Last updated ${formattedUpdated}</small>
        </div>
        <div class="mt-2">
-        <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${_count.comments}</button>
-        <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${_count.reactions}</button>
+        <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${count.comments}</button>
+        <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${count.reactions}</button>
        </div>
       </div>
      </div>

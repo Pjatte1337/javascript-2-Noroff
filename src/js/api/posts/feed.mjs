@@ -10,38 +10,38 @@ const fetchUrl = url + endpointPosts;
 
 export let posts = [];
 
-async function postFeedMap() {
+export function translatePostModel(postData) {
+  return {
+    // Author related
+    authorName: postData.author.name,
+    authorEmail: postData.author.email,
+    authorAvatar: postData.author.avatar,
+    // Post related
+    title: postData.title,
+    body: postData.body,
+    postId: postData.id,
+    postImage: postData.media,
+    // Dates
+    posted: postData.created,
+    updated: postData.updated,
+    // Numbers related to post
+    count: postData._count, // This is an array
+    reactNum: postData._count.reactions,
+    commNum: postData._count.comments,
+    // Comments on post
+    com: postData.comments, // This is an array
+    // Reaction to post
+    react: postData.reactions, // This is an array
+    // Post Tags
+    tag: postData.tags, // This is an array
+  };
+}
+
+export async function postFeedMap() {
   try {
-    let request = await fetchApi(fetchUrl, "GET", token, null);
-    posts = request.map((e) => {
-      return {
-        // Author related
-        authorName: e.author.name,
-        authorEmail: e.author.email,
-        authorAvatar: e.author.avatar,
-        // Post related
-        title: e.title,
-        body: e.body,
-        postId: e.id,
-        postImage: e.media,
-        // Dates
-        posted: e.created,
-        updated: e.updated,
-        // Numbers related to post
-        count: e._count, // This is an array
-        reactNum: e._count.reactions,
-        commNum: e._count.comments,
-        // Comments on post
-        com: e.comments, // This is an array
-        // Reaction to post
-        react: e.reactions, // This is an array
-        // Post Tags
-        tag: e.tags, // This is an array
-      };
-    });
-    return posts;
+    const response = await fetchApi(fetchUrl, "GET", token, null);
+    return response.map(translatePostModel);
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
   }
 }
-postFeedMap();
