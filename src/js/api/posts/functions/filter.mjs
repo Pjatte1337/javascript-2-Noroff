@@ -24,14 +24,13 @@ async function filteringData(value) {
  // Fetching the data
  const newArray = [...posts];
  let items = document.querySelectorAll("[data-id]");
+ let isVisible = value;
 
  switch (value) {
   default:
-   filteredData = newArray;
    break;
 
   case "all":
-   const isVisible = value;
    items.forEach((item) => {
     item.classList.toggle("d-flex", !isVisible);
    });
@@ -40,15 +39,7 @@ async function filteringData(value) {
    break;
 
   case "date":
-   posts.forEach((post) => {
-    const isVisible = post.value;
-    console.log(post.value);
-
-    items.forEach((item) => {
-     item.classList.toggle("d-none", !isVisible);
-    });
-   });
-
+   newArray.sort((a, b) => new Date(a.created) - new Date(b.created));
    console.log("ok date");
    break;
 
