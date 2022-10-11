@@ -59,6 +59,20 @@ async function filteringData(value) {
  }
 }
 
+function sortByDate(a, b) {
+ return new Date(a.posted) - new Date(b.posted);
+}
+
+function sortByAtoZ(a, b) {
+ if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
+ return 1;
+}
+
+function sortByZtoA(a, b) {
+ if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
+ return -1;
+}
+
 async function postFeedMap() {
  try {
   let request = await fetchApi(fetchUrl, "GET", token, null);
@@ -113,17 +127,3 @@ postFeedMap();
 //    });
 //   }
 //  });
-
-function sortByDate(a, b) {
- return new Date(a.posted) - new Date(b.posted);
-}
-
-function sortByAtoZ(a, b) {
- if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
- return 1;
-}
-
-function sortByZtoA(a, b) {
- if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
- return -1;
-}
