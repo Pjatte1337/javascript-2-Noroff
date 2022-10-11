@@ -84,8 +84,7 @@ export async function postItemByID() {
     class: "card container-fluid d-flex justify-content-center p-0 m-0",
     "data-id": "postItem",
    },
-   `
-     <div class="card-header">
+   `<div class="card-header">
       <div class="d-flex flex-fill">
        <div class="d-flex flex-fill gap-2 align-items-center">
         ${userAvatar}
