@@ -1,20 +1,23 @@
 // Importing all modules
+
+// User related imports
 import * as user from "./api/index.mjs";
-import { logOut } from "./api/auth/logout.mjs";
 import { displayProfile } from "./api/profile/profile.mjs";
-import { display404Page } from "./constant/404page.mjs";
 import { checkUserStatus } from "./constant/statcheck.mjs";
-import { postFeed } from "./api/posts/postFeed.mjs";
-import { postItemByID } from "./api/posts/postItemByID.mjs";
 import { setRegisterFormListener as setRegisterFormListener } from "./utils/listener/register.mjs";
-import { waitForData } from "./api/posts/comments.mjs";
-import { filteringData } from "./api/posts/functions/filter.mjs";
-import { userSearch } from "./api/posts/functions/search.mjs";
+import { logOut } from "./api/auth/logout.mjs";
+
+// Post related imports
+import { postFeed } from "./api/posts/postFeed.mjs";
 import { createPosts } from "./api/posts/createPost.mjs";
+import { userSearch } from "./api/posts/functions/search.mjs";
+import { waitForData } from "./api/posts/comments.mjs";
+import { postItemByID } from "./api/posts/postItemByID.mjs";
+import { posts } from "./api/posts/feed.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
-import { posts } from "./api/posts/feed.mjs";
+import { display404Page } from "./constant/404page.mjs";
 
 // Creating variables to use in the if statement under
 const logOutButton = document.querySelector("#logout");
@@ -55,7 +58,6 @@ async function router() {
    postFeed();
    generateFooter();
    userSearch();
-   filteringData();
    document.querySelector("title").innerText = defaultTitle + ` || Feed wall`;
    break;
 

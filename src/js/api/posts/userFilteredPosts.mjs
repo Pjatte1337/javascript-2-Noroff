@@ -134,6 +134,10 @@ export async function getUserPosts() {
           `
     );
 
+    // Removing loader
+    const loader = document.querySelector(".loader");
+    loader.style = "display: none;";
+
     feedContainer.append(card);
 
     deletePostListener(id)

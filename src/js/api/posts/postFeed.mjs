@@ -2,6 +2,9 @@ import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
+import { postFeedImageModal } from "../../utils/imageModal.mjs";
+import { displayPageLoader } from "../../utils/loader.mjs";
+displayPageLoader()
 
 // Retrieving items from storage
 const token = localStorage.getItem("token");
@@ -56,7 +59,7 @@ function createPostFeed(postData) {
   let postSettings = "";
 
   if (media) {
-   postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy"/></a>`;
+   postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy" /></a>;`;
   }
 
   if (comments) {
@@ -147,7 +150,10 @@ function createPostFeed(postData) {
     </div>
          `
   );
-
+  // Removing loader
+  const loader = document.querySelector(".loader");
+  loader.style = "display: none;";
+  
   feedContainer.append(card);
  });
 }
