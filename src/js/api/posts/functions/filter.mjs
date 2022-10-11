@@ -17,12 +17,18 @@ allButtons.forEach(function (btn) {
  btn.addEventListener("click", (e) => {
   const category = e.currentTarget.dataset.filter;
   const postCategory = posts.filter((i) => {
-   return i;
-  });
-  console.log(postCategory);
-  posts.forEach((post, index) => {
-   const isVisible = post.category;
-   document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
+   if (i.category === category) {
+    return i;
+   }
+
+   posts.forEach((post, index) => {
+    const isVisible = post.category;
+    document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
+   });
+
+   if (category === "all") {
+    return i;
+   }
   });
  });
 });
