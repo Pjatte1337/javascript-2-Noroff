@@ -14,7 +14,7 @@ async function createPosts(postData) {
  try {
   if (postData) {
    let newPostData = {};
-
+    // Deleting media if is empty
    if (postData.media === "") {
         delete postData.media
    }
