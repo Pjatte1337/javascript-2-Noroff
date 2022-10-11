@@ -23,6 +23,7 @@ allButtons.forEach(function (btn) {
 async function filteringData(value) {
  // Fetching the data
  const newArray = [...posts];
+ let items = document.querySelectorAll("[data-id]");
 
  switch (value) {
   default:
@@ -30,8 +31,7 @@ async function filteringData(value) {
    break;
 
   case "all":
-   const isVisible = category;
-   const items = document.querySelectorAll("[data-id]");
+   const isVisible = value;
    items.forEach((item) => {
     item.classList.toggle("d-flex", !isVisible);
    });
@@ -41,13 +41,14 @@ async function filteringData(value) {
 
   case "date":
    posts.forEach((post) => {
-    const isVisible = post.category;
-    console.log(post.category)
-    const items = document.querySelectorAll("[data-id]");
+    const isVisible = post.value;
+    console.log(post.value);
+
     items.forEach((item) => {
      item.classList.toggle("d-none", !isVisible);
     });
    });
+
    console.log("ok date");
    break;
 
