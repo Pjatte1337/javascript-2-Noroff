@@ -5,19 +5,18 @@ import { fetchApi } from "../../constant/fetch.mjs";
 const url = apiVar.baseURL;
 const createNew = apiVar.createNewPost;
 
-
 const postUrl = url + createNew;
 
-
 const createPost = document.querySelector("#createPost");
+
 
 async function createPosts(postData) {
  try {
   if (postData) {
    let newPostData = {};
 
-   if (post_image === "") {
-        post_image = "string"
+   if (postData.media === "") {
+        delete postData.media
    }
    newPostData = postData;
    const request = await fetchApi(postUrl, "POST", localStorage.getItem("token"), newPostData);
@@ -32,7 +31,6 @@ async function createPosts(postData) {
 
 export function createPostListener() {
  const form = document.querySelector("#createPost");
- const image = document.querySelector("#post_image");
 
  if (form) {
   form.addEventListener("submit", (event) => {
