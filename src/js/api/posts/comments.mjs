@@ -20,21 +20,21 @@ let id = "";
 // function variables
 
 export async function waitForData() {
- const commentsBtn = document.querySelector("#btn-comments");
- const commentsForm = document.querySelector("#comments_form");
+  const commentsBtn = document.querySelector("#btn-comments");
+  const commentsForm = document.querySelector("#comments_form");
 
- if (!commentsBtn) {
-  commentsBtn.addEventListener("click", openComments());
- }
+  if (!commentsBtn) {
+    commentsBtn.addEventListener("click", openComments());
+  }
 }
 
 function eventListener() {
- commentsBtn.addEventListener("click", openComments());
+  commentsBtn.addEventListener("click", openComments());
 }
 
 function openComments() {
- const commentsContainer = document.querySelector("#comments");
- commentsContainer.style.display = "flex";
+  const commentsContainer = document.querySelector("#comments");
+  commentsContainer.style.display = "flex";
 }
 
 function sendData() {}

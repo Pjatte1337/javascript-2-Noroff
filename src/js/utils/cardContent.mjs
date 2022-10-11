@@ -12,17 +12,16 @@ export let body = "";
 export let formattedCreated = "";
 export let formattedUpdated = "";
 
-
 if (media) {
- postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy"/></a>`;
+  postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy"/></a>`;
 }
 
 if (comments) {
- const commentsTimeCreated = changeTimeFormat(comments.map((e) => e.created));
+  const commentsTimeCreated = changeTimeFormat(comments.map((e) => e.created));
 
- commentsHtml = comments
-  .map(
-   (e) => `
+  commentsHtml = comments
+    .map(
+      (e) => `
        <div class="container" id="commentId-${e.id}">
          <div class="card-body">
              <p class="card-text">${e.body}</p>
@@ -34,21 +33,21 @@ if (comments) {
              </div>
        </div> 
      `
-  )
-  .join("");
+    )
+    .join("");
 }
 
 if (author.avatar) {
- userAvatar = `<img src="${author.avatar}" class="img-thumbnail user-avatar-small" alt="" loading="lazy" />`;
+  userAvatar = `<img src="${author.avatar}" class="img-thumbnail user-avatar-small" alt="" loading="lazy" />`;
 }
 
 export const cardObject =
- ("div",
- {
-  id: `post-id-${id}`,
-  class: "card",
- },
- `<a href="" class="">
+  ("div",
+  {
+    id: `post-id-${id}`,
+    class: "card",
+  },
+  `<a href="" class="">
    <div class="container m-0 p-0">
        <div class="card">
         <div class="card-header">

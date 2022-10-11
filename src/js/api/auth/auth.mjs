@@ -8,15 +8,15 @@ const url = apiVar.baseURL;
 const login = apiVar.login;
 
 export async function authUser(email, password) {
- const data = {
-  email: `${email}`,
-  password: `${password}`,
- };
+  const data = {
+    email: `${email}`,
+    password: `${password}`,
+  };
 
- try {
-  await fetchApi(url + login, "POST", null, data);
-  window.location.href = "./pages/profile/index.html";
- } catch (error) {
-    message("invalid")
- }
+  try {
+    await fetchApi(url + login, "POST", null, data);
+    window.location.href = "./pages/profile/index.html";
+  } catch (error) {
+    message("invalid");
+  }
 }

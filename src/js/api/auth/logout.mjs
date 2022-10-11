@@ -5,13 +5,13 @@
  *
  */
 export function logOut() {
- document.querySelector("#logout").addEventListener("click", (e) => {
-  // Storing response in local storage
-  localStorage.removeItem("token");
-  localStorage.removeItem("username");
-  localStorage.removeItem("email");
-  localStorage.removeItem("avatar");
+  document.querySelector("#logout").addEventListener("click", (e) => {
+    // Storing response in local storage
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    localStorage.removeItem("avatar");
 
-  window.location.href = "../../index.html";
- });
+    window.location.href = "../../index.html";
+  });
 }

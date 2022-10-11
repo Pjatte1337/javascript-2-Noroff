@@ -1,15 +1,24 @@
 export class Card {
- constructor(elementName = "", className = "", elementId = "", title, created, body, post_image, author, updated) {
-  this.element = document.createElement(elementName);
-  element.classList.add(className);
-  element.id = elementId;
-  element.innerHTML = ``;
- }
+  constructor(
+    elementName = "",
+    className = "",
+    elementId = "",
+    title,
+    created,
+    body,
+    post_image,
+    author,
+    updated
+  ) {
+    this.element = document.createElement(elementName);
+    element.classList.add(className);
+    element.id = elementId;
+    element.innerHTML = ``;
+  }
 }
 
-
 export class LoopingCard {
-/**
+  /**
  * 
  * @param {*} elementName The name on the element, it can be f.eks "div"
  * @param {*} attributes Add class, id, attributes etc
@@ -63,20 +72,20 @@ export class LoopingCard {
  * 
  * @returns Elements 
  */
-    constructor(elementName, attributes = {}, template = "") {
-  this.element = document.createElement(elementName);
-  this.addAttributes(attributes);
-  this.addTemplate(template);
-  return this.element;
- }
+  constructor(elementName, attributes = {}, template = "") {
+    this.element = document.createElement(elementName);
+    this.addAttributes(attributes);
+    this.addTemplate(template);
+    return this.element;
+  }
 
- addAttributes(attributes) {
-  Object.entries(attributes).forEach(([key, value]) => {
-   this.element.setAttribute(key, value);
-  });
- }
+  addAttributes(attributes) {
+    Object.entries(attributes).forEach(([key, value]) => {
+      this.element.setAttribute(key, value);
+    });
+  }
 
- addTemplate(template) {
-  this.element.innerHTML = `${template}`;
- }
+  addTemplate(template) {
+    this.element.innerHTML = `${template}`;
+  }
 }

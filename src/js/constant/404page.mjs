@@ -1,5 +1,5 @@
-export function display404Page(){
-    const main = document.querySelector("main");
+export function display404Page() {
+  const main = document.querySelector("main");
 
-    main.innerHTML="404"
+  main.innerHTML = "404";
 }

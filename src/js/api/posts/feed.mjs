@@ -11,40 +11,37 @@ const fetchUrl = url + endpointPosts;
 export let posts = [];
 
 async function postFeedMap() {
- try {
-  let request = await fetchApi(fetchUrl, "GET", token, null);
-  posts = request.map((e) => {
-   return {
-    // Author related
-    authorName: e.author.name,
-    authorEmail: e.author.email,
-    authorAvatar: e.author.avatar,
-    // Post related
-    title: e.title,
-    body: e.body,
-    postId: e.id,
-    postImage: e.media,
-    // Dates
-    posted: e.created,
-    updated: e.updated,
-    // Numbers related to post
-    count: e._count, // This is an array
-    reactNum: e._count.reactions,
-    commNum: e._count.comments,
-    // Comments on post
-    com: e.comments, // This is an array
-    // Reaction to post
-    react: e.reactions, // This is an array
-    // Post Tags
-    tag: e.tags, // This is an array
-   };
-  });
-
-  //   console.log("New array", posts)
-
-  return posts;
- } catch (err) {
-  console.log("There was a problem retrieving the user posts", err);
- }
+  try {
+    let request = await fetchApi(fetchUrl, "GET", token, null);
+    posts = request.map((e) => {
+      return {
+        // Author related
+        authorName: e.author.name,
+        authorEmail: e.author.email,
+        authorAvatar: e.author.avatar,
+        // Post related
+        title: e.title,
+        body: e.body,
+        postId: e.id,
+        postImage: e.media,
+        // Dates
+        posted: e.created,
+        updated: e.updated,
+        // Numbers related to post
+        count: e._count, // This is an array
+        reactNum: e._count.reactions,
+        commNum: e._count.comments,
+        // Comments on post
+        com: e.comments, // This is an array
+        // Reaction to post
+        react: e.reactions, // This is an array
+        // Post Tags
+        tag: e.tags, // This is an array
+      };
+    });
+    return posts;
+  } catch (err) {
+    console.log("There was a problem retrieving the user posts", err);
+  }
 }
 postFeedMap();

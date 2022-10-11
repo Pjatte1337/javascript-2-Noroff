@@ -7,11 +7,15 @@
  */
 
 // Creating elements in a neat small reusable function
-export function createElement(elementName = "", className = "", elementId = "") {
- const element = document.createElement(elementName);
- element.classList.add(className);
- element.id = elementId;
- return element;
+export function createElement(
+  elementName = "",
+  className = "",
+  elementId = ""
+) {
+  const element = document.createElement(elementName);
+  element.classList.add(className);
+  element.id = elementId;
+  return element;
 }
 
 /**
@@ -22,12 +26,17 @@ export function createElement(elementName = "", className = "", elementId = "") 
  * @param {*} children Here you will use the createChildren function
  * @returns The element you created, and by using createChildren function will you be able to populate elements inside this element. You can use this function to create any type of HTML element you want to
  */
-export function createParentElement(elementName = "", className = "", elementId = "", children = []) {
- const element = document.createElement(elementName);
- element.classList.add(className);
- element.id = elementId;
- element.append(children);
- return element;
+export function createParentElement(
+  elementName = "",
+  className = "",
+  elementId = "",
+  children = []
+) {
+  const element = document.createElement(elementName);
+  element.classList.add(className);
+  element.id = elementId;
+  element.append(children);
+  return element;
 }
 
 /**
@@ -37,12 +46,17 @@ export function createParentElement(elementName = "", className = "", elementId 
  * @param {*} elementId Input the element id
  * @returns This will return the children that will be placed inside the parent element.
  */
-export function createChildren(elementName = "", className = "", elementId = "", inner) {
- const element = document.createElement(elementName);
- element.classList.add(className);
- element.id = elementId;
- element.innerHTML = `${inner}`;
- return element;
+export function createChildren(
+  elementName = "",
+  className = "",
+  elementId = "",
+  inner
+) {
+  const element = document.createElement(elementName);
+  element.classList.add(className);
+  element.id = elementId;
+  element.innerHTML = `${inner}`;
+  return element;
 }
 
 /**
@@ -62,11 +76,23 @@ export function createChildren(elementName = "", className = "", elementId = "",
  * @returns the card with the information you want
  */
 
-export function createCards(elementName = "", className = "", elementId = "", image, title, author, created, body, media, tags, updated) {
- const element = document.createElement(elementName);
- element.classList.add(className);
- element.id = elementId;
- element.innerHTML = `
+export function createCards(
+  elementName = "",
+  className = "",
+  elementId = "",
+  image,
+  title,
+  author,
+  created,
+  body,
+  media,
+  tags,
+  updated
+) {
+  const element = document.createElement(elementName);
+  element.classList.add(className);
+  element.id = elementId;
+  element.innerHTML = `
        <div class="card">
        <div class="card-header">
         <div class="container-fluid">
@@ -118,5 +144,5 @@ export function createCards(elementName = "", className = "", elementId = "", im
       
       </div>
        `;
- return element;
+  return element;
 }

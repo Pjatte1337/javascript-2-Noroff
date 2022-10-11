@@ -9,14 +9,14 @@ const email = "";
 const password = "";
 
 export const fetchParams = {
- params: {
-  offset: true,
- },
- limit: increaseLimit(),
- sort: "created",
- _author: true,
- _comments: true,
- _reactions: true,
+  params: {
+    offset: true,
+  },
+  limit: increaseLimit(),
+  sort: "created",
+  _author: true,
+  _comments: true,
+  _reactions: true,
 };
 
 /* 
@@ -42,7 +42,7 @@ export const unFollow = `/social/profiles/${name}/unfollow`;
 
 // Endpoint for everything related to posts
 export const getPosts = `/social/posts/?_author=true&_comments=true&_reactions=true&limit=500`;
-export const createNewPost = `/social/posts/`
+export const createNewPost = `/social/posts/`;
 export const getPostsById = `/social/posts/${id}`;
 export const putPost = `/social/posts/`;
 export const deletePost = `/social/posts/`;
@@ -58,25 +58,25 @@ export const comments = `/social/posts/${id}/comment`;
 const token = localStorage.getItem("token");
 
 export const methods = {
- get: "GET",
- post: "POST",
- put: "PUT",
- del: "DELETE",
+  get: "GET",
+  post: "POST",
+  put: "PUT",
+  del: "DELETE",
 };
 
 export const header = {
- method: "post",
- headers: {
-  "Content-Type": "application/json",
- },
- body: JSON.stringify({ email, password }),
+  method: "post",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ email, password }),
 };
 
 export const headerAuth = {
- method: "post",
- headers: {
-  "Content-Type": "application/json",
-  Authorization: `Bearer ${token}`,
- },
- body: JSON.stringify({ email, password }),
+  method: "post",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+  body: JSON.stringify({ email, password }),
 };
