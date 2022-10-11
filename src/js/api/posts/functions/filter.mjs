@@ -27,7 +27,6 @@ allButtons.forEach(function (btn) {
    });
 
    if (category === "all") {
-    return i;
    }
   });
  });
