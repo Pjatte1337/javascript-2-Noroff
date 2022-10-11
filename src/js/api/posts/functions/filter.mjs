@@ -1,5 +1,6 @@
-import { postFeedMap, posts } from "../feed.mjs";
-import { createPostFeed } from "../postFeed.mjs";
+import { createPostFeed, posts, postFeed } from "../postFeed.mjs";
+
+postFeed();
 
 export function filterButtonListener() {
   const allButtons = document.querySelectorAll("[data-filter]");
@@ -9,9 +10,9 @@ export function filterButtonListener() {
       const filteredData = filteringData(value);
       console.log(filteredData);
       const postFeed = document.getElementById("post-feed");
-      // postFeed.innerHTML = "";
-      // const newFeed = await createPostFeed(newData);
-      // postFeed.append(newFeed);
+      postFeed.innerHTML = "";
+      const newFeed = createPostFeed(filteredData);
+      postFeed.append(newFeed);
     });
   });
 }

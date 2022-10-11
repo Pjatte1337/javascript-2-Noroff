@@ -2,13 +2,15 @@ import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
 import { postFeedMap } from "./feed.mjs";
 
+export let posts = [];
+
 /**
  * This Function is simply retrieving the post arrays
  */
 export async function postFeed() {
   try {
     let request = await postFeedMap();
-
+    posts.push(request);
     createPostFeed(request);
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
