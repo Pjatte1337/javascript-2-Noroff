@@ -49,3 +49,4 @@ export async function postFeedMap() {
   console.log("There was a problem retrieving the user posts", err);
  }
 }
+postFeedMap()
