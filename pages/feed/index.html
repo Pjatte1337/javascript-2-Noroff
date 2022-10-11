@@ -58,9 +58,9 @@
       <div class="d-flex flex-column gap-5 felx-fill">
        <div class="container d-flex gap-4 flex-column">
         <div id="filterContainer" class="d-flex gap-4 justify-content-center">
-         <button id="filter-date" type="button" class="btn btn-theme text-black" data-filter-date name="filter-date">Date old/new</button>
-         <button id="filter-ratings-low" type="button" class="btn btn-theme text-black" data-filter-ratings-low name="filter-ratings-low">Ratings low/high</button>
-         <button id="filter-ratings-high" type="button" class="btn btn-theme text-black" data-filter-ratings-high name="filter-ratings-high">Ratings high/low</button>
+         <button id="filter-date" type="button" class="btn btn-theme text-black" data-filter="date-filter">Date old/new</button>
+         <button id="filter-ratings-low" type="button" class="btn btn-theme text-black" data-filter="rateLow-filter">Ratings low/high</button>
+         <button id="filter-ratings-high" type="button" class="btn btn-theme text-black" data-filter="rateHigh-filter" >Ratings high/low</button>
         </div>
         <div>
          <input class="form-control me-2 disabled" type="search" placeholder="Search author" aria-label="Search" id="postSearch" data-search />
@@ -80,6 +80,6 @@
   <script src="../../src/js/main.mjs" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script src="../../src/js/api/posts/functions/filter.mjs"></script>
+  <script src="../../src/js/api/posts/functions/filter.mjs" type="module"></script>
  </body>
 </html>
