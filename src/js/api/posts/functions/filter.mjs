@@ -24,27 +24,27 @@ async function filteringData(value) {
  // Fetching the data
  const newArray = [...posts];
 
- let filteredData = [];
-
  switch (value) {
   default:
    filteredData = newArray;
    break;
 
+  case "all":
+   console.log("ok all");
+   break;
+
   case "date":
-   filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
+   console.log("ok date");
    break;
 
   case "likeHigh":
-   filteringData = filteredData.sort((a, b) => a - b);
+   console.log("ok like high");
    break;
 
   case "likeLow":
-   filteringData = filteredData.sort((a, b) => a - b);
+   console.log("ok like low");
    break;
  }
-
- console.log(newArray);
 }
 
 async function postFeedMap() {
