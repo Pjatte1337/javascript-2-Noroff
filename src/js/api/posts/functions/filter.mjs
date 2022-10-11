@@ -8,7 +8,7 @@ export function filterButtonListener() {
       const value = e.currentTarget.dataset.filter;
       const filteredData = filteringData(value);
       const newData = filteredData;
-      console.log(filteredData);
+      console.log(newData);
       const postFeed = document.getElementById("post-feed");
       // postFeed.innerHTML = "";
       // const newFeed = await createPostFeed(newData);
