@@ -1,4 +1,4 @@
-import { postFeedMap } from "../feed.mjs";
+import { postFeedMap, posts } from "../feed.mjs";
 import { createPostFeed } from "../postFeed.mjs";
 
 export function filterButtonListener() {
@@ -42,7 +42,7 @@ function filteringData(value) {
       break;
   }
 
-  return;
+  return sortedArray;
 }
 
 function sortByDate(a, b) {

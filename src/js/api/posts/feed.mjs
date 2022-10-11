@@ -1,12 +1,8 @@
 import { fetchApi } from "../../constant/fetch.mjs";
 import * as apiVar from "../../constant/variables.mjs";
-// Retrieving items from storage
-const token = localStorage.getItem("token");
 
 // Re-declaring variables from import
-const url = apiVar.baseURL;
-const endpointPosts = apiVar.getPosts;
-const fetchUrl = url + endpointPosts;
+const fetchUrl = apiVar.baseURL + apiVar.getPosts;
 
 export function translatePostModel(postData) {
   return {
@@ -37,9 +33,16 @@ export function translatePostModel(postData) {
 
 export async function postFeedMap() {
   try {
-    const response = await fetchApi(fetchUrl, "GET", token, null);
+    const response = await fetchApi(
+      fetchUrl,
+      "GET",
+      localStorage.getItem("token"),
+      null
+    );
     return response.map(translatePostModel);
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
   }
 }
+
+export let posts = await postFeedMap();
