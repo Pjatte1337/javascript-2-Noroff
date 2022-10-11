@@ -2,9 +2,6 @@ import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
 import { postFeedMap } from "./feed.mjs";
 
-// The array for the sort function and search functions
-export let arrayPosts = [];
-
 /**
  * This Function is simply retrieving the post arrays
  */
@@ -22,11 +19,7 @@ export async function postFeed() {
  *
  * @param {*} postData This is needed to be able to populate the feed of posts.
  */
-function createPostFeed(postData) {
-  arrayPosts = postData;
-
-  console.log(postData);
-
+export async function createPostFeed(postData) {
   postData.forEach((data) => {
     const feedContainer = document.querySelector("#post-feed");
 
@@ -148,8 +141,7 @@ function createPostFeed(postData) {
       </div>
       ${commentsHtml}
      </div>
-    </div>
-         `
+    </div>`
     );
     // Removing loader
     const loader = document.querySelector(".loader");

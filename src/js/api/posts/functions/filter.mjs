@@ -1,20 +1,27 @@
-import { posts } from "../feed.mjs";
+import { postFeedMap, posts } from "../feed.mjs";
+import { createPostFeed } from "../postFeed.mjs";
 
 export function filterButtonListener() {
   const allButtons = document.querySelectorAll("[data-filter]");
   allButtons.forEach(function (btn) {
-    btn.addEventListener("click", (e) => {
-      const category = e.currentTarget.dataset.filter;
-      filteringData(category);
+    btn.addEventListener("click", async (e) => {
+      const value = e.currentTarget.dataset.filter;
+      const filteredData = filteringData(value);
+      const newData = filteredData;
+      console.log(newData);
+      const postFeed = document.getElementById("post-feed");
+      // postFeed.innerHTML = "";
+      // const newFeed = await createPostFeed(newData);
+
+      postFeed.append(newFeed);
     });
   });
 }
 
-async function filteringData(value) {
+function filteringData(value) {
   // Fetching the data
   let newArray = [...posts];
-  let items = document.querySelectorAll("[data-id]");
-  let sortedArray = "";
+  let sortedArray = [];
 
   switch (value) {
     default:
@@ -24,7 +31,7 @@ async function filteringData(value) {
       sortedArray = newArray;
       break;
 
-    case "date":
+    case "sort_date":
       sortedArray = newArray.sort(sortByDate);
       break;
 
@@ -43,11 +50,9 @@ function sortByDate(a, b) {
 }
 
 function sortByAtoZ(a, b) {
-  if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
-  return 1;
+  return a.title < b.title;
 }
 
 function sortByZtoA(a, b) {
-  if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
-  return -1;
+  return a.title > b.title;
 }
