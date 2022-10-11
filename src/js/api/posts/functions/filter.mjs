@@ -30,17 +30,23 @@ async function filteringData(value) {
    break;
 
   case "all":
-   const isVisible = value;
-   document.querySelector("#post-feed").children.classList.toggle("d-flex", !isVisible);
+   const isVisible = category;
+   const items = document.querySelectorAll("[data-id]");
+   items.forEach((item) => {
+    item.classList.toggle("d-flex", !isVisible);
+   });
    document.querySelector(".loader").classList.toggle("d-none", !isVisible);
-
    console.log("ok all");
    break;
 
   case "date":
-   posts.forEach((post, index) => {
+   posts.forEach((post) => {
     const isVisible = post.category;
-    document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
+    console.log(post.category)
+    const items = document.querySelectorAll("[data-id]");
+    items.forEach((item) => {
+     item.classList.toggle("d-none", !isVisible);
+    });
    });
    console.log("ok date");
    break;
