@@ -16,28 +16,38 @@ let posts = [];
 allButtons.forEach(function (btn) {
  btn.addEventListener("click", (e) => {
   const category = e.currentTarget.dataset.filter;
-  const postCategory = posts.filter((i) => {
-   if (i.category === category) {
-    return i;
-   }
-
-   posts.forEach((post, index) => {
-    const isVisible = post.category;
-    document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
-   });
-
-   if (category === "all") {
-    posts.forEach((post, index) => {
-     const isVisible = post.category;
-     document.querySelector("#post-feed").children[index].classList.toggle("d-flex", !isVisible);
-     document.querySelector(".loader").classList.toggle("d-none", !isVisible);
-    });
-   }
-  });
+  filteringData(category);
  });
 });
 
-async function postFeed() {
+async function filteringData(value) {
+ // Fetching the data
+ const newArray = [...posts];
+
+ let filteredData = [];
+
+ switch (value) {
+  default:
+   filteredData = newArray;
+   break;
+
+  case "date":
+   filteringData = filteredData.sort((a, b) => new Date(a.created) - new Date(b.created));
+   break;
+
+  case "likeHigh":
+   filteringData = filteredData.sort((a, b) => a - b);
+   break;
+
+  case "likeLow":
+   filteringData = filteredData.sort((a, b) => a - b);
+   break;
+ }
+
+ console.log(newArray);
+}
+
+async function postFeedMap() {
  try {
   let request = await fetchApi(fetchUrl, "GET", token, null);
   posts = request.map((e) => {
@@ -71,4 +81,23 @@ async function postFeed() {
   console.log("There was a problem retrieving the user posts", err);
  }
 }
-postFeed();
+postFeedMap();
+
+// const postCategory = posts.filter((i) => {
+//   if (i.category === category) {
+//    return i;
+//   }
+
+//   posts.forEach((post, index) => {
+//    const isVisible = post.category;
+//    document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
+//   });
+
+//   if (category === "all") {
+//    posts.forEach((post, index) => {
+//     const isVisible = post.category;
+//     document.querySelector("#post-feed").children[index].classList.toggle("d-flex", !isVisible);
+//     document.querySelector(".loader").classList.toggle("d-none", !isVisible);
+//    });
+//   }
+//  });
