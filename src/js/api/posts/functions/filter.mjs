@@ -18,17 +18,19 @@ allButtons.forEach(function (btn) {
   const category = e.currentTarget.dataset.filter;
   const postCategory = posts.filter((i) => {
    if (i.category === category) {
-    posts.forEach((post, index) => {
-     const isVisible = post.category;
-     document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
-    });
+    return i;
    }
+
+   posts.forEach((post, index) => {
+    const isVisible = post.category;
+    document.querySelector("#post-feed").children[index].classList.toggle("d-none", !isVisible);
+   });
 
    if (category === "all") {
     posts.forEach((post, index) => {
      const isVisible = post.category;
      document.querySelector("#post-feed").children[index].classList.toggle("d-flex", !isVisible);
-     document.querySelector(".loader").classList.toggle("d-none", !isVisible)
+     document.querySelector(".loader").classList.toggle("d-none", !isVisible);
     });
    }
   });
