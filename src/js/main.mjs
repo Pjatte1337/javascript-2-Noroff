@@ -9,11 +9,10 @@ import { logOut } from "./api/auth/logout.mjs";
 
 // Post related imports
 import { postFeed } from "./api/posts/postFeed.mjs";
-import { createPosts } from "./api/posts/createPost.mjs";
+import { createPostListener } from "./api/posts/createPost.mjs";
 import { userSearch } from "./api/posts/functions/search.mjs";
 import { waitForData } from "./api/posts/comments.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
-import { posts } from "./api/posts/feed.mjs";
 
 // Importing layout
 import { generateFooter } from "./constant/layout/footer.js";
@@ -50,7 +49,7 @@ async function router() {
   case "profile":
    displayProfile();
    generateFooter();
-   createPosts();
+   createPostListener();
    document.querySelector("title").innerText = defaultTitle + ` || ` + localStorage.getItem("username");
    break;
 
