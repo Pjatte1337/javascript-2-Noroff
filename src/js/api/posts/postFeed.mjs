@@ -8,6 +8,7 @@ import { postFeedMap } from "./feed.mjs";
 export async function postFeed() {
   try {
     let request = await postFeedMap();
+
     createPostFeed(request);
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
@@ -32,7 +33,7 @@ export function createPostFeed(postData) {
       authorAvatar,
       updated,
       tag,
-      media,
+      postImage,
       avatar,
       comments,
       react,
@@ -45,14 +46,16 @@ export function createPostFeed(postData) {
 
     // Constants for DOM manipulations
     let userAvatar = "";
-    let postImage = "";
+    let postContentImage = "";
     let commentsHtml = "";
     let postSettings = "";
 
-    if (media) {
-      postImage = `<a href="#openImageModal"><img src="${media}" class="small-image" alt="" loading="lazy" /></a>;`;
+    // Adding image in the card if the creator of the post have added image in the post.
+    if (postImage) {
+      postContentImage = `<a href="#openImageModal"><img src="${postImage}" class="small-image" alt="" loading="lazy" /></a>;`;
     }
 
+    // Looking for comments. Will display the comments if it is added any comments to the post.
     if (comments) {
       const commentsTimeCreated = changeTimeFormat(
         comments.map((e) => e.created)
@@ -109,31 +112,30 @@ export function createPostFeed(postData) {
 
     // Laying out the HTMl to render for each card
     const classTemplate = `<div class="card-header">
-<div class="d-flex flex-fill">
- <div class="d-flex flex-fill gap-2 align-items-center">
-  ${userAvatar}
-  <h4 class="text-muted"><a href="" class="muted-link text-muted">${authorName}</a></h4>
- </div>
- ${postSettings}
-</div>
-</div>
-
-<div class="card-body">
-<a href="../posts/index.html?id=${id}" class="h5 text-black text-decoration-none"><h5 class="card-title">${title}</h5></a>
-<p class="card-text">${body}.</p>
-${postImage}
-</div>
-<div class="card-footer">
-<div class="row">
- <small class="text-muted">Published ${formattedCreated}</small>
- <small class="text-muted">Last updated ${formattedUpdated}</small>
-</div>
-<div class="mt-2">
- <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${count.comments}</button>
- <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${count.reactions}</button>
-</div>
-</div>
-</div>
+    <div class="d-flex flex-fill">
+      <div class="d-flex flex-fill gap-2 align-items-center">
+      ${userAvatar}
+    <h4 class="text-muted"><a href="" class="muted-link text-muted">${authorName}</a></h4>
+    </div>
+    ${postSettings}
+    </div>
+    </div>
+    <div class="card-body">
+    <a href="../posts/index.html?id=${id}" class="h5 text-black text-decoration-none"><h5 class="card-title">${title}</h5></a>
+    <p class="card-text">${body}.</p>
+    ${postContentImage}
+    </div>
+    <div class="card-footer">
+    <div class="row">
+      <small class="text-muted">Published ${formattedCreated}</small>
+      <small class="text-muted">Last updated ${formattedUpdated}</small>
+    </div>
+    <div class="mt-2">
+     <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${count.comments}</button>
+     <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${count.reactions}</button>
+    </div>
+  </div>
+    </div>
 <div class="d-none">
 <div id="comments-${id}">
 <form action="" class="card p-2 mb-5">

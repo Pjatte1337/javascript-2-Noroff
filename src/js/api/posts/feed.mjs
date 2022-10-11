@@ -8,8 +8,6 @@ const url = apiVar.baseURL;
 const endpointPosts = apiVar.getPosts;
 const fetchUrl = url + endpointPosts;
 
-export let posts = [];
-
 export function translatePostModel(postData) {
   return {
     // Author related

@@ -1,4 +1,4 @@
-import { postFeedMap, posts } from "../feed.mjs";
+import { postFeedMap } from "../feed.mjs";
 import { createPostFeed } from "../postFeed.mjs";
 
 export function filterButtonListener() {
@@ -7,8 +7,7 @@ export function filterButtonListener() {
     btn.addEventListener("click", async (e) => {
       const value = e.currentTarget.dataset.filter;
       const filteredData = filteringData(value);
-      const newData = filteredData;
-      console.log(newData);
+      console.log(filteredData);
       const postFeed = document.getElementById("post-feed");
       // postFeed.innerHTML = "";
       // const newFeed = await createPostFeed(newData);
@@ -20,7 +19,7 @@ export function filterButtonListener() {
 function filteringData(value) {
   // Fetching the data
   let newArray = [...posts];
-  let sortedArray = "";
+  let sortedArray = [];
 
   switch (value) {
     default:
@@ -42,6 +41,8 @@ function filteringData(value) {
       sortedArray = newArray.sort(sortByZtoA);
       break;
   }
+
+  return;
 }
 
 function sortByDate(a, b) {
