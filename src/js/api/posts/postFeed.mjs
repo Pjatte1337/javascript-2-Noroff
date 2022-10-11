@@ -52,7 +52,7 @@ export function createPostFeed(postData) {
 
     // Adding image in the card if the creator of the post have added image in the post.
     if (postImage) {
-      postContentImage = `<a href="#openImageModal"><img src="${postImage}" class="small-image" alt="" loading="lazy" /></a>;`;
+      postContentImage = `<a href="#openImageModal"><img src="${postImage}" class="small-image" alt="" loading="lazy" /></a>`;
     }
 
     // Looking for comments. Will display the comments if it is added any comments to the post.
