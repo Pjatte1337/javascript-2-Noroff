@@ -27,7 +27,7 @@ async function createPosts(postData) {
       console.log(request);
     }
 
-    //    window.location.reload();
+    window.location.reload();
   } catch (error) {
     console.log(error);
   }
@@ -43,8 +43,6 @@ export function createPostListener() {
       const form = event.target;
       const formData = new FormData(form);
       const newData = Object.fromEntries(formData.entries());
-
-      console.log("New form data", newData);
       // send it to API
       createPosts(newData);
     });
