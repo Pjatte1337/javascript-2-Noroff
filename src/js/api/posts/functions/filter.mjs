@@ -47,13 +47,13 @@ async function filteringData(value) {
    console.log("ok date");
    break;
 
-  case "titleAzSort":
-   sortedArray = newArray.sort(sortByTitleAZ);
+  case "A_zSort":
+   sortedArray = newArray.sort(sortByAtoZ);
    console.log("ok like high");
    break;
 
-  case "titleZaSort":
-   sortedArray = newArray.sort(sortByTitleZA);
+  case "Z_aSort":
+   sortedArray = newArray.sort(sortByZtoA);
    console.log("ok like low");
    break;
  }
@@ -118,12 +118,12 @@ function sortByDate(a, b) {
  return new Date(a.posted) - new Date(b.posted);
 }
 
-function sortByTitleAZ(a, b) {
+function sortByAtoZ(a, b) {
  if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
  return 1;
 }
 
-function sortByTitleZA(a, b) {
+function sortByZtoA(a, b) {
  if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
  return -1;
 }
