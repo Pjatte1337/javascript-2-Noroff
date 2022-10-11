@@ -8,12 +8,11 @@ export function filterButtonListener() {
       const value = e.currentTarget.dataset.filter;
       const filteredData = filteringData(value);
       const newData = filteredData;
-      console.log(newData);
+      console.log(filteredData);
       const postFeed = document.getElementById("post-feed");
       // postFeed.innerHTML = "";
       // const newFeed = await createPostFeed(newData);
-
-      postFeed.append(newFeed);
+      // postFeed.append(newFeed);
     });
   });
 }
@@ -21,7 +20,7 @@ export function filterButtonListener() {
 function filteringData(value) {
   // Fetching the data
   let newArray = [...posts];
-  let sortedArray = [];
+  let sortedArray = "";
 
   switch (value) {
     default:
