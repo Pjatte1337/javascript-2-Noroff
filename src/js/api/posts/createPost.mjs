@@ -11,11 +11,20 @@ const createPost = document.querySelector("#createPost");
 
 async function createPosts(postData) {
  try {
-  const request = await fetchApi(postUrl, "POST", localStorage.getItem("token"), postData);
-  console.log(request);
+  if (postData) {
+   let newPostData = {};
+
+   if (post_image === "") {
+        post_image = "string"
+   }
+   newPostData = postData;
+   const request = await fetchApi(postUrl, "POST", localStorage.getItem("token"), newPostData);
+   console.log(request);
+  }
+
   //    window.location.reload();
  } catch (error) {
-  message("Error");
+    console.log(error)
  }
 }
 

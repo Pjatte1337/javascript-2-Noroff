@@ -22,9 +22,13 @@ allButtons.forEach(function (btn) {
 
 async function filteringData(value) {
  // Fetching the data
- const newArray = [...posts];
+ let newArray = [...posts];
  let items = document.querySelectorAll("[data-id]");
  let isVisible = value;
+
+ let sortedArray = "";
+
+ console.log(newArray)
 
  switch (value) {
   default:
@@ -39,11 +43,12 @@ async function filteringData(value) {
    break;
 
   case "date":
-   newArray.sort((a, b) => new Date(a.created) - new Date(b.created));
+    sortedArray = newArray.sort((a, b) => new Date(a.posted) - new Date(b.posted));
    console.log("ok date");
    break;
 
   case "likeHigh":
+    sortedArray = newArray.sort((a, b) => b._count[1] - a._count[1]);
    console.log("ok like high");
    break;
 
