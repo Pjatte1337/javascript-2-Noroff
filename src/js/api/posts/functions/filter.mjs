@@ -28,7 +28,7 @@ async function filteringData(value) {
 
  let sortedArray = "";
 
- console.log(newArray)
+ console.log(newArray);
 
  switch (value) {
   default:
@@ -43,16 +43,17 @@ async function filteringData(value) {
    break;
 
   case "date":
-    sortedArray = newArray.sort((a, b) => new Date(a.posted) - new Date(b.posted));
+   sortedArray = newArray.sort(sortByDate);
    console.log("ok date");
    break;
 
-  case "likeHigh":
-    sortedArray = newArray.sort((a, b) => b._count[1] - a._count[1]);
+  case "titleAzSort":
+   sortedArray = newArray.sort(sortByTitleAZ);
    console.log("ok like high");
    break;
 
-  case "likeLow":
+  case "titleZaSort":
+   sortedArray = newArray.sort(sortByTitleZA);
    console.log("ok like low");
    break;
  }
@@ -112,3 +113,17 @@ postFeedMap();
 //    });
 //   }
 //  });
+
+function sortByDate(a, b) {
+ return new Date(a.posted) - new Date(b.posted);
+}
+
+function sortByTitleAZ(a, b) {
+ if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
+ return 1;
+}
+
+function sortByTitleZA(a, b) {
+ if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
+ return -1;
+}
