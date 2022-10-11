@@ -107,6 +107,7 @@ function createPostFeed(postData) {
    {
     id: `post-id-${id}`,
     class: "card container-fluid d-flex justify-content-center gap-3 p-0",
+    "data-id": "postItem",
    },
    `<div class="card-header">
        <div class="d-flex flex-fill">

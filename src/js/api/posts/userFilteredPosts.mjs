@@ -91,6 +91,7 @@ export async function getUserPosts() {
      {
       id: `post-id-${id}`,
       class: "card container-fluid d-flex justify-content-center p-0 m-0 post_feed_content",
+      "data-id": "postItem",
      },
      `<div class="card-header">
            <div class="d-flex flex-fill">

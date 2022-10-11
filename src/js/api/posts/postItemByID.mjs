@@ -82,6 +82,7 @@ export async function postItemByID() {
    {
     id: `post-id-${id}`,
     class: "card container-fluid d-flex justify-content-center p-0 m-0",
+    "data-id": "postItem",
    },
    `
      <div class="card-header">
