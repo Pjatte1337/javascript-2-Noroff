@@ -4,8 +4,6 @@ import { deletePostListener } from "./deletePost.mjs";
 import { updatePostListener } from "./updatePost.mjs";
 import { postArray } from "./feed.mjs";
 
-import { postArray } from "./feed.mjs";
-
 // Function to retrieve user posts
 export async function getUserPosts() {
   const request = postArray;

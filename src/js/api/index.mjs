@@ -13,7 +13,7 @@ export async function formEvent() {
       const email = form.email.value;
       const password = form.pw.value;
 
-      if(form){
+      if (form) {
         authUser(email, password);
       }
     });

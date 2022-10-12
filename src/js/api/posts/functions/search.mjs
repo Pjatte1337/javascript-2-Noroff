@@ -1,8 +1,7 @@
 import { postArray } from "../feed.mjs";
 const searchInput = document.getElementById("postSearch");
 
-const searchArray = postArray
-
+const searchArray = postArray;
 
 export function userSearch() {
   if (searchInput) {

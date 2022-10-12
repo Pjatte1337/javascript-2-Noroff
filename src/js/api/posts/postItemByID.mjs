@@ -140,10 +140,9 @@ export async function postItemByID() {
 
     feedContainer.append(card);
 
-        // Removing loader
-        const loader = document.querySelector(".loader");
-        loader.style = "display: none;";
-
+    // Removing loader
+    const loader = document.querySelector(".loader");
+    loader.style = "display: none;";
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
   }
