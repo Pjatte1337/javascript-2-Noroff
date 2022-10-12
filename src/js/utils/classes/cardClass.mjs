@@ -1,22 +1,6 @@
-export class Card {
-  constructor(
-    elementName = "",
-    className = "",
-    elementId = "",
-    title,
-    created,
-    body,
-    post_image,
-    author,
-    updated
-  ) {
-    this.element = document.createElement(elementName);
-    element.classList.add(className);
-    element.id = elementId;
-    element.innerHTML = ``;
-  }
-}
-
+/**
+ *
+ */
 export class LoopingCard {
   /**
  * 
@@ -26,12 +10,40 @@ export class LoopingCard {
  * @example
  * ``` 
  * "div",
- * {
+     ```
+ * @returns Elements 
+ */
+  constructor(elementName, attributes = {}, template = "") {
+    this.element = document.createElement(elementName);
+    this.addAttributes(attributes);
+    this.addTemplate(template);
+    return this.element;
+  }
+
+  /**
+   * 
+   * @param {*} attributes
+   * @example
+   * ```
+   * {
     id: `post-id-${id}`,
     class: "card container-fluid d-flex justify-content-center p-0 m-0",
     "data-id": "postItem",
    },
-   `<div class="card-header">
+   ``` 
+   */
+  addAttributes(attributes) {
+    Object.entries(attributes).forEach(([key, value]) => {
+      this.element.setAttribute(key, value);
+    });
+  }
+
+  /**
+   * 
+   * @param {*} template 
+   * @example
+   *  ```   
+   * `<div class="card-header">
       <div class="d-flex flex-fill">
        <div class="d-flex flex-fill gap-2 align-items-center">
         ${userAvatar}
@@ -40,7 +52,6 @@ export class LoopingCard {
        ${postSettings}
       </div>
      </div>
-   
      <div class="card-body">
       <a href="../posts/index.html?id=${id}" class="h5 text-black text-decoration-none"><h5 class="card-title">${title}</h5></a>
       <p class="card-text">${body}.</p>
@@ -67,25 +78,32 @@ export class LoopingCard {
        </div>
       </form>
       ${commentsHtml}
-     </div>
-     ```
- * 
- * @returns Elements 
- */
-  constructor(elementName, attributes = {}, template = "") {
-    this.element = document.createElement(elementName);
-    this.addAttributes(attributes);
-    this.addTemplate(template);
-    return this.element;
-  }
-
-  addAttributes(attributes) {
-    Object.entries(attributes).forEach(([key, value]) => {
-      this.element.setAttribute(key, value);
-    });
-  }
-
+     </div>`
+      ```
+   */
   addTemplate(template) {
     this.element.innerHTML = `${template}`;
+  }
+}
+
+/**
+ *
+ */
+export class Card {
+  constructor(
+    elementName = "",
+    className = "",
+    elementId = "",
+    title,
+    created,
+    body,
+    post_image,
+    author,
+    updated
+  ) {
+    this.element = document.createElement(elementName);
+    element.classList.add(className);
+    element.id = elementId;
+    element.innerHTML = ``;
   }
 }

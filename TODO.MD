@@ -1,60 +1,7 @@
-# To do
-
-## Requirements
-
-## Files and folders
-
-### Js
-
-    - Post
-        - create
-        - comments
-        - delete
-        - update
-        - like / dislike
-        - follow / un-follow
-    - Profile
-        - login
-        - Logout
-        - profile
-        - create
-    - API
-    - auth
-    - local storage
-
-### Style
-
-    - sass
-        - index.scss
-        - Variables
-            - _variables.scss
-        - Components
-            - _header.scss
-            - _navigation.scss
-            - _footer.scss
-            - _cards.scss
-            - _forms.scss
-        - Modal
-            - _login.scss
-            - _therms-of-use.scss
-            - _logout.scss
-    - css
-        - index.css
-
-
-
-    [x]  User with @noroff.no or @stud.noroff.no email can register profile
-    [x]  Registered user can login
-    [x]  User can view a post content feed
-    [x]  User can filter the post content feed
-    [x]  User can search the post content feed
-    [x]  User can view a post content item by ID
-    [x]  User can create a post content item
-    [x]  User can update a post content item
-    [x]  User can delete a post content item
-
-    
-    []  User can create a comment on a post
-    []  User can edit profile media
-    []  User can follow/unfollow a profile
-    []  User can react to a post content item
+(A) There is some issue with fetch, its includes the search function. Look into that
+(A) Some error on index.html. Looks like its trying to fetch some results just by loading the page
+(A) Need to add jsDoc on createPost file
+(A) Need to add jsDocs on deletePost file
+(A) Refactor function for displaying profile content
+(A) Need to add comments and jsDoc to search file
+(A) Need to add comments and jsDoc in filter.mjs

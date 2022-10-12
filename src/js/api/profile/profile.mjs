@@ -28,26 +28,39 @@ if (userInfoContainer) {
         null
       );
 
-      const { name, avatar, banner, _count } = userInfo;
+      const { name, avatar, _count } = userInfo;
+
+      // Card class related variables
+
+      // Defining the HTMl element for the card class
+      const cardElement = "div";
+
+      // Defining attributes to the HTML element
+      const cardAttributes = {
+        id: `profileCard`,
+        class: "container-fluid d-flex justify-content-center",
+      };
+
+      // Defining the HTMl to render for each card
+      const cardTemplate = `<div class="card">
+      <div class="card-body">
+        <img src="${avatar}" class="image"/>
+        <h4 class="card-title">${name}</h4>
+        <div class="">
+        <ul class="list-group">
+           <li class="list-group-item">Posts: ${_count.posts}</li>
+           <li class="list-group-item">Followers: ${_count.followers}</li>
+           <li class="list-group-item">Following: ${_count.following}</li>
+          </ul>
+        </div>
+       </div>
+       </div>`;
+
+      // Calling the card Class and adding the needed variables
       const profileCard = new LoopingCard(
-        "div",
-        {
-          id: `profileCard`,
-          class: "container-fluid d-flex justify-content-center",
-        },
-        `<div class="card">
-    <div class="card-body">
-      <img src="${avatar}" class="image"/>
-      <h4 class="card-title">${name}</h4>
-      <div class="">
-      <ul class="list-group">
-         <li class="list-group-item">Posts: ${_count.posts}</li>
-         <li class="list-group-item">Followers: ${_count.followers}</li>
-         <li class="list-group-item">Following: ${_count.following}</li>
-        </ul>
-      </div>
-     </div>
-     </div>`
+        cardElement,
+        cardAttributes,
+        cardTemplate
       );
 
       userInfoContainer.append(profileCard);

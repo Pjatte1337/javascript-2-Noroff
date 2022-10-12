@@ -12,6 +12,7 @@ export function translatePostModel(postData) {
     authorAvatar: postData.author.avatar,
     // Post related
     title: postData.title,
+    id: postData.id,
     body: postData.body,
     postId: postData.id,
     postImage: postData.media,
@@ -31,7 +32,7 @@ export function translatePostModel(postData) {
   };
 }
 
-export async function postFeedMap() {
+async function postFeedMap() {
   try {
     const response = await fetchApi(
       fetchUrl,
