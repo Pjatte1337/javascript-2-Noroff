@@ -58,12 +58,20 @@
       <div class="d-flex flex-column gap-5 felx-fill">
        <div class="container d-flex gap-4 flex-column">
         <div id="filterContainer" class="d-flex gap-4 justify-content-center">
-         <button id="filter-date" type="button" class="btn btn-theme text-black" data-filter="date">Date old/new</button>
-         <button id="filter-A_zSort" type="button" class="btn btn-theme text-black" data-filter="A_zSort">A - Z</button>
-         <button id="filter-Z_aSort" type="button" class="btn btn-theme text-black" data-filter="Z_aSort">Z - A</button>
-         <button id="filter-ratings-high" type="button" class="btn btn-theme text-black" data-filter="all">Remove filter</button>
+         <div class="d-flex flex-column gap-2">
+          <div>
+           <h4>Filter posts</h4>
+          </div>
+          <div>
+           <button id="filter-date" type="button" class="btn btn-theme text-black disabled" data-filter="date">Date old/new</button>
+           <button id="filter-A_zSort" type="button" class="btn btn-theme text-black" data-filter="A_zSort">Author A - Z</button>
+           <button id="filter-Z_aSort" type="button" class="btn btn-theme text-black" data-filter="Z_aSort">Author Z - A</button>
+           <button id="filter-ratings-high" type="button" class="btn btn-theme text-black" data-filter="all">Remove filter</button>
+          </div>
+         </div>
         </div>
         <div>
+         <h4>Search posts</h4>
          <input class="form-control me-2 disabled" type="search" placeholder="Search author" aria-label="Search" id="postSearch" data-search />
         </div>
        </div>
