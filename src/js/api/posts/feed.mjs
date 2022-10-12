@@ -44,3 +44,9 @@ export async function postFeedMap() {
     console.log("There was a problem retrieving the user posts", err);
   }
 }
+
+async function retrievingPostData() {
+  const posts = await postFeedMap();
+  localStorage.setItem("ApiPosts", JSON.stringify(posts));
+}
+retrievingPostData();
