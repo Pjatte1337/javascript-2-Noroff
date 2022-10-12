@@ -1,6 +1,6 @@
 let posts = JSON.parse(localStorage.getItem("ApiPosts"));
 
-const searchInput = document.querySelector("[data-search]");
+const searchInput = document.getElementById("postSearch");
 
 export function userSearch() {
   if (searchInput) {

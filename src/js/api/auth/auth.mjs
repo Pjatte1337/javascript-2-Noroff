@@ -7,6 +7,11 @@ import { fetchApi } from "../../constant/fetch.mjs";
 const url = apiVar.baseURL;
 const login = apiVar.login;
 
+/**
+ *
+ * @param {*} email
+ * @param {*} password
+ */
 export async function authUser(email, password) {
   const data = {
     email: `${email}`,

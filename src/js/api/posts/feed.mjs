@@ -45,8 +45,9 @@ export async function postFeedMap() {
   }
 }
 
-async function retrievingPostData() {
+async function retrievingLocalPostData() {
   const posts = await postFeedMap();
   localStorage.setItem("ApiPosts", JSON.stringify(posts));
+  return posts;
 }
-retrievingPostData();
+retrievingLocalPostData();

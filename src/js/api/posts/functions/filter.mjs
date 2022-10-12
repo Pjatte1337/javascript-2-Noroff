@@ -17,7 +17,6 @@ export function filterButtonListener() {
 function filteringData(value) {
   // Fetching the data
   let newArray = JSON.parse(localStorage.getItem("ApiPosts"));
-  console.log(newArray);
   let sortedArray = [];
 
   switch (value) {
