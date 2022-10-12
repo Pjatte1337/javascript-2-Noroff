@@ -65,7 +65,6 @@ async function router() {
 
     case "postItemByID":
       postItemByID();
-      waitForData();
       displayPageLoader();
       document.querySelector("title").innerText = defaultTitle + ` || Post`;
       break;

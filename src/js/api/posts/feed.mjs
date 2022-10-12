@@ -12,6 +12,7 @@ export function translatePostModel(postData) {
     authorAvatar: postData.author.avatar,
     // Post related
     title: postData.title,
+    id: postData.id,
     body: postData.body,
     postId: postData.id,
     postImage: postData.media,
@@ -45,9 +46,9 @@ export async function postFeedMap() {
   }
 }
 
-async function retrievingLocalPostData() {
-  const posts = await postFeedMap();
-  localStorage.setItem("ApiPosts", JSON.stringify(posts));
-  return posts;
+async function retrievingPostData() {
+  let posts = await postFeedMap();
+  return posts
 }
-retrievingLocalPostData();
+
+export const postArray = await retrievingPostData()

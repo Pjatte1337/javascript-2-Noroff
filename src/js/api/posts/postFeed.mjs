@@ -1,6 +1,7 @@
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
-import { postFeedMap } from "./feed.mjs";
+// import { postFeedMap } from "./feed.mjs";
+import { postArray } from "./feed.mjs";
 
 export let posts = [];
 
@@ -9,7 +10,7 @@ export let posts = [];
  */
 export async function postFeed() {
   try {
-    let request = await postFeedMap();
+    let request = postArray;
     posts.push(request);
     createPostFeed(request);
   } catch (err) {
@@ -22,8 +23,8 @@ export async function postFeed() {
  *
  * @param {*} postData This is needed to be able to populate the feed of posts.
  */
-export function createPostFeed(postData) {
-  postData.forEach((data) => {
+export function createPostFeed(postArray) {
+  postArray.forEach((data) => {
     const feedContainer = document.querySelector("#post-feed");
 
     const {
