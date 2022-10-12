@@ -1,6 +1,5 @@
 import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
-// import { postFeedMap } from "./feed.mjs";
 import { postArray } from "./feed.mjs";
 
 export let posts = [];

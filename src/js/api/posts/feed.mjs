@@ -32,7 +32,7 @@ export function translatePostModel(postData) {
   };
 }
 
-export async function postFeedMap() {
+async function postFeedMap() {
   try {
     const response = await fetchApi(
       fetchUrl,
