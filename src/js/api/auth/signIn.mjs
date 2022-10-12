@@ -2,8 +2,7 @@ import * as apiVar from "../../constant/variables.mjs";
 import { authUser } from "./auth.mjs";
 
 // Re-declaring variables from import
-const url = apiVar.baseURL;
-const login = apiVar.login;
+const url = apiVar.baseURL + apiVar.login;
 
 /**
  *
@@ -18,7 +17,7 @@ const login = apiVar.login;
  */
 export async function signIn(email, password) {
   try {
-    const request = await fetch(url + login, {
+    const request = await fetch(url, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -42,6 +41,7 @@ export async function signIn(email, password) {
     const token = localStorage.getItem("token");
     const name = localStorage.getItem("username");
 
+    // Looking for a token, if the token is there it sends the request to auth to authenticate the user information
     if (token) {
       authUser(token, name);
     }

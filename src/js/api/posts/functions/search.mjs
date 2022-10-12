@@ -3,6 +3,7 @@ const searchInput = document.getElementById("postSearch");
 
 const searchArray = postArray
 
+
 export function userSearch() {
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {

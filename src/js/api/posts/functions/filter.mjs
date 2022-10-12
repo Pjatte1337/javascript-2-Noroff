@@ -1,4 +1,5 @@
 import { createPostFeed } from "../postFeed.mjs";
+import { postArray } from "../feed.mjs";
 
 export function filterButtonListener() {
   const allButtons = document.querySelectorAll("[data-filter]");
@@ -6,6 +7,7 @@ export function filterButtonListener() {
     btn.addEventListener("click", async (e) => {
       const value = e.currentTarget.dataset.filter;
       const filteredData = filteringData(value);
+      console.log(filteredData)
       const postFeed = document.getElementById("post-feed");
       postFeed.innerHTML = "";
       const newFeed = createPostFeed(filteredData);
@@ -16,8 +18,7 @@ export function filterButtonListener() {
 
 function filteringData(value) {
   // Fetching the data
-  let newArray = JSON.parse(localStorage.getItem("ApiPosts"));
-  console.log(newArray);
+  const defaultArray = postArray
   let sortedArray = [];
 
   switch (value) {
@@ -25,19 +26,19 @@ function filteringData(value) {
       break;
 
     case "all":
-      sortedArray = newArray;
+      sortedArray = defaultArray;
       break;
 
     case "sort_date":
-      sortedArray = newArray.sort(sortByDate);
+      sortedArray = postArray.sort(sortByDate);
       break;
 
     case "A_zSort":
-      sortedArray = newArray.sort(sortByAtoZ);
+      sortedArray = postArray.sort(sortByAtoZ);
       break;
 
     case "Z_aSort":
-      sortedArray = newArray.sort(sortByZtoA);
+      sortedArray = postArray.sort(sortByZtoA);
       break;
   }
 
