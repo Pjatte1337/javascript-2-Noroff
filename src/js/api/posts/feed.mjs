@@ -45,7 +45,9 @@ export async function postFeedMap() {
   }
 }
 
-export async function retrievingPostData() {
+async function retrievingPostData() {
   let posts = await postFeedMap();
   return posts
 }
+
+export const postArray = await retrievingPostData()

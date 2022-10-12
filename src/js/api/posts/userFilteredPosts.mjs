@@ -2,11 +2,11 @@ import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
 import { deletePostListener } from "./deletePost.mjs";
 import { updatePostListener } from "./updatePost.mjs";
+import { postArray } from "./feed.mjs";
 
 // Function to retrieve user posts
 export async function getUserPosts() {
-  const request = JSON.parse(localStorage.getItem("ApiPosts"));
-
+  const request =  postArray
   if (request) {
     const data = request;
     const dataFilter = data.filter(function (resp) {
