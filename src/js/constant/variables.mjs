@@ -19,12 +19,6 @@ export const fetchParams = {
   _reactions: true,
 };
 
-/* 
-
- ============= ENDPOINTS ============= 
-
-*/
-
 // Base url for the api
 export const baseURL = `https://nf-api.onrender.com/api/v1`;
 
@@ -48,35 +42,3 @@ export const putPost = `/social/posts/`;
 export const deletePost = `/social/posts/`;
 export const reactPost = `/social/posts/${id}/react/${symbol}`;
 export const comments = `/social/posts/${id}/comment`;
-
-/* 
-
- =============  OPTIONS ============= 
-
-*/
-
-const token = localStorage.getItem("token");
-
-export const methods = {
-  get: "GET",
-  post: "POST",
-  put: "PUT",
-  del: "DELETE",
-};
-
-export const header = {
-  method: "post",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ email, password }),
-};
-
-export const headerAuth = {
-  method: "post",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  },
-  body: JSON.stringify({ email, password }),
-};
