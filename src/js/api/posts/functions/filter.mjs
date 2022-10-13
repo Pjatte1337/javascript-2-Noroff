@@ -1,5 +1,7 @@
 import { createPostFeed } from "../postFeed.mjs";
-import { postArray } from "../feed.mjs";
+import { retrievingPostData } from "../feed.mjs";
+
+const postArray = await retrievingPostData();
 
 export function filterButtonListener() {
   const allButtons = document.querySelectorAll("[data-filter]");

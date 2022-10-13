@@ -1,4 +1,7 @@
-import { postArray } from "../feed.mjs";
+import { retrievingPostData } from "../feed.mjs";
+const postArray = await retrievingPostData();
+
+ 
 const searchInput = document.getElementById("postSearch");
 
 const searchArray = postArray;

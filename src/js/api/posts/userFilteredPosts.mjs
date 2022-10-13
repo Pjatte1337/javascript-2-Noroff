@@ -2,7 +2,9 @@ import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
 import { deletePostListener } from "./deletePost.mjs";
 import { updatePostListener } from "./updatePost.mjs";
-import { postArray } from "./feed.mjs";
+import { retrievingPostData } from "./feed.mjs";
+
+const postArray = await retrievingPostData();
 
 // Function to retrieve user posts
 export async function getUserPosts() {
