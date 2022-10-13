@@ -40,7 +40,11 @@ async function postFeedMap() {
       localStorage.getItem("token"),
       null
     );
-    return response.map(translatePostModel);
+
+    if(localStorage.getItem("token")) {
+      return response.map(translatePostModel);
+    }
+
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
   }
