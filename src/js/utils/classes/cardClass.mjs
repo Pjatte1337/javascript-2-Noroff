@@ -116,10 +116,9 @@ export function cardTemplate(
   postContentImage,
   created,
   updated,
-  react,
   reactNum,
   commNum,
-  comments,
+  com,
   commentsHtml
 ) {
   // Time formatting
@@ -132,14 +131,11 @@ export function cardTemplate(
   }
 
   // Looking for comments. Will display the comments if it is added any comments to the post.
-  if (comments) {
-    const commentsTimeCreated = changeTimeFormat(
-      comments.map((e) => e.created)
-    );
+  if (com) {
+    const commentsTimeCreated = changeTimeFormat(com.map((e) => e.created));
 
-    commentsHtml = comments
-      .map(
-        (e) => `
+    commentsHtml = com.map(
+      (e) => `
        <div class="d-flex flex-column p-2"> 
        <h5>Comments</h5>
        <div class="container card me-1 p-1" id="commentId-${e.id}">
@@ -154,8 +150,7 @@ export function cardTemplate(
        </div> 
        </div>
      `
-      )
-      .join("");
+    );
   }
 
   // Looking for author image. Displaying image if the return value is true
@@ -183,24 +178,36 @@ export function cardTemplate(
     <small class="text-muted">Last updated ${formattedUpdated}</small>
   </div>
   <div class="mt-2">
-   <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${reactNum}</button>
-   <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${commNum}</button>
+   <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${commNum}</button>
+   <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${reactNum}</button>
   </div>
 </div>
   </div>
-<div class="d-none">
-<div id="comments-${id}">
-<form action="" class="card p-2 mb-5">
-<div class="container">
-<div class="mb-3 gap-1">
- <textarea class="form-control"></textarea>
- <button class="btn float-end" type="submit">Comment</button>
-</div>
-</div>
-</form>
-</div>
-${commentsHtml}
-</div>
+  <div id="comments-container-id-${id}">
+  <div class="container-fluid d-flex flex-column gap-3 mb-2">
+  <div class="container-fluid d-flex flex-column gap-3" id="addComments">
+    <h4>Comments this post</h4>
+    <form class="d-flex flex-column gap-1">
+                <div class="mb-3">
+              <textarea class="form-control" disabled></textarea>
+            </div>
+            <div class="mb-3">
+            <button class="btn float-end" type="submit" disabled>Comment</button>
+          </div>
+    </form>
+  </div>
+  <div class="card mb-2 d-none">
+    <div class="card-header">
+      <h4 class="card-title">Comments</h4>
+    </div>
+    <div class="card-body">
+    ${commentsHtml}
+      <button class="btn" disabled>Comment</button>
+    </div>
+  </div>  
+  </div>
+</div>  
+  <!-- end of card -->
 </div>
 `;
 

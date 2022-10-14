@@ -36,33 +36,31 @@ export async function postFeed() {
  * @param {*} postData This is needed to be able to populate the feed of posts.
  */
 export function createPostFeed(postArray) {
+  console.log(postArray);
+
   postArray.forEach((data) => {
     const feedContainer = document.querySelector("#post-feed");
 
     const {
       id,
       title,
-      created,
       body,
       authorName,
       authorAvatar,
       posted,
       updated,
-      tag,
       postImage,
-      avatar,
       commNum,
-      comments,
+      com,
       reactNum,
       react,
-      count,
     } = data;
 
     // Constants for DOM manipulations
     let userAvatar = "";
     let postContentImage = "";
     let postSettings = "";
-    let commentsHtml = "";
+    let commentsHtml;
 
     // Looking for author.name in the api fetch. Displaying settings wheel if the return value is true
     const currentUser = localStorage.getItem("username");
@@ -96,10 +94,9 @@ export function createPostFeed(postArray) {
       postContentImage,
       posted,
       updated,
-      react,
       reactNum,
       commNum,
-      comments,
+      com,
       commentsHtml
     );
 
