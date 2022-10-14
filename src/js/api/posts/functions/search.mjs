@@ -1,11 +1,15 @@
 import { retrievingPostData } from "../feed.mjs";
 const postArray = await retrievingPostData();
 
- 
+// Selecting html element for use in function
 const searchInput = document.getElementById("postSearch");
 
+// Retrieving array from fetch
 const searchArray = postArray;
 
+/**
+ * A search function that reacts on user input in search field on page.
+ */
 export function userSearch() {
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {

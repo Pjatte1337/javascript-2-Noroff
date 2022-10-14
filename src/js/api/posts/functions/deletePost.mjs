@@ -15,6 +15,13 @@ const url = apiVar.baseURL;
 const postDetails = apiVar.getPostsById + id;
 const deletePost = apiVar.deletePost;
 
+/**
+ *
+ * A button listener for deleting form
+ *
+ * @param {*} postID takes postID from fetched array
+ */
+
 export function deletePostListener(postID) {
   document
     .querySelector(`#deletePost-id-${postID}`)
