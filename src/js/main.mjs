@@ -26,6 +26,7 @@ if (logOutButton) {
   logOut();
 }
 
+// Setting default page title
 const defaultTitle = "The social universe";
 
 /**
@@ -53,6 +54,7 @@ async function router() {
         defaultTitle + ` || ` + localStorage.getItem("username");
       break;
 
+    // Executing the the function for the feed page
     case "allPosts":
       postFeed();
       userSearch();
@@ -62,18 +64,21 @@ async function router() {
         defaultTitle + ` || Feed wall`;
       break;
 
+    // Executing the the function for the displaying post by id
     case "postItemByID":
       postItemByID();
       displayPageLoader();
       document.querySelector("title").innerText = defaultTitle + ` || Post`;
       break;
 
+    // Executing the the function for the testing page
     case "testing":
       postFeed();
       document.querySelector("title").innerText =
         defaultTitle + ` || Feed wall`;
       break;
 
+    // Executing the the function for a page if it does not exist
     case "404":
     default:
       display404Page();
