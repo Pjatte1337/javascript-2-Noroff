@@ -5,6 +5,7 @@ import {
   cardElement,
 } from "../../utils/classes/cardClass.mjs";
 import { retrievingPostData } from "./feed.mjs";
+import { displayIfNoPosts } from "../../constant/noPostDisplay.js";
 
 import { deletePostListener } from "./functions/deletePost.mjs";
 import { updatePostListener } from "./functions/updatePost.mjs";
@@ -15,9 +16,15 @@ const postArray = await retrievingPostData();
  * This Function is simply retrieving the post arrays
  */
 export async function postFeed() {
+  let request = postArray;
   try {
-    let request = postArray;
-    createPostFeed(request);
+    if (postArray) {
+      createPostFeed(request);
+    }
+
+    if (!postArray || postArray?.data.length !== 0) {
+      displayIfNoPosts();
+    }
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
   }
