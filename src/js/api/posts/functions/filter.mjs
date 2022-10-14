@@ -10,7 +10,7 @@ export function filterButtonListener() {
     btn.addEventListener("click", async (e) => {
       const value = e.currentTarget.dataset.filter;
       const filteredData = filteringData(value);
-      console.log(filteredData);
+      // console.log(filteredData);
       const postFeed = document.getElementById("post-feed");
       postFeed.innerHTML = "";
       const newFeed = createPostFeed(filteredData);

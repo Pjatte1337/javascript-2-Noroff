@@ -21,11 +21,8 @@ export async function postFeed() {
     if (postArray) {
       createPostFeed(request);
     }
-
-    if (!postArray || postArray?.data.length !== 0) {
-      displayIfNoPosts();
-    }
   } catch (err) {
+    displayIfNoPosts();
     console.log("There was a problem retrieving the user posts", err);
   }
 }
@@ -36,8 +33,6 @@ export async function postFeed() {
  * @param {*} postData This is needed to be able to populate the feed of posts.
  */
 export function createPostFeed(postArray) {
-  console.log(postArray);
-
   postArray.forEach((data) => {
     const feedContainer = document.querySelector("#post-feed");
 
