@@ -1,6 +1,7 @@
 import { createPostFeed } from "../postFeed.mjs";
 import { retrievingPostData } from "../feed.mjs";
 
+// Setting const for data to use in the filter
 const postArray = await retrievingPostData();
 
 export function filterButtonListener() {
@@ -18,6 +19,11 @@ export function filterButtonListener() {
   });
 }
 
+/**
+ *
+ * @param {*} value This is sett by switch case
+ * @returns sorted or default array. Depending on witch button that is clicked.
+ */
 function filteringData(value) {
   // Fetching the data
   const defaultArray = postArray;
@@ -48,14 +54,35 @@ function filteringData(value) {
   return sortedArray, defaultArray;
 }
 
+/**
+ * Simple sorting function
+ *
+ * @param {*} a
+ * @param {*} b
+ * @returns filtered array
+ */
 function sortByDate(a, b) {
   return new Date(a.posted) < new Date(b.posted);
 }
 
+/**
+ * Simple sorting function
+ *
+ * @param {*} a
+ * @param {*} b
+ * @returns filtered array
+ */
 function sortByAtoZ(a, b) {
   return a.authorName > b.authorName;
 }
 
+/**
+ * Simple sorting function
+ *
+ * @param {*} a
+ * @param {*} b
+ * @returns filtered array
+ */
 function sortByZtoA(a, b) {
   return a.authorName < b.authorName;
 }

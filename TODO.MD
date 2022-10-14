@@ -4,5 +4,5 @@
 (A) Need to add jsDocs on deletePost file {cm:2022-10-14}
 (A) Refactor function for displaying profile content {cm:2022-10-14}
 (A) Need to add comments and jsDoc to search file {cm:2022-10-14}
-(A) Need to add comments and jsDoc in filter.mjs
+(A) Need to add comments and jsDoc in filter.mjs {cm:2022-10-14}
 Problems with filtering. Default array is not returning to default.. 
