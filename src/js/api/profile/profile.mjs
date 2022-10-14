@@ -12,6 +12,7 @@ const fetchUrl = url + endpointPosts;
 // Creating function to display user profile
 export async function displayProfile() {
   const token = localStorage.getItem("token");
+  const username = localStorage.getItem("username");
 
   const authUser = await fetchApi(fetchUrl, "GET", token, null);
   getUserPosts(authUser);
