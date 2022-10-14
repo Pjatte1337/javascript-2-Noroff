@@ -107,3 +107,96 @@ export class Card {
     element.innerHTML = ``;
   }
 }
+
+let empty = [
+  {
+    id: "",
+    title: "",
+    created: "",
+    body: "",
+    authorName: "",
+    authorAvatar: "",
+    updated: "",
+    tag: "",
+    postImage: "",
+    avatar: "",
+    comments: "",
+    react: "",
+    count: "",
+  },
+];
+
+let {
+  id,
+  title,
+  created,
+  body,
+  authorName,
+  authorAvatar,
+  updated,
+  tag,
+  postImage,
+  avatar,
+  comments,
+  react,
+  count,
+} = empty;
+
+let userAvatar = "";
+let postContentImage = "";
+let commentsHtml = "";
+let postSettings = "";
+let formattedCreated = "";
+let formattedUpdated = "";
+
+// Choosing what type of HTML element to render
+export const classElement = "div";
+
+// Adding attributes to the HTML element
+export const classAttributes = {
+  id: `post-id-${id}`,
+  class: "card container-fluid d-flex justify-content-center gap-3 p-0",
+  "data-id": "postItem",
+};
+
+// Laying out the HTMl to render for each card
+export const classTemplate = `<div class="card-header">
+    <div class="d-flex flex-fill">
+      <div class="d-flex flex-fill gap-2 align-items-center">
+      ${userAvatar}
+    <h4 class="text-muted"><a href="" class="muted-link text-muted">${authorName}</a></h4>
+    </div>
+    ${postSettings}
+    </div>
+    </div>
+    <div class="card-body">
+    <a href="../posts/index.html?id=${id}" class="h5 text-black text-decoration-none"><h5 class="card-title">${title}</h5></a>
+    <p class="card-text">${body}.</p>
+    ${postContentImage}
+    </div>
+    <div class="card-footer">
+    <div class="row">
+      <small class="text-muted">Published ${formattedCreated}</small>
+      <small class="text-muted">Last updated ${formattedUpdated}</small>
+    </div>
+    <div class="mt-2">
+     <button class="btn" id="btn-comments"><i class="fa-regular fa-comment"></i> ${react}</button>
+     <button class="btn" id="btn-like"><i class="fa-solid fa-thumbs-up"></i>  ${comments}</button>
+    </div>
+  </div>
+    </div>
+<div class="d-none">
+<div id="comments-${id}">
+<form action="" class="card p-2 mb-5">
+ <div class="container">
+  <div class="mb-3 gap-1">
+   <textarea class="form-control"></textarea>
+   <button class="btn float-end" type="submit">Comment</button>
+  </div>
+ </div>
+</form>
+</div>
+${commentsHtml}
+</div>
+</div>
+  `;

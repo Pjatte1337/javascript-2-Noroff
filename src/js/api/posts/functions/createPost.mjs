@@ -1,5 +1,5 @@
-import * as apiVar from "../../constant/variables.mjs";
-import { fetchApi } from "../../constant/fetch.mjs";
+import * as apiVar from "../../../constant/variables.mjs";
+import { fetchApi } from "../../../constant/fetch.mjs";
 
 // Re-declaring variables from import
 const postUrl = apiVar.baseURL + apiVar.createNewPost;
@@ -19,7 +19,6 @@ async function createPosts(postData) {
         localStorage.getItem("token"),
         newPostData
       );
-      console.log(request);
     }
 
     window.location.reload();

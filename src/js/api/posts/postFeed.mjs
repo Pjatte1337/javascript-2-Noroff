@@ -2,6 +2,9 @@ import { LoopingCard } from "../../utils/classes/cardClass.mjs";
 import { changeTimeFormat } from "../../utils/changeTime.mjs";
 import { retrievingPostData } from "./feed.mjs";
 
+import { deletePostListener } from "./functions/deletePost.mjs";
+import { updatePostListener } from "./functions/updatePost.mjs";
+
 const postArray = await retrievingPostData();
 
 /**
@@ -161,5 +164,8 @@ ${commentsHtml}
     loader.style = "display: none;";
 
     feedContainer.append(card);
+
+    deletePostListener(id);
+    updatePostListener(id);
   });
 }

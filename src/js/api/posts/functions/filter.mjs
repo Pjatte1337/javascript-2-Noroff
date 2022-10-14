@@ -25,10 +25,7 @@ function filteringData(value) {
 
   switch (value) {
     default:
-      break;
-
-    case "all":
-      sortedArray = defaultArray;
+      defaultArray;
       break;
 
     case "sort_date":
@@ -42,9 +39,13 @@ function filteringData(value) {
     case "Z_aSort":
       sortedArray = postArray.sort(sortByZtoA);
       break;
+
+    case "all":
+      defaultArray;
+      break;
   }
 
-  return sortedArray;
+  return sortedArray, defaultArray;
 }
 
 function sortByDate(a, b) {

@@ -41,21 +41,17 @@ async function postFeedMap() {
       null
     );
 
-    if(localStorage.getItem("token")) {
+    if (localStorage.getItem("token")) {
       return response.map(translatePostModel);
     }
-
   } catch (err) {
     console.log("There was a problem retrieving the user posts", err);
   }
 }
 
 export async function retrievingPostData() {
-  if(localStorage.getItem("token")) {
+  if (localStorage.getItem("token")) {
     let posts = await postFeedMap();
     return posts;
   }
-
 }
-
-

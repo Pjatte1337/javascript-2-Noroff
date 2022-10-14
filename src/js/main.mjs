@@ -9,10 +9,9 @@ import { logOut } from "./api/auth/logout.mjs";
 
 // Post related imports
 import { postFeed } from "./api/posts/postFeed.mjs";
-import { createPostListener } from "./api/posts/createPost.mjs";
+import { createPostListener } from "./api/posts/functions/createPost.mjs";
 import { userSearch } from "./api/posts/functions/search.mjs";
 import { filterButtonListener } from "./api/posts/functions/filter.mjs";
-import { waitForData } from "./api/posts/comments.mjs";
 import { postItemByID } from "./api/posts/postItemByID.mjs";
 
 // Importing layout
