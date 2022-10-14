@@ -1,6 +1,6 @@
 <div>
   <h1> JavaScript 2 Course Assignment</h1>
-  <p>Making a Social Platform </p>
+  <p>Making a Social Media Platform </p>
  </div>
  
  ---
