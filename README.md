@@ -1,6 +1,6 @@
 <div>
   <h1> JavaScript 2 Course Assignment</h1>
-  <p>Making a Social Platform </p>
+  <p>Making a Social Media Platform </p>
  </div>
  
  ---
@@ -35,7 +35,7 @@
  
  ---
  
-### Required features
+### Required Features
 <p>
 
 - User with @noroff.no or @stud.noroff.no email can register profile
@@ -52,7 +52,7 @@
  
  ---
  
-### Additional features
+### Additional Features
 <p>
 
 - User can create a comment on a post
@@ -61,7 +61,32 @@
 - User can react to a post content item
 
 </p>
- 
+
+---
+
+### Run The Project
+To run project you have to install node_modules, you can do this by using `npm i -y`, the -y stand for yes and accepts all standard conditions, if you want to accept this manually you can run `npm i`.
+```
+npm i -y or npm i
+```
+If you run into any issues with an error when installing npm, you can try and delete `package-lock.json` and try again.
+
+***The project is using sass and bootsrap, The configurations in package.json commands is as follows.***
+
+```
+npm run build
+```
+`Runs the build process for the project.`
+```
+npm run watch
+```
+`Runs the watch feature for the project if you are changing sass classes.`
+
+After you have done the following commands in order your project should be up and running.
+npm i -y or npm i
+
+---
+
 ### Tools used
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>
@@ -78,7 +103,7 @@
 
 ---
 
-### Link to page
+### Link To The Page
 <div>
 </div>
 
