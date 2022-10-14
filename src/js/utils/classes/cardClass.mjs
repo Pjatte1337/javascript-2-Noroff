@@ -97,7 +97,8 @@ export function cardElement() {
 export function cardAttributes(id) {
   const classAttributes = {
     id: `post-id-${id}`,
-    class: "card container-fluid d-flex justify-content-center gap-3 p-0",
+    class:
+      "card shadow-sm container-fluid d-flex justify-content-center gap-3 p-0",
     "data-id": "postItem",
   };
   return classAttributes;
