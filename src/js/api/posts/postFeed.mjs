@@ -165,7 +165,9 @@ ${commentsHtml}
 
     feedContainer.append(card);
 
-    deletePostListener(id);
-    updatePostListener(id);
+    if (currentUser === authorName) {
+      deletePostListener(id);
+      updatePostListener(id);
+    }
   });
 }

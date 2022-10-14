@@ -4,7 +4,9 @@ import { message } from "../../../constant/message.mjs";
 import { retrievingPostData } from "../feed.mjs";
 const postArray = await retrievingPostData();
 
-const { postID } = postArray;
+if (postArray) {
+  const { postID } = postArray;
+}
 
 let id = "";
 
