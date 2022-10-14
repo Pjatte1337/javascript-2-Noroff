@@ -47,11 +47,11 @@ function filteringData(value) {
       break;
 
     case "all":
-      defaultArray;
+      sortedArray = postArray;
       break;
   }
 
-  return sortedArray, defaultArray;
+  return sortedArray;
 }
 
 /**
