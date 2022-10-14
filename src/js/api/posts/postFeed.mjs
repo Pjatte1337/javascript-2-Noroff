@@ -55,6 +55,7 @@ export function createPostFeed(postArray) {
     let userAvatar = "";
     let postContentImage = "";
     let postSettings = "";
+    let commentsHtml = "";
 
     // Looking for author.name in the api fetch. Displaying settings wheel if the return value is true
     const currentUser = localStorage.getItem("username");
@@ -86,12 +87,13 @@ export function createPostFeed(postArray) {
       postImage,
       authorAvatar,
       postContentImage,
-      created,
+      posted,
       updated,
       react,
       reactNum,
       commNum,
-      comments
+      comments,
+      commentsHtml
     );
 
     // Creating a new card based on variables defined over.
