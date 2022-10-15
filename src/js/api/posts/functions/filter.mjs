@@ -47,7 +47,7 @@ function filteringData(value) {
       break;
 
     case "all":
-      sortedArray = postArray;
+      sortedArray = defaultArray;
       break;
   }
 
@@ -65,24 +65,6 @@ function sortByDate(a, b) {
   return new Date(a.posted) < new Date(b.posted);
 }
 
-/**
- * Simple sorting function
- *
- * @param {*} a
- * @param {*} b
- * @returns filtered array
- */
-function sortByAtoZ(a, b) {
-  return a.authorName > b.authorName;
-}
+ const sortByAtoZ = (a, b) => a.authorName.localeCompare(b.authorName);
 
-/**
- * Simple sorting function
- *
- * @param {*} a
- * @param {*} b
- * @returns filtered array
- */
-function sortByZtoA(a, b) {
-  return a.authorName < b.authorName;
-}
+ const sortByZtoA = (a, b) => b.authorName.localeCompare(a.authorName);
