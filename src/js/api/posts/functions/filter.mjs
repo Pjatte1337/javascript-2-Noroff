@@ -24,16 +24,15 @@ export function filterButtonListener() {
  * @param {*} value This is sett by switch case
  * @returns sorted or default array. Depending on witch button that is clicked.
  */
+
+ const defaultArray = [...postArray];
+
 function filteringData(value) {
   // Fetching the data
-  const defaultArray = postArray;
+
   let sortedArray = [];
 
   switch (value) {
-    default:
-      defaultArray;
-      break;
-
     case "sort_date":
       sortedArray = postArray.sort(sortByDate);
       break;
@@ -49,6 +48,10 @@ function filteringData(value) {
     case "all":
       sortedArray = defaultArray;
       break;
+
+      default:
+        sortedArray = defaultArray;
+        break;
   }
 
   return sortedArray;
