@@ -45,7 +45,18 @@ export async function fetchApi(url, method, token, data) {
     // Sending the request to the API
     const request = await fetch(url, fetchOptions);
     const response = await request.json();
+    
     // Doing this if the response comes back with a with a Access token
+    if (response.accessToken) {
+      // Creating a shorter const for saving in local storage
+      const i = response;
+
+      // Storing response in local storage
+      localStorage.setItem("token", i.accessToken);
+      localStorage.setItem("username", i.name);
+      localStorage.setItem("email", i.email);
+      localStorage.setItem("avatar", i.avatar);
+    }
 
     // Returning the response
     return response;
