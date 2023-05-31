@@ -71,5 +71,8 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 ## Acknowledgments
 [Christopher Tønnesland](https://github.com/Christonn93)
+
 [Noroff - School of technology and digital media](https://www.noroff.no/)
 
+## Author
+[Joakim Vanebo](https://github.com/Pjatte1337) & [Christopher Tønnesland](https://github.com/Christonn93)
