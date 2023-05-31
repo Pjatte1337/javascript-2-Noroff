@@ -1,111 +1,75 @@
-<div>
-  <h1> JavaScript 2 Course Assignment</h1>
-  <p>Making a Social Media Platform </p>
- </div>
- 
- ---
+# Noroff JavaScript 2
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e4b03a95-28bf-49bb-af9d-d7ffdd84332c/deploy-status)](https://app.netlify.com/sites/admirable-salmiakki-7fa5bc/deploys)
+- [Hosted application demo link](https://admirable-salmiakki-7fa5bc.netlify.app/)
 
-<div>
-  <img src="https://github.com/Christonn93/javascript-2-Noroff/blob/pjatte/CA.png"width="1200" height="400"/> </img>
-</div>
+![image](https://github.com/Pjatte1337/javascript-2-Noroff/blob/main/src/images/javascript-2-Noroff.png)
 
- ---
- 
-### Brief
-<p>
-  You have been tasked with producing a new JavaScript front-end client for an existing social media platform. The client application must be attractive and        responsive, but you have an otherwise blank slate in terms of theme design language.
 
-  Using the provided API and API documentation, create a functioning user interface that allows for viewing, posting, editing and deleting social media content.
+## Description
+This is my JavaScript 2 Assignment @ [Noroff - School of technology and digital media](https://www.noroff.no/).
+The website is an  Social Media Platform using Noroff's live API. On the platform you can viewing, posting, editing and deleting social media content.
 
-  Social API routes require authorisation via JWT (JSON Web Tokens). You will need to register an account and login to access your token.
+On this project I work in a team with [Christopher Tønnesland](https://github.com/Christonn93).
 
-  To complete the required features, you will also need to make use of GET, POST, PUT, and DELETE HTTP methods.
+This project has:
+- Homepage
+- Profile Page
+- Content Feed
+- Login and logout page
 
-  Using localStorage is highly recommended, especially for storing JWT tokens.
-
-  A finished project fulfils the requirements below with an easy to use and error-free user interface.
-</p>
-
- ---
- 
-### Goal
-<p>
-  To apply knowledge of JavaScript techniques to implement the front-end functionality for a social media application.
-</p>
- 
- ---
- 
-### Required Features
-<p>
-
+Some of the criteria:
 - User with @noroff.no or @stud.noroff.no email can register profile
 - Registered user can login
 - User can view a post content feed
 - User can filter the post content feed
-- User can search the post content feed
-- User can view a post content item by ID
 - User can create a post content item
-- User can update a post content item
-- User can delete a post content item
 
-</p>
- 
- ---
- 
-### Additional Features
-<p>
+## Built With
 
-- User can create a comment on a post
-- User can edit profile media
-- User can follow/unfollow a profile
-- User can react to a post content item
+- [HTML](https://www.w3schools.com/html/)
+- [CSS Modules](https://css-tricks.com/css-modules-part-1-need/)
+- [JavaScript](https://www.javascript.com/)
+- [Noroff API](https://noroff-api-docs.netlify.app/social-endpoints/authentication)
 
-</p>
+## Getting Started
 
----
+### Installing
 
-### Run The Project
-To run project you have to install node_modules, you can do this by using `npm i -y`, the -y stand for yes and accepts all standard conditions, if you want to accept this manually you can run `npm i`.
+This is where you list how to get the project started. It typically just includes telling a person to clone the repo and then to install the dependencies e.g.
+
+1. Clone the repo:
+
+```bash
+git@github.com:Pjatte1337/javascript-2-Noroff.git
 ```
-npm i -y or npm i
-```
-If you run into any issues with an error when installing npm, you can try and delete `package-lock.json` and try again.
 
-***The project is using sass and bootsrap, The configurations in package.json commands is as follows.***
+2. Install the dependencies:
 
 ```
-npm run build
+npm install
 ```
-`Runs the build process for the project.`
+
+### Running
+
+Here is where you detail how to run the app. It typically involves the commands you'd need to run to start the project e.g.
+
+To run the app, run the following commands:
+
+```bash
+npm run start
 ```
-npm run watch
-```
-`Runs the watch feature for the project if you are changing sass classes.`
 
-After you have done the following commands in order your project should be up and running.
-npm i -y or npm i
+## Contributing
 
----
+If you have a suggestion that would make this better, please fork the repo and create a pull request.
 
-### Tools used
-<div>
-  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>
-  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>
-  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JS" width="40" height="40"/>
-</div>
 
----
+## Contact
 
-### Design Tools
-<p>
-  <img src="https://github.com/devicons/devicon/blob/master/icons/figma/figma-original.svg" title="XD" alt="XD" width="40" height="40"/>&nbsp;
-</p>
+[My LinkedIn page](https://www.linkedin.com/in/joakim-vanebo-93a64562/)
 
----
 
-### Link To The Page
-<div>
-</div>
-
----
+## Acknowledgments
+[Christopher Tønnesland](https://github.com/Christonn93)
+[Noroff - School of technology and digital media](https://www.noroff.no/)
 
